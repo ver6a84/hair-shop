@@ -1,0 +1,71 @@
+/* Mobile-first Layout Components */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  background: var(--background-light);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Mobile-first responsive design */
+@media (min-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 2rem;
+  }
+  
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .section {
+    padding: 1rem 0;
+  }
+  
+  /* Full-width containers on mobile */
+  .container {
+    padding: 0 1rem;
+    max-width: none;
+  }
+  
+  /* Ensure full viewport usage */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}

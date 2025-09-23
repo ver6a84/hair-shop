@@ -1,6 +1,6 @@
 import './Offers.css'
-import Icon from './icon'
-import OffersCard from './OffersCard';
+import Icon from '@components/icon'
+import OffersCard from '@components/OffersCard';
 
 const categories = [
   {
