@@ -1,0 +1,18 @@
+.offers-card{
+  background: rgba(253, 246, 236, 0.3);
+  border-radius: var(--border-radius-l);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.card-image{
+width: 70%;
+}
+.card-title{
+  font-size: 2rem;
+}
+.card-text{
+  padding: 0 16px 16px 16px;
+}
