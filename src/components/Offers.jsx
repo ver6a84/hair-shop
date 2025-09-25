@@ -1,5 +1,4 @@
 import './Offers.css'
-import Icon from '@components/icon'
 import OffersCard from '@components/OffersCard';
 
 const categories = [
@@ -27,7 +26,7 @@ const categories = [
 
 export default function Offers() {
     return (
-    <section className="offers container">
+    <section className="offers container p3">
         {categories.map((item) => (
         <OffersCard key={item.title} {...item} />
         ))}

@@ -7,6 +7,7 @@ import ProductDetail from '@pages/ProductDetail'
 import Cart from '@pages/Cart'
 import About from '@pages/About'
 import Contact from '@pages/Contact'
+import Return from '@pages/Return'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/return" element={<Return />} />
           </Routes>
         </main>
         <Footer />

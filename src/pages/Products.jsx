@@ -42,14 +42,9 @@ export default function Products() {
     <div className="products-page container">
       <h1>Наші товари</h1>
       
-      {/* Category Filter */}
+    
       <div className="category-filter">
-        <button 
-          className={selectedCategory === 'all' ? 'active' : ''}
-          onClick={() => setSelectedCategory('all')}
-        >
-          Всі товари
-        </button>
+       
         {categories.map(cat => (
           <button 
             key={cat.id}
@@ -61,7 +56,7 @@ export default function Products() {
         ))}
       </div>
 
-      {/* Products Grid */}
+    
       <div className="products-grid">
         {filteredCategories.map((item) => (
           <OffersCard key={item.id} {...item} />

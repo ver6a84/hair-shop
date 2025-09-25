@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './icon'
 import './Header.css'
-import logoImg from '../../public/Logo.png'
+import Logo from './Logo'
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,13 +18,11 @@ const Header = () => {
 
   return (
     <header>
-      <div className="header-container p-3">
+      <div className="header-container container p-3">
         <div className="header-burger">
           <Icon onClick={toggleMenu} size={24} name="burger" />
         </div>
-        <div className="header-logo">
-          <img src={logoImg} alt="Logo" />
-        </div>
+        <Logo/>
         <div className={`header-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>
             <li><Link onClick={closeMenu} to="/">Головна</Link></li>

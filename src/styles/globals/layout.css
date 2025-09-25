@@ -18,6 +18,7 @@ main {
   background: var(--background-light);
   width: 100%;
   max-width: 100%;
+  padding-top: 50px;
 }
 
 /* Mobile-first responsive design */
@@ -38,22 +39,11 @@ main {
   }
 }
 
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 1rem;
-  }
-}
-
 /* Mobile-specific adjustments */
 @media (max-width: 767px) {
   body {
     font-size: 14px;
   }
-  
-  .section {
-    padding: 1rem 0;
-  }
-  
   /* Full-width containers on mobile */
   .container {
     padding: 0 1rem;

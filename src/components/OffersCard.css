@@ -1,20 +1,14 @@
 /* Mobile-first Offers Card */
 .offers-card{
-  background: rgba(253, 246, 236, 0.3);
+  background: rgba(253, 246, 236, 0.4);
   border-radius: var(--border-radius-l);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
-  text-decoration: none;
-  color: inherit;
   transition: all 0.3s ease;
   cursor: pointer;
   padding: 1rem;
-  min-height: 200px;
-  /* overflow-x: hidden; */
 }
 
 .offers-card:hover {
@@ -25,7 +19,6 @@
 
 .card-image{
   width: 60%;
-  max-width: 150px;
 }
 
 .card-title{
@@ -45,12 +38,11 @@
 @media (min-width: 768px) {
   .offers-card {
     padding: 1.5rem;
-    min-height: 250px;
   }
   
   .card-image {
     width: 70%;
-    max-width: none;
+  
   }
   
   .card-title {

@@ -1,47 +1,51 @@
 import './Footer.css'
 import { Link } from 'react-router-dom'
 import Icon from '@components/icon'
+import Logo from './Logo'
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-container container">
-        <div className="footer-section">
-          <h3>Hair Shop</h3>
-          <p>Ваш надійний партнер у світі краси та стилю</p>
-        </div>
-        
-        <div className="footer-section">
-          <h4>Навігація</h4>
-          <nav className="footer-nav">
-            <Link to="/">Головна</Link>
-            <Link to="/products">Товари</Link>
-            <Link to="/about">Про нас</Link>
-            <Link to="/contact">Контакти</Link>
-          </nav>
-        </div>
-        
-        <div className="footer-section">
-          <h4>Контакти</h4>
-          <div className="contact-info">
-            <p><Icon name="phone" /> +380 (67) 123-45-67</p>
-            <p><Icon name="mail" /> info@hairshop.com</p>
-            <p><Icon name="address" /> вул. Хрещатик, 22, Київ</p>
+      <div className='footer-container container p-3'>
+        <div className='logo-social'>
+          <Logo/>
+          <div className='social'>
+            <Link to=""><Icon className="social-icon" name="tiktok"/></Link>
+            <Link to=""><Icon className="social-icon" name="instagram"/></Link>
+            <Link to=""><Icon className="social-icon" name="facebook"/></Link>
           </div>
         </div>
-        
-        <div className="footer-section">
-          <h4>Соціальні мережі</h4>
-          <div className="social-links">
-            <a href="#" aria-label="Telegram"><Icon name="telegram" /></a>
-            <a href="#" aria-label="Viber"><Icon name="viber" /></a>
-          </div>
+        <div className='products-feedback'>
+        <div className='feedback'>
+          <h3>Зворотній зв'язок</h3>
+          <p>Ви можете <Link className='feedback-link' to="/contact">написати нам</Link> для звортнього зв'язку</p>
+          <p>Щоденно з 9.00 до 21.00</p>
+        </div>
+        <div className='products-help'>
+          <div className='products'>
+        <ul>
+          <h4>Наші товари</h4>
+          <li><Link to="">Перуки</Link></li>
+          <li><Link to="">Хвостики</Link></li>
+          <li><Link to="">Топери</Link></li>
+          <li><Link to="">Розпродаж</Link></li>
+        </ul>
+        </div>
+        <div className='help'>
+          <ul>
+            <h4>Допомога</h4>
+            <li><Link to="/contact">Доставка та оплата</Link></li>
+            <li><Link to="/return">Обмін та повернення</Link></li>
+            <li><Link to="">Договір оферти</Link></li>
+          </ul>
+        </div>
         </div>
       </div>
-      
-      <div className="footer-bottom">
-        <p>&copy; 2024 Hair Shop. Всі права захищені.</p>
       </div>
+      <div className='copyright'>
+        <Icon name="copyright" size={18}/>
+        <p>Перуки тут 2025</p>
+        </div>
     </footer>
   )
 }

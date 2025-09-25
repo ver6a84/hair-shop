@@ -6,48 +6,51 @@
     font-size: 1.5rem;
 }
 
+
 .category-filter {
     display: flex;
-    justify-content: flex-start;
-    gap: 0.5rem;
-    margin: 1.5rem 0;
-    flex-wrap: nowrap;
-    padding: 0.5rem 0;
-    -webkit-overflow-scrolling: touch;
+    gap: var(--spacing-sm);
+    justify-content: center;
     width: 100%;
-    max-width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+
 }
 
 .category-filter button {
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s;
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .category-filter button:hover,
 .category-filter button.active {
-    background: var(--primary-color);
-    color: white;
+  background: var(--primary-color);
+  color: white;
 }
 
+
 .products-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-    width: 100%;
-    max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
 
 /* Tablet */
 @media (min-width: 768px) {
+    .products-grid{
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    }
     .products-page h1 {
         margin: 2rem 0;
         font-size: 2rem;
@@ -63,12 +66,7 @@
     .category-filter button {
         font-size: 1rem;
     }
-    
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-    }
+
 }
 
 /* Mobile-first Product Detail Page */
@@ -326,13 +324,16 @@
 }
 
 .about-page h1,
-.contact-page h1 {
+.contact-page h1,
+.return-page h1 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--text-dark);
 }
 
-.about-content p {
+.about-content p,
+.return-page p,
+.return-page h4 {
     line-height: 1.6;
     margin-bottom: 1rem;
     color: var(--text-muted);
