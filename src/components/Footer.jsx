@@ -10,15 +10,16 @@ export default function Footer() {
         <div className='logo-social'>
           <Logo/>
           <div className='social'>
-            <Link to=""><Icon className="social-icon" name="tiktok"/></Link>
-            <Link to=""><Icon className="social-icon" name="instagram"/></Link>
-            <Link to=""><Icon className="social-icon" name="facebook"/></Link>
+            <Link to=""><Icon size={36} className="social-icon" name="facebook"/></Link>
+            <Link to=""><Icon size={36} className="social-icon" name="telegram"/></Link>
+            <Link to=""><Icon size={36} className="social-icon" name="viber"/></Link>
+            <Link to=""><Icon size={36} className="social-icon" name="mail"/></Link>
           </div>
         </div>
         <div className='products-feedback'>
         <div className='feedback'>
           <h3>Зворотній зв'язок</h3>
-          <p>Ви можете <Link className='feedback-link' to="/contact">написати нам</Link> для звортнього зв'язку</p>
+          <p>Ви можете <Link className='feedback-link' to="/contactUs">написати нам</Link> для звортнього зв'язку</p>
           <p>Щоденно з 9.00 до 21.00</p>
         </div>
         <div className='products-help'>
@@ -34,9 +35,10 @@ export default function Footer() {
         <div className='help'>
           <ul>
             <h4>Допомога</h4>
-            <li><Link to="/contact">Доставка та оплата</Link></li>
+            <li><Link to="/delivery">Доставка та оплата</Link></li>
             <li><Link to="/return">Обмін та повернення</Link></li>
-            <li><Link to="">Договір оферти</Link></li>
+            <li><Link to="/about">Про нас</Link></li>
+            <li><Link to="/contact">Контакти</Link></li>
           </ul>
         </div>
         </div>

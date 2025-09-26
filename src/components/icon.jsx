@@ -11,6 +11,9 @@ import TikTok from '../assets/icons/tiktok.svg?react'
 import Instagram from '../assets/icons/instagram.svg?react'
 import Facebook from '../assets/icons/facebook.svg?react'
 import Copyright from '../assets/icons/copyright.svg?react'
+import Location  from '../assets/icons/location.svg?react' 
+import Calendar  from '../assets/icons/calendar.svg?react' 
+import GoldCart from
 
 const Icons = {
   burger: Burger,
@@ -27,9 +30,11 @@ const Icons = {
   instagram: Instagram,
   facebook: Facebook,
   copyright: Copyright,
+  location: Location,
+  calendar: Calendar,
 };
 
-export default function Icon({ name, size = 36, ...props }) {
+export default function Icon({ name, size = 24, ...props }) {
   const Component = Icons[name];
   return Component ? <Component width={size} height={size} {...props} /> : null;
 }

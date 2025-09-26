@@ -1,6 +1,6 @@
 /* Mobile-first Offers Card */
 .offers-card{
-  background: rgba(253, 246, 236, 0.4);
+  background: var(--background-muted);;
   border-radius: var(--border-radius-l);
   display: flex;
   flex-direction: column;

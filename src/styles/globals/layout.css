@@ -7,18 +7,16 @@
 }
 
 .wrapper {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 main {
+  flex-grow: 1;
   background: var(--background-light);
   width: 100%;
-  max-width: 100%;
-  padding-top: 50px;
+  padding-top: var(--header-height);
 }
 
 /* Mobile-first responsive design */
@@ -41,9 +39,7 @@ main {
 
 /* Mobile-specific adjustments */
 @media (max-width: 767px) {
-  body {
-    font-size: 14px;
-  }
+
   /* Full-width containers on mobile */
   .container {
     padding: 0 1rem;

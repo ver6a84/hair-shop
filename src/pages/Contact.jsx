@@ -11,7 +11,8 @@ export default function Contact() {
           <Icon name="phone" />
           <div>
             <h3>Телефон</h3>
-            <p>+380 (67) 123-45-67</p>
+            <p>+380 (96) 987-25-45</p>
+            <p>+380 (63) 436-79-91</p>
           </div>
         </div>
         
@@ -19,23 +20,26 @@ export default function Contact() {
           <Icon name="mail" />
           <div>
             <h3>Email</h3>
-            <p>info@hairshop.com</p>
+            <p>perukitut@gmail.com</p>
           </div>
         </div>
         
         <div className="contact-item">
-          <Icon name="address" />
+          <Icon name="location" />
           <div>
             <h3>Адреса</h3>
-            <p>вул. Хрещатик, 22<br />Київ, 01001</p>
+            <p>проспект Коцюбинського, 13<br />Вінниця, 21000</p>
           </div>
         </div>
       </div>
       
-      <div className="working-hours">
+      <div className="contact-item">
+        <Icon name="calendar" />
+        <div>
         <h3>Графік роботи</h3>
-        <p>Пн-Пт: 9:00 - 19:00</p>
-        <p>Сб-Нд: 10:00 - 18:00</p>
+        <p>Вт-Нд: 9:00 - 16:00</p>
+        <p></p>
+        </div>
       </div>
     </div>
   )
