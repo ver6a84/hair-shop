@@ -49,7 +49,7 @@ src/
 ### 4. **Component Styles** (Co-located)
 - Styles specific to individual components
 - Kept next to component files for easy maintenance
-- Examples: `Header.css`, `Footer.css`, `OffersCard.css`
+- Examples: `Header.css`, `Footer.css`, `CategoriesCard.css`
 
 ## Import Strategy
 

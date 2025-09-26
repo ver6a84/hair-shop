@@ -29,14 +29,20 @@ const HAIR_TYPES = {
   SYNTHETIC: 2
 };
 
-const HAIR_LENGTHS = {
+ export const HAIR_LENGTHS = {
   SHORT: 1,
   MEDIUM: 2,
   LONG: 3
 };
 
+export const CATEGORIES_DESCRIPTION = {
+  [PRODUCT_CATEGORIES.WIGS]: '',
+  [PRODUCT_CATEGORIES.TAILS]: '',
+  [PRODUCT_CATEGORIES.TOPPERS]: ''
+}
+
 export const CATEGORIES_URLS = {
-  [PRODUCT_CATEGORIES.WIGS]: 'wigs',
+  [PRODUCT_CATEGORIES.WIGS]: 'Wigs',
   [PRODUCT_CATEGORIES.TAILS]: 'tails',
   [PRODUCT_CATEGORIES.TOPPERS]: 'toppers'
 };
@@ -67,10 +73,10 @@ const HAIR_TYPES_TRANSLATIONS = {
 };
 
 
-const HAIR_LENGTHS_TRANSLATIONS = {
-  [HAIR_LENGTHS.SHORT]: 'Короткий',
-  [HAIR_LENGTHS.MEDIUM]: 'Середній',
-  [HAIR_LENGTHS.LONG]: 'Довгий'
+ export const HAIR_LENGTHS_TRANSLATIONS = {
+  [HAIR_LENGTHS.SHORT]: 'Короткі',
+  [HAIR_LENGTHS.MEDIUM]: 'Каре',
+  [HAIR_LENGTHS.LONG]: 'Довгі'
 };
 
 

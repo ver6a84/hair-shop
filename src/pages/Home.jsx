@@ -1,11 +1,11 @@
 import HeroBanner from '@components/HeroBanner'
-import Offers from '@components/Offers'
+import Products from './Products'
 
 export default function Home() {
   return (
     <>
       <HeroBanner />
-      <Offers />
+      <Products />
     </>
   )
 }

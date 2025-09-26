@@ -1,11 +1,11 @@
-import './OffersCard.css'
+import './CategoriesCard.css'
 import { Link } from 'react-router-dom'
-import { CATEGORIES_TRANSLATIONS, CATEGORIES_URLS } from '@utils/constants';
+import { CATEGORIES_TRANSLATIONS, CATEGORIES_URLS, CATEGORIES_DESCRIPTION } from '@utils/constants';
 
-export default function OffersCard({ categoryId }) {
+export default function CategoriesCard({ categoryId }) {
   console.log(categoryId);
   const title = CATEGORIES_TRANSLATIONS[categoryId];
-  const text = `Оберіть свою чарівну ${title.toLowerCase()} з нашої колекції, яка налічує більше 100 моделей`;
+  const text = CATEGORIES_DESCRIPTION[categoryId];
   const url = CATEGORIES_URLS[categoryId];
 
 

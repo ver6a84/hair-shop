@@ -123,7 +123,10 @@ const products = [
   }
 ];
 
-export const getProducts = ({ category, type }) => {
-  return products.filter(product => !category || category === product.category)
-    .filter(product => !type || type === product.type);
+export const getProducts = ({ category, type, length }) => {
+  return products
+    .filter(product => !category || category === product.category)
+    .filter(product => !type || type === product.type)
+    .filter(product => !length || length === product.length);
 };
+

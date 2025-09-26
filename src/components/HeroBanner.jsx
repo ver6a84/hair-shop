@@ -10,7 +10,7 @@ export default function HeroBanner() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const imageSrc = isMobile ? '/hero_image_mobile.png' : '/hero_image.webp';
+  const imageSrc = isMobile ? './hero_image_mobile.png' : './hero_image.webp';
 
   return (
     <section className="hero">

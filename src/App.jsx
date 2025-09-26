@@ -9,6 +9,8 @@ import Contact from '@pages/Contact'
 import Return from '@pages/Return'
 import Delivery from '@pages/Delivery'
 import Wigs from '@pages/Wigs'
+import Tails from './pages/Tails'
+import Toppers from './pages/Toppers'
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/wigs" element={<Wigs />} />
+            <Route path="/products/tails" element={<Tails />} />
+            <Route path="/products/toppers" element={<Toppers />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

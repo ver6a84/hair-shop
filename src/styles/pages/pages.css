@@ -4,73 +4,10 @@
     text-align: center;
     margin: var(--spacing-lg) 0;
     color: var(--text-dark);
-    font-size: 1.5rem;
 }
 
+/* Product Detail Page */
 
-.category-filter {
-    display: flex;
-    gap: var(--spacing-sm);
-    justify-content: center;
-    width: 100%;
-    max-width: fit-content;
-    margin: 0 auto;
-
-}
-
-.category-filter button {
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--primary-color);
-  background: transparent;
-  color: var(--primary-color);
-  border-radius: var(--border-radius-xl);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.category-filter button:hover,
-.category-filter button.active {
-  background: var(--primary-color);
-  color: white;
-}
-
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-
-/* Tablet */
-@media (min-width: 768px) {
-    .products-grid{
-        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-    }
-    .products-page h1 {
-        margin: 2rem 0;
-        font-size: 2rem;
-    }
-    
-    .category-filter {
-        justify-content: center;
-        gap: 1rem;
-        margin: 2rem 0;
-        flex-wrap: wrap;
-    }
-    
-    .category-filter button {
-        font-size: 1rem;
-    }
-
-}
-
-/* Mobile-first Product Detail Page */
 .product-detail {
     display: grid;
     grid-template-columns: 1fr;
@@ -404,4 +341,41 @@
         white-space: nowrap;
         flex-shrink: 0;
     }
+}
+.category-page{
+  margin-bottom:var(--spacing-xl);
+
+  h1{
+      text-align: center;
+      margin: var(--spacing-lg) 0;
+    }
+   }
+  .cards-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+      gap: var(--spacing-md);
+    }
+    .category-filter {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+    margin-bottom: var(--spacing-xl);
+}
+.category-filter button {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: var(--border-radius-xl);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+.category-filter button:hover,
+.category-filter button.active {
+  background: var(--primary-color);
+  color: white;
 }
