@@ -2,41 +2,11 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import OffersCard from '@components/OffersCard'
 import '@styles/pages/pages.css'
-
-const categories = [
-  {
-    id: 'wigs',
-    title: 'Перуки',
-    text: 'Оберіть свою чарівну перуку з нашої колекції, яка налічує більше 100 моделей',
-    image: '/Wigs.webp',
-  },
-  {
-    id: 'tails',
-    title: 'Хвостики',
-    text: 'Понад 10 моделей непревершених хвостиків',
-    image: '/tails.webp',
-  },
-  {
-    id: 'toppers',
-    title: 'Топери',
-    text: 'Секретний інгредієнт для вашого образу',
-    image: '/toppers.webp',
-  },
-  {
-    id: 'sale',
-    title: 'Sale',
-    text: 'Обмежена кількість товару',
-    image: '/sale.webp',
-  },
-];
+import { CATEGORIES_TRANSLATIONS, PRODUCT_CATEGORIES } from '@utils/constants'
 
 export default function Products() {
-  const { category } = useParams()
-  const [selectedCategory, setSelectedCategory] = useState(category || 'all')
 
-  const filteredCategories = selectedCategory === 'all' 
-    ? categories 
-    : categories.filter(cat => cat.id === selectedCategory)
+  const [selectedCategory, setSelectedCategory] = useState(null)
 
   return (
     <div className="products-page container">
@@ -45,21 +15,20 @@ export default function Products() {
     
       <div className="category-filter">
        
-        {categories.map(cat => (
+        {Object.values(PRODUCT_CATEGORIES).map(cat => (
           <button 
             key={cat.id}
-            className={selectedCategory === cat.id ? 'active' : ''}
             onClick={() => setSelectedCategory(cat.id)}
           >
-            {cat.title}
+            {CATEGORIES_TRANSLATIONS[cat]}
           </button>
         ))}
       </div>
 
     
       <div className="products-grid">
-        {filteredCategories.map((item) => (
-          <OffersCard key={item.id} {...item} />
+        {Object.values(PRODUCT_CATEGORIES).map((item) => (
+          <OffersCard key={item} categoryId={item}/>
         ))}
       </div>
     </div>

@@ -13,7 +13,6 @@ import Facebook from '../assets/icons/facebook.svg?react'
 import Copyright from '../assets/icons/copyright.svg?react'
 import Location  from '../assets/icons/location.svg?react' 
 import Calendar  from '../assets/icons/calendar.svg?react' 
-import GoldCart from
 
 const Icons = {
   burger: Burger,
