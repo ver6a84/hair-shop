@@ -1,24 +1,18 @@
-import { getProducts } from '@api/index';
 import { PRODUCT_CATEGORIES,HAIR_LENGTHS_TRANSLATIONS,HAIR_LENGTHS } from '@utils/constants';
 import ProductCard from '@components/ProductCard';
-import { useState, useEffect } from 'react';
+import ProductGridSkeleton from '@components/ProductGridSkeleton';
+import { useProducts } from '@hooks/useProducts';
+import { useState } from 'react';
 import '@/styles/pages/pages.css'
 
 export default function Wigs() {
-  const [products, setProducts] = useState([]);
-  const[selectedLength, setselectedLength] = useState(null);
- 
-  useEffect(() => {
-    const filtered = getProducts({
-      category: PRODUCT_CATEGORIES.WIGS,
-      length: selectedLength
-    });
-    setProducts(filtered);
-  }, [selectedLength]);
+  const [selectedLength, setselectedLength] = useState(null);
+  const { products, loading, error } = useProducts({
+    category: PRODUCT_CATEGORIES.WIGS,
+    length: selectedLength
+  });
 
-  
-  return (
-    
+  return (    
     <div className="category-page container">
       <h1>Перуки</h1>
 
@@ -35,10 +29,12 @@ export default function Wigs() {
       </div>
 
       <div className="cards-grid">
-      {!products.length && <p>Немає продуктів</p>}
-      {products.length && products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+        {loading && <ProductGridSkeleton count={4} />}
+        {!loading && error && <p>Помилка завантаження: {error.message}</p>}
+        {!loading && !error && !products.length && <p>Немає продуктів</p>}
+        {!loading && !error && products.length && products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   )

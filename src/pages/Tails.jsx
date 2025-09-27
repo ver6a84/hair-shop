@@ -1,16 +1,15 @@
-import { getProducts } from '@api/index';
 import { PRODUCT_CATEGORIES,CATEGORIES_TRANSLATIONS } from '@utils/constants';
 import ProductCard from '@components/ProductCard';
-import { useState, useEffect } from 'react';
+import ProductGridSkeleton from '@components/ProductGridSkeleton';
+import { useProducts } from '@hooks/useProducts';
+import { useState } from 'react';
 import '@/styles/pages/pages.css'
 
 export default function Tails() {
-  const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null)
-
-  useEffect(() => {
-    setProducts(getProducts({ category: PRODUCT_CATEGORIES.TAILS }));
-  }, [PRODUCT_CATEGORIES.TAILS]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const { products, loading, error } = useProducts({
+    category: PRODUCT_CATEGORIES.TAILS
+  });
 
   
   return (
@@ -30,10 +29,12 @@ export default function Tails() {
           </div>
 
       <div className="cards-grid">
-      {!products.length && <p>Немає продуктів</p>}
-      {products.length && products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+        {loading && <ProductGridSkeleton count={4} />}
+        {!loading && error && <p>Помилка завантаження: {error.message}</p>}
+        {!loading && !error && !products.length && <p>Немає продуктів</p>}
+        {!loading && !error && products.length && products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   )
