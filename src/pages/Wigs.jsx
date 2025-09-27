@@ -1,4 +1,4 @@
-import { getProducts,getLength } from '@api/index';
+import { getProducts } from '@api/index';
 import { PRODUCT_CATEGORIES,HAIR_LENGTHS_TRANSLATIONS,HAIR_LENGTHS } from '@utils/constants';
 import ProductCard from '@components/ProductCard';
 import { useState, useEffect } from 'react';
