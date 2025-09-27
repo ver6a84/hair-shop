@@ -2,6 +2,9 @@
   padding: var(--spacing-md);
   background: var(--background-muted);
   border-radius: var(--border-radius-l);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .product-price{
     font-size: 2rem;
     font-weight: 700;

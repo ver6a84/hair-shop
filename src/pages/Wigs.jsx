@@ -4,6 +4,7 @@ import ProductGridSkeleton from '@components/ProductGridSkeleton';
 import { useProducts } from '@hooks/useProducts';
 import { useState } from 'react';
 import '@/styles/pages/pages.css'
+import Filters from '@/components/Filters';
 
 export default function Wigs() {
   const [selectedLength, setselectedLength] = useState(null);
@@ -21,13 +22,15 @@ export default function Wigs() {
         {Object.values(HAIR_LENGTHS).map(length => (
           <button 
             key={length}
-            onClick={() => setselectedLength(length)}
+            onClick={() => {setselectedLength(length)}}
+            className={selectedLength === length ? 'selected' : ''}
+
           >
             {HAIR_LENGTHS_TRANSLATIONS[length]}
           </button>
         ))}
       </div>
-
+        <Filters/>
       <div className="cards-grid">
         {loading && <ProductGridSkeleton count={4} />}
         {!loading && error && <p>Помилка завантаження: {error.message}</p>}

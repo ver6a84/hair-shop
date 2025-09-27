@@ -26,10 +26,9 @@ export default function Footer() {
           <div className='products'>
         <ul>
           <h4>Наші товари</h4>
-          <li><Link to="">Перуки</Link></li>
-          <li><Link to="">Хвостики</Link></li>
-          <li><Link to="">Топери</Link></li>
-          <li><Link to="">Розпродаж</Link></li>
+          <li><Link to="/products/wigs">Перуки</Link></li>
+          <li><Link to="/products/tails">Хвостики</Link></li>
+          <li><Link to="/products/toppers">Топери</Link></li>
         </ul>
         </div>
         <div className='help'>

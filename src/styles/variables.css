@@ -9,9 +9,10 @@
   --secondary-dark: #654321;
   --secondary-light: #a0522d;
   
-  --background-light: #ffffff;
+  --background-light:  #fbfcfd;
+  --background-extra-light: #fff;
   --background-dark: #2c2c2c;
-  --background-muted: #f8f9fa;
+  --background-muted: #f1f2f3;
   
   --text-light: #ffffff;
   --text-dark: #333333;

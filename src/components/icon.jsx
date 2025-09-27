@@ -13,6 +13,12 @@ import Facebook from '../assets/icons/facebook.svg?react'
 import Copyright from '../assets/icons/copyright.svg?react'
 import Location  from '../assets/icons/location.svg?react' 
 import Calendar  from '../assets/icons/calendar.svg?react' 
+import GoldCart  from '../assets/icons/gold-cart.svg?react'
+import CallingPhone  from '../assets/icons/calling-phone.svg?react'
+import Delivery  from '../assets/icons/delivery.svg?react'
+import PostOffice from '../assets/icons/post-office.svg?react'
+import Filter from '../assets/icons/filter.svg?react'
+import ArrowDown from '../assets/icons/arrow-down.svg?react'
 
 const Icons = {
   burger: Burger,
@@ -31,6 +37,12 @@ const Icons = {
   copyright: Copyright,
   location: Location,
   calendar: Calendar,
+  gold_cart: GoldCart,
+  calling_phone: CallingPhone,
+  delivery: Delivery,
+  post_office: PostOffice,
+  filter: Filter,
+  arrow_down: ArrowDown,
 };
 
 export default function Icon({ name, size = 24, ...props }) {

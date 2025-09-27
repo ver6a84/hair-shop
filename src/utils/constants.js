@@ -88,8 +88,6 @@ const COLORS_TRANSLATIONS = {
   [COLORS.RED]: 'Рудий'
 };
 
-
-
 // Routes
 export const ROUTES = {
   HOME: '/',
