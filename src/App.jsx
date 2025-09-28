@@ -12,12 +12,14 @@ import Delivery from '@pages/Delivery'
 import Wigs from '@pages/Wigs'
 import Tails from './pages/Tails'
 import Toppers from './pages/Toppers'
+import ScrollToTop from '@components/ScrollTop'
 
 function App() {
   return (
     <Router>
       <div className='wrapper'>
         <Header/>
+        <ScrollToTop />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
