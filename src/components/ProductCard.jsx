@@ -12,7 +12,7 @@ export default function ProductCard({ product }) {
             ${getImageUrlByKey(product.variants[0].images[0], { width: 320, height: 480, quality: 50 })} 320w,
             ${getImageUrlByKey(product.variants[0].images[0], { width: 600, height: 900, quality: 50 })} 600w
           `}
-          sizes="(max-width: 600px) 100vw, 600px"
+          sizes="(max-width: 600px) 160px, 300px"
           width={400}
           height={600}
           alt={product.name}
