@@ -16,14 +16,16 @@ const products = [
   },
   {
     id: 2,
-    name: "Елегантний блонд",
+    name: "Мальвіна",
     category: 1,
     type: 2, // SYNTHETIC
     length: 2, // MEDIUM
-    description: "Синтетична перука середньої довжини у світлих відтінках для щоденного носіння.",
+    description: "Синтетична перука середньої довжини у різних відтінках для щоденного носіння.",
+    price: 3800,
     variants: [
-      { id: "2-1", color: 3, price: 3800, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "2-2", color: 4, price: 3900, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "2-1", color: 1, price: 3800, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "2-2", color: 3, price: 3900, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["image-blond.png"] },
+      { id: "2-2", color: 4, price: 3900, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["image-red.png"] },
     ]
   },
   {
