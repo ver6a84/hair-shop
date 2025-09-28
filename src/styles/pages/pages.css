@@ -322,6 +322,53 @@
 .remove-btn:hover {
     background: #cc0000;
 }
+.modal-wrapper{
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background-muted);
+    z-index: 5;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    .modal-heading{
+        display: flex;
+        justify-content: space-between;  
+        h2{
+        line-height: 1;
+        margin-bottom: var(--spacing-lg);
+        }
+         .close-btn{
+            cursor: pointer;
+        }
+    }
+    .contact-form{
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        div{
+              display: flex;
+        flex-direction: column;
+         gap: var(--spacing-sm);
+        }
+        input{
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-sm);
+        }
+        p{
+            color: var(--text-muted);
+        }
+        button{
+            background: var(--background-dark);
+            color: var(--text-light);
+            padding: var(--spacing-md);
+            font-size: 1.2rem;
+            border-radius: var(--border-radius-md);
+            line-height: 1;
+        }
+    }
+}
 
 /* Tablet and Desktop */
 @media (min-width: 768px) {
@@ -336,6 +383,9 @@
         justify-self: auto;
         margin-top: 0;
     }
+    .modal-wrapper{
+    width: 20%;
+}
 }
 
 .cart-summary {
@@ -365,6 +415,7 @@
     background: var(--primary-dark);
     transform: translateY(-2px);
 }
+
 
 /* About and Contact Pages */
 

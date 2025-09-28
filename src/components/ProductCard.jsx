@@ -49,9 +49,11 @@ export default function ProductCard({ product }) {
             </div>
           )}
         </div>
+        <div className='product-card-content'>
         <h3>{product.name}</h3>
         <p className="product-description">{product.description}</p>
         <p className='product-price'>{product.variants[selectedVariant].price} грн</p>
+        </div>
       </div>
     </Link>
   )

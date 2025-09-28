@@ -11,7 +11,7 @@ const products = [
       { id: "1-1", color: 1, price: 4500, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
       { id: "1-2", color: 2, price: 4600, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
       { id: "1-3", color: 3, price: 4700, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "1-3", color: 3, price: 4700, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      
     ]
   },
   {

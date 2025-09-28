@@ -20,6 +20,8 @@
   align-items: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  justify-content: space-between;
+  height: 100%;
   .product-price{
     font-size: 2rem;
     font-weight: 700;
