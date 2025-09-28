@@ -123,8 +123,16 @@ export default function ProductDetail({ product: passedProduct }) {
       <div className="product-images">
         <img 
           src={getImageUrlByKey(currentVariant.images[0], { width: 600, height: 900, quality: 80 })}
+          srcSet={`
+            ${getImageUrlByKey(currentVariant.images[0], { width: 320, height: 480, quality: 80 })} 320w,
+            ${getImageUrlByKey(currentVariant.images[0], { width: 600, height: 900, quality: 80 })} 600w
+          `}
+          sizes="(max-width: 600px) 160px, 300px"
+          width={600}
+          height={900}
           alt={product.name}
           style={{ width: "100%", height: "auto", maxWidth: "500px" }}
+          loading="lazy"
         />
         {product.variants.length > 1 && (
           <div className="variant-selector">
