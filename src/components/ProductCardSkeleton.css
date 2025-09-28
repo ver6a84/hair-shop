@@ -7,7 +7,7 @@
 
 .skeleton-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 400 / 600; /* Match the actual image aspect ratio */
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   border-radius: var(--border-radius-md);
@@ -15,41 +15,33 @@
   animation: skeleton-shimmer 2s infinite;
 }
 
-.skeleton-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
 .skeleton-title {
-  height: 24px;
+  height: 1.5rem; /* Match h3 default height */
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   border-radius: var(--border-radius-sm);
   animation: skeleton-shimmer 2s infinite;
-  width: 80%;
+  width: 85%;
+  margin-bottom: var(--spacing-sm);
 }
 
 .skeleton-description {
-  height: 16px;
+  height: 1rem; /* Match paragraph default height */
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   border-radius: var(--border-radius-sm);
   animation: skeleton-shimmer 2s infinite;
-}
-
-.skeleton-description.short {
-  width: 60%;
+  width: 100%;
+  margin-bottom: var(--spacing-sm);
 }
 
 .skeleton-price {
-  height: 32px;
+  height: 2rem; /* Match the 2rem font-size from .product-price */
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   border-radius: var(--border-radius-sm);
   animation: skeleton-shimmer 2s infinite;
-  width: 40%;
-  margin-top: var(--spacing-sm);
+  width: 50%;
 }
 
 @keyframes skeleton-pulse {
@@ -73,18 +65,18 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .skeleton-image {
-    height: 150px;
+    aspect-ratio: 320 / 480; /* Match mobile image aspect ratio */
   }
   
   .skeleton-title {
-    height: 20px;
+    height: 1.25rem; /* Slightly smaller for mobile */
   }
   
   .skeleton-description {
-    height: 14px;
+    height: 0.875rem; /* Slightly smaller for mobile */
   }
   
   .skeleton-price {
-    height: 28px;
+    height: 1.75rem; /* Slightly smaller for mobile */
   }
 }

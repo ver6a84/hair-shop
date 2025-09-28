@@ -9,7 +9,8 @@
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@context/*": ["src/context/*"]
+      "@context/*": ["src/context/*"],
+      "@api/*": ["src/api/*"]
     },
     "jsx": "react-jsx"
   },

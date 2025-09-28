@@ -1,51 +1,131 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
+import { getProducts } from '@api/index'
+import { getImageUrlByKey } from '@api/images'
 import '@styles/pages/pages.css'
 
 export default function ProductDetail() {
   const { id } = useParams()
   const [quantity, setQuantity] = useState(1)
+  const [selectedVariant, setSelectedVariant] = useState(0)
 
-  // This would normally fetch product data based on ID
-  // For now, we'll use mock data
-  const product = {
-    id: id,
-    name: 'Перука "Елегантна"',
-    price: 2500,
-    description: 'Високоякісна перука з натурального волосся. Ідеально підходить для повсякденного носіння.',
-    images: ['/Wigs.webp'],
-    inStock: true
+  // Get all products and find the one with matching ID
+  const allProducts = getProducts({})
+  const product = allProducts.find(p => p.id === parseInt(id))
+
+  if (!product) {
+    return (
+      <div className="product-detail container">
+        <h1>Товар не знайдено</h1>
+        <p>Вибачте, але товар з таким ID не існує.</p>
+      </div>
+    )
   }
+
+  const currentVariant = product.variants[selectedVariant]
+  const availableVariants = product.variants.filter(v => v.availability)
 
   const handleAddToCart = () => {
     // Add to cart logic will go here
-    console.log(`Added ${quantity} of ${product.name} to cart`)
+    console.log(`Added ${quantity} of ${product.name} (${currentVariant.id}) to cart`)
+  }
+
+  const getCategoryName = (categoryId) => {
+    switch(categoryId) {
+      case 1: return 'Перуки'
+      case 2: return 'Хвости'
+      case 3: return 'Топери'
+      default: return 'Товар'
+    }
+  }
+
+  const getTypeName = (typeId) => {
+    switch(typeId) {
+      case 1: return 'Натуральне волосся'
+      case 2: return 'Синтетичне волосся'
+      default: return 'Невідомо'
+    }
+  }
+
+  const getLengthName = (lengthId) => {
+    switch(lengthId) {
+      case 1: return 'Коротка'
+      case 2: return 'Середня'
+      case 3: return 'Довга'
+      default: return 'Невідомо'
+    }
+  }
+
+  const getColorName = (colorId) => {
+    switch(colorId) {
+      case 1: return 'Чорний'
+      case 2: return 'Коричневий'
+      case 3: return 'Блонд'
+      case 4: return 'Рудий'
+      default: return 'Невідомо'
+    }
   }
 
   return (
     <div className="product-detail container">
       <div className="product-images">
-        <img src={product.images[0]} alt={product.name} />
+        <img 
+          src={getImageUrlByKey(currentVariant.images[0], { width: 600, height: 900, quality: 80 })}
+          alt={product.name}
+          style={{ width: "100%", height: "auto", maxWidth: "500px" }}
+        />
       </div>
       
       <div className="product-info">
+        <div className="breadcrumb">
+          <span>{getCategoryName(product.category)}</span> / <span>{product.name}</span>
+        </div>
+        
         <h1>{product.name}</h1>
-        <p className="price">{product.price} грн</p>
+        <p className="price">{currentVariant.price} грн</p>
+        
+        <div className="product-specs">
+          <p><strong>Тип волосся:</strong> {getTypeName(product.type)}</p>
+          <p><strong>Довжина:</strong> {getLengthName(product.length)}</p>
+          <p><strong>Колір:</strong> {getColorName(currentVariant.color)}</p>
+          <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
+        </div>
+        
         <p className="description">{product.description}</p>
+        
+        {product.variants.length > 1 && (
+          <div className="variant-selector">
+            <label>Варіанти:</label>
+            <div className="variants">
+              {product.variants.map((variant, index) => (
+                <button
+                  key={variant.id}
+                  className={`variant-btn ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
+                  onClick={() => setSelectedVariant(index)}
+                  disabled={!variant.availability}
+                >
+                  {getColorName(variant.color)} - {variant.price} грн
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         
         <div className="quantity-selector">
           <label>Кількість:</label>
-          <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-          <span>{quantity}</span>
-          <button onClick={() => setQuantity(quantity + 1)}>+</button>
+          <div className="quantity-controls">
+            <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+            <span>{quantity}</span>
+            <button onClick={() => setQuantity(quantity + 1)}>+</button>
+          </div>
         </div>
         
         <button 
           className="add-to-cart-btn"
           onClick={handleAddToCart}
-          disabled={!product.inStock}
+          disabled={!currentVariant.availability}
         >
-          {product.inStock ? 'Додати в кошик' : 'Немає в наявності'}
+          {currentVariant.availability ? 'Додати в кошик' : 'Немає в наявності'}
         </button>
       </div>
     </div>

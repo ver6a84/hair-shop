@@ -42,7 +42,7 @@ export const CATEGORIES_DESCRIPTION = {
 }
 
 export const CATEGORIES_URLS = {
-  [PRODUCT_CATEGORIES.WIGS]: 'Wigs',
+  [PRODUCT_CATEGORIES.WIGS]: 'wigs',
   [PRODUCT_CATEGORIES.TAILS]: 'tails',
   [PRODUCT_CATEGORIES.TOPPERS]: 'toppers'
 };
