@@ -8,18 +8,7 @@
 .product-card-link:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.product-card-link:active {
-  background: none;
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-.product-card-link:focus {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  border-radius: var(--border-radius-l);
 }
 
 .product-card{

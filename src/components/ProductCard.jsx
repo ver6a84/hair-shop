@@ -12,15 +12,8 @@ export default function ProductCard({ product }) {
     setSelectedVariant(variantIndex);
   };
 
-  const handleCardClick = (e) => {
-    if (e.event.target.classList.contains('variant-thumbnail')) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  };
-
   return (
-    <Link to={`/product/${product.id}`} className="product-card-link" onClick={handleCardClick} >
+    <Link to={`/product/${product.id}`} className="product-card-link">
       <div className="product-card">
         <div className="product-image-container">
           <img

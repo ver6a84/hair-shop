@@ -23,7 +23,6 @@ export default function ProductDetail() {
   }
 
   const currentVariant = product.variants[selectedVariant]
-  const availableVariants = product.variants.filter(v => v.availability)
 
   const handleAddToCart = () => {
     // Add to cart logic will go here
@@ -96,15 +95,22 @@ export default function ProductDetail() {
         {product.variants.length > 1 && (
           <div className="variant-selector">
             <label>Варіанти:</label>
-            <div className="variants">
+            
+            {/* Visual variant thumbnails */}
+            <div className="variant-thumbnails">
               {product.variants.map((variant, index) => (
                 <button
-                  key={variant.id}
-                  className={`variant-btn ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
+                  key={`thumb-${variant.id}`}
+                  className={`variant-thumbnail ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
                   onClick={() => setSelectedVariant(index)}
                   disabled={!variant.availability}
+                  title={`${getColorName(variant.color)} - ${variant.price} грн`}
                 >
-                  {getColorName(variant.color)} - {variant.price} грн
+                  <img
+                    src={getImageUrlByKey(variant.images[0], { width: 60, height: 60, quality: 50 })}
+                    alt={`${product.name} - ${getColorName(variant.color)}`}
+                    loading="lazy"
+                  />
                 </button>
               ))}
             </div>
