@@ -1,33 +1,15 @@
-import { useState } from 'react'
+import { useCart } from '@context/CartContext'
+import { getImageUrlByKey } from '@api/images'
 import '@styles/pages/pages.css'
 
 export default function Cart() {
-  // This would normally come from a context or state management
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'Перука "Елегантна"',
-      price: 2500,
-      quantity: 1,
-      image: '/Wigs.webp'
-    }
-  ])
-
-  const removeFromCart = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id))
-  }
-
-  const updateQuantity = (id, newQuantity) => {
-    if (newQuantity <= 0) {
-      removeFromCart(id)
-      return
-    }
-    setCartItems(cartItems.map(item => 
-      item.id === id ? { ...item, quantity: newQuantity } : item
-    ))
-  }
-
-  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+  const {
+    cartItems,
+    total,
+    itemCount,
+    removeFromCart,
+    updateQuantity
+  } = useCart()
 
   return (
     <div className="cart-page container">
@@ -40,10 +22,16 @@ export default function Cart() {
           <div className="cart-items">
             {cartItems.map(item => (
               <div key={item.id} className="cart-item">
-                <img src={item.image} alt={item.name} />
+                <img 
+                  src={getImageUrlByKey(item.image, { width: 100, height: 150, quality: 50 })} 
+                  alt={item.name} 
+                />
                 <div className="item-info">
                   <h3>{item.name}</h3>
                   <p className="price">{item.price} грн</p>
+                  {item.description && (
+                    <p className="description">{item.description}</p>
+                  )}
                 </div>
                 <div className="quantity-controls">
                   <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
@@ -61,6 +49,7 @@ export default function Cart() {
           </div>
           
           <div className="cart-summary">
+            <p>Товарів у кошику: {itemCount}</p>
             <h2>Загальна сума: {total} грн</h2>
             <button className="checkout-btn">Оформити замовлення</button>
           </div>

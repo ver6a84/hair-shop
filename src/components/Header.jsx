@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import Icon from './icon'
 import './Header.css'
 import Logo from './Logo'
+import { ROUTES } from '@utils/constants'
+import { useCart } from '@context/CartContext'
 
 
 export default function Header(){
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { itemCount } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -36,7 +39,10 @@ export default function Header(){
           </ul>
         </div>
         <div className="header-cart">
-          <Icon size={24} name="cart" />
+          <Link to={`${ROUTES.CART}`}>
+            {itemCount > 0 && <span className="header-cart-count">{itemCount}</span>}
+            <Icon size={24} name="cart" />
+          </Link>
         </div>
       </div>
     </header>

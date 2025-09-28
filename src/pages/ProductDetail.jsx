@@ -2,9 +2,11 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { getImageUrlByKey } from '@api/images'
 import { useProduct } from '@hooks/useProduct'
+import { useCart } from '@context/CartContext'
 import { Link } from 'react-router-dom'
 import { getCategoryUrl } from '@utils/urlBuilder'
 import '@styles/pages/pages.css'
+import '@styles/components/cart.css'
 import '@components/ProductCardSkeleton.css'
 
 /**
@@ -20,9 +22,11 @@ export default function ProductDetail({ product: passedProduct }) {
   const { id } = useParams()
   const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState(0)
+  const [addToCartStatus, setAddToCartStatus] = useState(null) // 'success', 'error', null
 
   // Use passed product or fetch by ID
   const { product, loading, error } = useProduct(passedProduct, id);
+  const { addToCart } = useCart();
 
   // Loading state
   if (loading) {
@@ -78,8 +82,32 @@ export default function ProductDetail({ product: passedProduct }) {
   const currentVariant = product.variants[selectedVariant]
 
   const handleAddToCart = () => {
-    // Add to cart logic will go here
-    console.log(`Added ${quantity} of ${product.name} (${currentVariant.id}) to cart`)
+    try {
+      setAddToCartStatus(null)
+      
+      // Prepare product data for cart
+      const productData = {
+        productId: product.id,
+        variantId: currentVariant.id,
+        name: product.name,
+        price: currentVariant.price,
+        image: currentVariant.images[0],
+        description: product.description,
+        quantity: quantity
+      }
+      
+      addToCart(productData)
+      setAddToCartStatus('success')
+      
+      // Clear success message after 3 seconds
+      setTimeout(() => setAddToCartStatus(null), 3000)
+    } catch (error) {
+      setAddToCartStatus('error')
+      console.error('Failed to add to cart:', error)
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => setAddToCartStatus(null), 5000)
+    }
   }
 
   const getCategoryName = (categoryId) => {
@@ -191,6 +219,18 @@ export default function ProductDetail({ product: passedProduct }) {
         >
           {currentVariant.availability ? 'Додати в кошик' : 'Немає в наявності'}
         </button>
+        
+        {/* Add to cart status messages */}
+        {addToCartStatus === 'success' && (
+          <div className="add-to-cart-success">
+            ✅ Товар додано до кошика!
+          </div>
+        )}
+        {addToCartStatus === 'error' && (
+          <div className="add-to-cart-error">
+            ❌ Помилка при додаванні до кошика. Спробуйте ще раз.
+          </div>
+        )}
       </div>
     </div>
   )
