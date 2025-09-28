@@ -1,19 +1,72 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
-import { getProducts } from '@api/index'
 import { getImageUrlByKey } from '@api/images'
+import { useProduct } from '@hooks/useProduct'
+import { Link } from 'react-router-dom'
+import { getCategoryUrl } from '@utils/urlBuilder'
 import '@styles/pages/pages.css'
+import '@components/ProductCardSkeleton.css'
 
-export default function ProductDetail() {
+/**
+ * ProductDetail Component
+ * 
+ * Usage patterns:
+ * 1. URL-based: <ProductDetail /> - Fetches product by ID from URL params
+ * 2. Prop-based: <ProductDetail product={productObject} /> - Uses passed product directly
+ * 
+ * The component automatically handles loading states, error states, and both usage patterns.
+ */
+export default function ProductDetail({ product: passedProduct }) {
   const { id } = useParams()
   const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState(0)
 
-  // Get all products and find the one with matching ID
-  const allProducts = getProducts({})
-  const product = allProducts.find(p => p.id === parseInt(id))
+  // Use passed product or fetch by ID
+  const { product, loading, error } = useProduct(passedProduct, id);
 
-  if (!product) {
+  // Loading state
+  if (loading) {
+    return (
+      <div className="product-detail container">
+        <div className="product-images">
+          <div className="skeleton-image" style={{ 
+            width: "100%", 
+            height: "600px", 
+            maxWidth: "500px"
+          }}></div>
+        </div>
+        <div className="product-info">
+          <div className="skeleton-title" style={{ 
+            height: "20px", 
+            marginBottom: "10px",
+            width: "60%"
+          }}></div>
+          <div className="skeleton-price" style={{ 
+            height: "30px", 
+            marginBottom: "20px",
+            width: "40%"
+          }}></div>
+          <div className="skeleton-description" style={{ 
+            height: "16px", 
+            marginBottom: "10px"
+          }}></div>
+          <div className="skeleton-description" style={{ 
+            height: "16px", 
+            marginBottom: "10px",
+            width: "80%"
+          }}></div>
+          <div className="skeleton-description" style={{ 
+            height: "16px", 
+            marginBottom: "20px",
+            width: "60%"
+          }}></div>
+        </div>
+      </div>
+    )
+  }
+
+  // Error state
+  if (error || !product) {
     return (
       <div className="product-detail container">
         <h1>Товар не знайдено</h1>
@@ -73,29 +126,8 @@ export default function ProductDetail() {
           alt={product.name}
           style={{ width: "100%", height: "auto", maxWidth: "500px" }}
         />
-      </div>
-      
-      <div className="product-info">
-        <div className="breadcrumb">
-          <span>{getCategoryName(product.category)}</span> / <span>{product.name}</span>
-        </div>
-        
-        <h1>{product.name}</h1>
-        <p className="price">{currentVariant.price} грн</p>
-        
-        <div className="product-specs">
-          <p><strong>Тип волосся:</strong> {getTypeName(product.type)}</p>
-          <p><strong>Довжина:</strong> {getLengthName(product.length)}</p>
-          <p><strong>Колір:</strong> {getColorName(currentVariant.color)}</p>
-          <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
-        </div>
-        
-        <p className="description">{product.description}</p>
-        
         {product.variants.length > 1 && (
           <div className="variant-selector">
-            <label>Варіанти:</label>
-            
             {/* Visual variant thumbnails */}
             <div className="variant-thumbnails">
               {product.variants.map((variant, index) => (
@@ -116,6 +148,24 @@ export default function ProductDetail() {
             </div>
           </div>
         )}
+      </div>
+      
+      <div className="product-info">
+        <div className="breadcrumb">
+          <Link to={getCategoryUrl(product.category)}>{getCategoryName(product.category)}</Link> / <span>{product.name}</span>
+        </div>
+        
+        <h1>{product.name}</h1>
+        <p className="price">{currentVariant.price} грн</p>
+        
+        <div className="product-specs">
+          <p><strong>Тип волосся:</strong> {getTypeName(product.type)}</p>
+          <p><strong>Довжина:</strong> {getLengthName(product.length)}</p>
+          <p><strong>Колір:</strong> {getColorName(currentVariant.color)}</p>
+          <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
+        </div>
+        
+        <p className="description">{product.description}</p>
         
         <div className="quantity-selector">
           <label>Кількість:</label>

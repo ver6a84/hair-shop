@@ -133,3 +133,8 @@ export const getProducts = ({ category, type, length, color }) => {
     .filter(product => !length || length === product.length);
 };
 
+export const getProduct = (id) => {
+  const product = products.find(p => p.id === parseInt(id));
+  return product || null;
+};
+
