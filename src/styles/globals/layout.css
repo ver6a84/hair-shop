@@ -18,6 +18,13 @@ main {
   width: 100%;
   padding-top: var(--header-height);
 }
+html.menu-open,
+body.menu-open {
+  overflow: hidden;
+  height: 100%;
+}
+
+
 
 /* Mobile-first responsive design */
 @media (min-width: 480px) {
@@ -49,8 +56,5 @@ main {
   /* Ensure full viewport usage */
   html, body {
     width: 100%;
-  }
-  body:has(.header-menu.active) {
-    overflow-y: hidden;
   }
 }

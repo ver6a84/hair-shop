@@ -4,6 +4,7 @@ import ProductGridSkeleton from '@components/ProductGridSkeleton';
 import { useProducts } from '@hooks/useProducts';
 import { useState } from 'react';
 import '@/styles/pages/pages.css'
+import Pagination from '@/components/Pagination';
 
 export default function Toppers() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -36,6 +37,7 @@ export default function Toppers() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Pagination/>
     </div>
   )
 }

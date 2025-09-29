@@ -19,6 +19,8 @@ import Delivery  from '../assets/icons/delivery.svg?react'
 import PostOffice from '../assets/icons/post-office.svg?react'
 import Filter from '../assets/icons/filter.svg?react'
 import ArrowDown from '../assets/icons/arrow-down.svg?react'
+import ArrowLeft from '../assets/icons/left.svg?react'
+import ArrowRight from '../assets/icons/right.svg?react'
 
 const Icons = {
   burger: Burger,
@@ -43,6 +45,8 @@ const Icons = {
   post_office: PostOffice,
   filter: Filter,
   arrow_down: ArrowDown,
+  arrow_left: ArrowLeft,
+  arrow_right: ArrowRight,
 };
 
 export default function Icon({ name, size = 24, ...props }) {

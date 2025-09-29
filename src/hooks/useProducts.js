@@ -3,6 +3,7 @@ import { getProducts } from '@api/index';
 
 export function useProducts(filters = {}, delay = 2000) {
   const [products, setProducts] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -11,12 +12,12 @@ export function useProducts(filters = {}, delay = 2000) {
       try {
         setLoading(true);
         setError(null);
-        
-        // Simulate API delay for skeleton loading demonstration
+
         await new Promise(resolve => setTimeout(resolve, delay));
-        
-        const filteredProducts = getProducts(filters);
-        setProducts(filteredProducts);
+
+        const { items, totalPages } = getProducts(filters);
+        setProducts(items);
+        setTotalPages(totalPages);
       } catch (err) {
         setError(err);
       } finally {
@@ -25,7 +26,7 @@ export function useProducts(filters = {}, delay = 2000) {
     };
 
     fetchProducts();
-  }, [filters.category, filters.type, filters.length, delay]);
+  }, [filters.category, filters.type, filters.length, filters.page, delay]);
 
-  return { products, loading, error };
+  return { products, totalPages, loading, error };
 }

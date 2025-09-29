@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { getImageUrlByKey } from '@api/images'
 import { useProduct } from '@hooks/useProduct'
 import { useCart } from '@context/CartContext'
@@ -8,6 +8,7 @@ import { getCategoryUrl } from '@utils/urlBuilder'
 import '@styles/pages/pages.css'
 import '@styles/components/cart.css'
 import '@components/ProductCardSkeleton.css'
+import Icon from '@/components/icon'
 
 /**
  * ProductDetail Component
@@ -27,6 +28,12 @@ export default function ProductDetail({ product: passedProduct }) {
   // Use passed product or fetch by ID
   const { product, loading, error } = useProduct(passedProduct, id);
   const { addToCart } = useCart();
+
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
+  useEffect(() => {
+  setActiveImageIndex(0)
+}, [selectedVariant])
 
   // Loading state
   if (loading) {
@@ -150,10 +157,10 @@ export default function ProductDetail({ product: passedProduct }) {
     <div className="product-detail container">
       <div className="product-images">
         <img 
-          src={getImageUrlByKey(currentVariant.images[0], { width: 600, height: 900, quality: 80 })}
+          src={getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 600, height: 900, quality: 80 })}
           srcSet={`
-            ${getImageUrlByKey(currentVariant.images[0], { width: 320, height: 480, quality: 80 })} 320w,
-            ${getImageUrlByKey(currentVariant.images[0], { width: 600, height: 900, quality: 80 })} 600w
+            ${getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 320, height: 480, quality: 80 })} 320w,
+            ${getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 600, height: 900, quality: 80 })} 600w
           `}
           sizes="(max-width: 600px) 160px, 300px"
           width={600}
@@ -162,6 +169,22 @@ export default function ProductDetail({ product: passedProduct }) {
           style={{ width: "100%", height: "auto", maxWidth: "500px" }}
           loading="lazy"
         />
+        
+        <div className="select-img">
+            <Icon
+              onClick={() => setActiveImageIndex(i => Math.max(0, i - 1))}
+              className="select-icon"
+              name="arrow_left"
+              size={48}
+            />
+            <Icon
+              onClick={() => setActiveImageIndex(i => Math.min(currentVariant.images.length - 1, i + 1))}
+              className="select-icon"
+              name="arrow_right"
+              size={48}
+            />
+          </div>
+
         {product.variants.length > 1 && (
           <div className="variant-selector">
             {/* Visual variant thumbnails */}

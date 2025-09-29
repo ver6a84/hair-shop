@@ -2,28 +2,43 @@
 /* Product Detail Page */
 
 .product-detail {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    min-height: 60vh;
-}
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl);
+    padding-block: var(--spacing-xl);
+    }
 
 /* Tablet and Desktop */
 @media (min-width: 768px) {
     .product-detail {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        margin: 2rem 0;
+          
+    flex-direction: row;
+    gap: var(--spacing-xxl);
+    padding-block: var(--spacing-xl);
     }
 }
 
-.product-images img {
+.product-images {
+    position: relative;
+    img {
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-md);
 }
-
+    .select-img{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        padding: var(--spacing-xs);
+        .select-icon{
+            fill: var( --primary-light);
+        }
+    }
+}
 .product-info h1 {
     color: var(--text-dark);
     margin-bottom: 1rem;
@@ -95,7 +110,7 @@
     cursor: not-allowed;
 }
 
-/* Product Detail Page Additional Styles */
+
 .breadcrumb {
     color: var(--text-muted);
     font-size: 0.9rem;
@@ -216,6 +231,9 @@
 }
 
 /* Mobile-first Cart Page */
+.cart-page{
+    padding-block: var(--spacing-xl);
+}
 .cart-page h1 {
     text-align: center;
     margin: 1.5rem 0;
@@ -257,8 +275,8 @@
 }
 
 .cart-item img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 0px;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -398,6 +416,7 @@
 .cart-summary h2 {
     color: var(--text-dark);
     margin-bottom: 1rem;
+    font-size: 1.4rem;
 }
 
 .checkout-btn {
@@ -474,10 +493,7 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .product-detail {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+
     
     .cart-item {
         grid-template-columns: 80px 1fr;
@@ -540,7 +556,7 @@
   font-size: 1rem;
 }
 .category-filter button:hover,
-.category-filter button. {
+.category-filter button.selected {
   background: var(--primary-color);
   color: white;
 }

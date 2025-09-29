@@ -23,9 +23,9 @@ const products = [
     description: "Синтетична перука середньої довжини у різних відтінках для щоденного носіння.",
     price: 3800,
     variants: [
-      { id: "2-1", color: 1, price: 3800, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "2-2", color: 3, price: 3900, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["image-blond.png"] },
-      { id: "2-2", color: 4, price: 3900, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["image-red.png"] },
+      { id: "2-1", color: 1, price: 3800, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg","image-blond.png" ] },
+      { id: "2-2", color: 3, price: 3900, availability: true,  images: ["image-blond.png","d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      
     ]
   },
   {
@@ -126,15 +126,31 @@ const products = [
   }
 ];
 
-export const getProducts = ({ category, type, length, color }) => {
-  return products
+const itemsPerPage = 4;
+
+function getTotalPages(filtered) {
+  return Math.ceil(filtered.length/itemsPerPage)
+}
+
+function getPage(filtered, pageNumber) {
+  if (pageNumber < 1 || pageNumber > getTotalPages(filtered)) return [];
+  const start = (pageNumber - 1) * itemsPerPage;
+  return filtered.slice(start, start + itemsPerPage);
+}
+
+export const getProducts = ({ category, type, length, page = 1 }) => {
+  const filtered = products
     .filter(product => !category || category === product.category)
     .filter(product => !type || type === product.type)
     .filter(product => !length || length === product.length);
+     
+    return {
+    items: getPage(filtered, page),
+    totalPages: getTotalPages(filtered),
+  };
 };
 
 export const getProduct = (id) => {
   const product = products.find(p => p.id === parseInt(id));
   return product || null;
 };
-

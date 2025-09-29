@@ -5,13 +5,18 @@ import { useProducts } from '@hooks/useProducts';
 import { useState } from 'react';
 import '@/styles/pages/pages.css'
 import Filters from '@/components/Filters';
+import Pagination from '@/components/Pagination';
 
 export default function Wigs() {
   const [selectedLength, setselectedLength] = useState(null);
-  const { products, loading, error } = useProducts({
-    category: PRODUCT_CATEGORIES.WIGS,
-    length: selectedLength
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const { products, totalPages, loading, error } = useProducts({
+  category: PRODUCT_CATEGORIES.WIGS,
+  length: selectedLength,
+  page: currentPage
   });
+
 
   return (    
     <div className="category-page container">
@@ -22,7 +27,10 @@ export default function Wigs() {
         {Object.values(HAIR_LENGTHS).map(length => (
           <button 
             key={length}
-            onClick={() => {setselectedLength(length)}}
+            onClick={() => {
+              setselectedLength(length);
+              setCurrentPage(1);
+            }}
             className={selectedLength === length ? 'selected' : ''}
 
           >
@@ -39,6 +47,12 @@ export default function Wigs() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+
+      />
     </div>
   )
 }

@@ -15,11 +15,6 @@ ul, ol {
   margin: 0;
 }
 
-/* Remove default padding */
-body {
-  padding: 0;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100dvh;
@@ -34,7 +29,9 @@ body {
 /* Set default width behavior */
 html, body {
   width: 100%;
-  overflow-x: clip; /* prevents horizontal scroll without breaking sticky */
+  overflow-x: clip;
+   padding: 0;
+   margin: 0;
 }
 
 /* Images and media */
@@ -65,10 +62,7 @@ a {
 }
 
 /* Focus styles */
-:focus-visible {
-  outline: 2px solid #555;
-  outline-offset: 2px;
-}
+
 
 /* Smooth scroll */
 html{

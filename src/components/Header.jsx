@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import Icon from './icon'
 import './Header.css'
@@ -18,6 +18,15 @@ export default function Header(){
   const closeMenu = () => {
     setIsMenuOpen(false)
   }
+
+useEffect(() => {
+  if (isMenuOpen) {
+    document.documentElement.classList.add('menu-open');
+  } else {
+    document.documentElement.classList.remove('menu-open');
+  }
+}, [isMenuOpen]);
+
 
   return (
     <header>

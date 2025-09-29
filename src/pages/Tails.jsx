@@ -4,6 +4,8 @@ import ProductGridSkeleton from '@components/ProductGridSkeleton';
 import { useProducts } from '@hooks/useProducts';
 import { useState } from 'react';
 import '@/styles/pages/pages.css'
+import Pagination from '@/components/Pagination';
+
 
 export default function Tails() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -36,6 +38,7 @@ export default function Tails() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Pagination/>
     </div>
   )
 }
