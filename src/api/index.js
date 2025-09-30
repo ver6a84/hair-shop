@@ -1,3 +1,6 @@
+import { CATEGORIES_COLORS } from '@utils/constants';
+
+
 const products = [
   // ==== WIGS ====
   {
@@ -8,9 +11,9 @@ const products = [
     length: 3, // LONG
     description: "Натуральна довга перука з глибоким об’ємом, підходить для урочистих подій.",
     variants: [
-      { id: "1-1", color: 1, price: 4500, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "1-2", color: 2, price: 4600, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "1-3", color: 3, price: 4700, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "1-1", color: 1, price: 4500, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "1-2", color: 2, price: 4600, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "1-3", color: 3, price: 4700, old_price:6000, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
       
     ]
   },
@@ -23,8 +26,8 @@ const products = [
     description: "Синтетична перука середньої довжини у різних відтінках для щоденного носіння.",
     price: 3800,
     variants: [
-      { id: "2-1", color: 1, price: 3800, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg","image-blond.png" ] },
-      { id: "2-2", color: 3, price: 3900, availability: true,  images: ["image-blond.png","d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "2-1", color: 1, price: 3800, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg","image-blond.png" ] },
+      { id: "2-2", color: 3, price: 3900, old_price:6000, availability: true,  images: ["image-blond.png","d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
       
     ]
   },
@@ -36,7 +39,7 @@ const products = [
     length: 2, // MEDIUM
     description: "Яскрава рудувата перука з натурального волосся для сміливого стилю.",
     variants: [
-      { id: "3-1", color: 4, price: 4200, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "3-1", color: 4, price: 4200, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
   {
@@ -47,7 +50,7 @@ const products = [
     length: 1, // SHORT
     description: "Сучасна коротка модель чорного кольору, легка у догляді.",
     variants: [
-      { id: "4-1", color: 1, price: 3200, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "4-1", color: 1, price: 3200, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
 
@@ -60,9 +63,9 @@ const products = [
     length: 3,
     description: "Довгий синтетичний хвіст для швидкої зміни стилю.",
     variants: [
-      { id: "5-1", color: 1, price: 1500, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "5-2", color: 2, price: 1600, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "5-3", color: 3, price: 1700, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "5-1", color: 1, price: 1500, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "5-2", color: 2, price: 1600, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+     
     ]
   },
   {
@@ -73,7 +76,7 @@ const products = [
     length: 2,
     description: "Світлий хвіст середньої довжини для святкових зачісок.",
     variants: [
-      { id: "6-1", color: 3, price: 1700, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "6-1", color: 3, price: 1700, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
   {
@@ -84,7 +87,7 @@ const products = [
     length: 3,
     description: "Об’ємний рудий хвіст з натурального волосся.",
     variants: [
-      { id: "7-1", color: 4, price: 2100, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "7-1", color: 4, price: 2100, old_price:6000, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
 
@@ -97,7 +100,7 @@ const products = [
     length: 2,
     description: "Натуральний топер чорного кольору для додаткового об’єму.",
     variants: [
-      { id: "8-1", color: 1, price: 2700, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "8-1", color: 1, price: 2700, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
   {
@@ -108,8 +111,8 @@ const products = [
     length: 1,
     description: "Синтетичний блонд-топер короткої довжини для щоденного використання.",
     variants: [
-      { id: "9-1", color: 3, price: 2500, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "9-2", color: 4, price: 2600, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "9-1", color: 3, price: 2500, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "9-2", color: 4, price: 2600, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
   {
@@ -120,13 +123,13 @@ const products = [
     length: 1,
     description: "Натуральний топер із чубчиком, доступний у темних відтінках.",
     variants: [
-      { id: "10-1", color: 2, price: 3100, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "10-2", color: 1, price: 3150, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "10-1", color: 2, price: 3100, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "10-2", color: 1, price: 3150, old_price:6000, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   }
 ];
 
-const itemsPerPage = 4;
+const itemsPerPage = 3;
 
 function getTotalPages(filtered) {
   return Math.ceil(filtered.length/itemsPerPage)
@@ -138,12 +141,21 @@ function getPage(filtered, pageNumber) {
   return filtered.slice(start, start + itemsPerPage);
 }
 
-export const getProducts = ({ category, type, length, page = 1 }) => {
+export const getProducts = ({ category, type, length, color, colorCategory, page = 1 }) => {
   const filtered = products
     .filter(product => !category || category === product.category)
     .filter(product => !type || type === product.type)
-    .filter(product => !length || length === product.length);
-     
+    .filter(product => !length || length === product.length)
+    .filter(product => {
+      if (!color && !colorCategory) return true;
+
+      const allowedColors = colorCategory
+        ? CATEGORIES_COLORS[colorCategory]
+        : [color];
+
+      return product.variants.some(variant => allowedColors.includes(variant.color));
+    });
+ 
     return {
     items: getPage(filtered, page),
     totalPages: getTotalPages(filtered),

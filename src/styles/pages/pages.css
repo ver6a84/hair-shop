@@ -39,6 +39,9 @@
         }
     }
 }
+
+
+
 .product-info h1 {
     color: var(--text-dark);
     margin-bottom: 1rem;
@@ -49,6 +52,23 @@
     font-weight: bold;
     color: var(--primary-color);
     margin: 1rem 0;
+}
+.old-price{
+    color: var(--text-extra-muted);
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}
+.promo{
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    .discount{
+    background: red;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-xl);
+    color: var(--primary-light);
+    font-size: 0.9rem;
+    }
 }
 
 .description {
@@ -116,10 +136,16 @@
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
-
-.breadcrumb span:last-child {
+.breadcrumb a.active{
     color: var(--text-dark);
     font-weight: 500;
+}
+.breadcrumb .current {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+.separator{
+    margin-inline:var(--spacing-xs) ;
 }
 
 .product-specs {
@@ -341,14 +367,14 @@
     background: #cc0000;
 }
 .modal-wrapper{
-    width: 90%;
+    width: 94%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--background-muted);
     z-index: 5;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     border-radius: var(--border-radius-md);
     .modal-heading{
         display: flex;
@@ -378,11 +404,11 @@
             color: var(--text-muted);
         }
         button{
-            background: var(--background-dark);
+            background: var(--primary-dark);
             color: var(--text-light);
             padding: var(--spacing-md);
             font-size: 1.2rem;
-            border-radius: var(--border-radius-md);
+            border-radius: var(--border-radius-xl);
             line-height: 1;
         }
     }
@@ -408,8 +434,8 @@
 
 .cart-summary {
     background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 8px;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
     text-align: center;
 }
 
@@ -424,7 +450,7 @@
     color: white;
     border: none;
     padding: 1rem 2rem;
-    border-radius: 25px;
+    border-radius: var(--border-radius-xl);
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s;
@@ -459,7 +485,7 @@
 
 .about-content ul {
     margin: 1rem 0;
-    padding-left: 2rem;
+   
 }
 
 .about-content li {
@@ -598,4 +624,42 @@
             width: 300px;
         }
       }
+}
+/* HomePage */
+
+    .homepage{
+     .products-page{
+        .breadcrumb{
+        display: none;
+    }
+    }
+    }  
+    
+/* Contact Us */
+
+.contact-us{
+    h2{
+    text-align: center;
+    margin: var(--spacing-xl);
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        padding-block: var(--spacing-md);
+        label{
+            margin-bottom: var(--spacing-sm);
+        }
+        input,
+        textarea{
+            margin-bottom: var(--spacing-md);
+            border-radius: var(--border-radius-md)
+        }
+        button{
+            background: var(--primary-dark);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-sm);
+            color: var(--text-light);
+            font-size: 1.3rem;
+        }
+    }
 }

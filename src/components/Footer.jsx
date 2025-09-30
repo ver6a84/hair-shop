@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
         <div className='products-feedback'>
         <div className='feedback'>
-          <h3>Зворотній зв'язок</h3>
+          <h3>Виникли запитання ?</h3>
           <p>Ви можете <Link className='feedback-link' to="/contactUs">написати нам</Link> для звортнього зв'язку</p>
           <p>Щоденно з 9.00 до 21.00</p>
         </div>

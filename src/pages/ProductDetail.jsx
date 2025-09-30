@@ -3,12 +3,11 @@ import { useState,useEffect } from 'react'
 import { getImageUrlByKey } from '@api/images'
 import { useProduct } from '@hooks/useProduct'
 import { useCart } from '@context/CartContext'
-import { Link } from 'react-router-dom'
-import { getCategoryUrl } from '@utils/urlBuilder'
 import '@styles/pages/pages.css'
 import '@styles/components/cart.css'
 import '@components/ProductCardSkeleton.css'
 import Icon from '@/components/icon'
+import Breadcrumb from '@/components/BreadCrumb'
 
 /**
  * ProductDetail Component
@@ -117,15 +116,6 @@ export default function ProductDetail({ product: passedProduct }) {
     }
   }
 
-  const getCategoryName = (categoryId) => {
-    switch(categoryId) {
-      case 1: return 'Перуки'
-      case 2: return 'Хвости'
-      case 3: return 'Топери'
-      default: return 'Товар'
-    }
-  }
-
   const getTypeName = (typeId) => {
     switch(typeId) {
       case 1: return 'Натуральне волосся'
@@ -210,11 +200,15 @@ export default function ProductDetail({ product: passedProduct }) {
       </div>
       
       <div className="product-info">
-        <div className="breadcrumb">
-          <Link to={getCategoryUrl(product.category)}>{getCategoryName(product.category)}</Link> / <span>{product.name}</span>
-        </div>
+        <Breadcrumb categoryId={product.category} productName={product.name} />
         
         <h1>{product.name}</h1>
+        <div className="promo">
+          <p className="old-price">{product.variants[selectedVariant].old_price} грн</p>
+          <p className="discount">
+            -{Math.round(((product.variants[selectedVariant].old_price - product.variants[selectedVariant].price) / product.variants[selectedVariant].old_price)*100)}%
+            </p>
+          </div>
         <p className="price">{currentVariant.price} грн</p>
         
         <div className="product-specs">

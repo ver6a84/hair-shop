@@ -65,16 +65,16 @@ export default function Cart() {
                 <h2>Оформити замовлення</h2>
                 <Icon onClick={() => setShowModal(false)} className="close-btn" name="close"/>
                 </div>
-              <form action="" className="contact-form">
+              <form autoComplete='on' className="contact-form">
                 <div>
                   <label htmlFor="name" >Iм'я</label>
-                <input type="text" id='name' placeholder="Ваше ім'я" />
+                <input type="text" id='name' placeholder="Ваше ім'я" title="Введіть ваше ім'я" autoComplete='name' required/>
                 </div>
                 <div>
                   <label htmlFor="phone">Номер телефону</label>
-                <input type="tel" id='phone' placeholder='+38 (097) 777-77-77' />
+                <input type="tel" id='phone' placeholder='+380...' pattern="\+380\d{9}" title="Введіть номер у форматі +380XXXXXXXXX" autoComplete='tel' required/>
                 </div>
-                <p>Менеджер передзвонить та допоможе<br/> оформити замовлення</p>
+                <p>Менеджер передзвонить та допоможе оформити замовлення</p>
                 <button>Передзвонити мені</button>
               </form>
             </div>

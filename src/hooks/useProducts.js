@@ -26,7 +26,7 @@ export function useProducts(filters = {}, delay = 2000) {
     };
 
     fetchProducts();
-  }, [filters.category, filters.type, filters.length, filters.page, delay]);
+  }, [filters.category, filters.type, filters.length, filters.color, filters.colorCategory, filters.page, delay]);
 
   return { products, totalPages, loading, error };
 }

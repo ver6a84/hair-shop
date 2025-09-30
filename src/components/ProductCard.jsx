@@ -52,6 +52,12 @@ export default function ProductCard({ product }) {
         <div className='product-card-content'>
         <h3>{product.name}</h3>
         <p className="product-description">{product.description}</p>
+        <div className="promo">
+          <p className="old-price">{product.variants[selectedVariant].old_price} грн</p>
+          <p className="discount">
+            -{Math.round(((product.variants[selectedVariant].old_price - product.variants[selectedVariant].price) / product.variants[selectedVariant].old_price)*100)}%
+            </p>
+          </div>
         <p className='product-price'>{product.variants[selectedVariant].price} грн</p>
         </div>
       </div>

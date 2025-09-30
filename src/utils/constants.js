@@ -55,7 +55,7 @@ export const CATEGORIES_TRANSLATIONS = {
 
 
 
-const COLOR_CATEGORIES_TRANSLATIONS = {
+ export const COLOR_CATEGORIES_TRANSLATIONS = {
   [COLOR_CATEGORIES.LIGHT]: 'Світлий',
   [COLOR_CATEGORIES.DARK]: 'Темний'
 };
@@ -74,9 +74,9 @@ const HAIR_TYPES_TRANSLATIONS = {
 
 
  export const HAIR_LENGTHS_TRANSLATIONS = {
-  [HAIR_LENGTHS.SHORT]: 'Короткі',
+  [HAIR_LENGTHS.SHORT]: 'Короткий',
   [HAIR_LENGTHS.MEDIUM]: 'Каре',
-  [HAIR_LENGTHS.LONG]: 'Довгі'
+  [HAIR_LENGTHS.LONG]: 'Довгий'
 };
 
 
@@ -94,5 +94,8 @@ export const ROUTES = {
   PRODUCTS: '/products',
   CART: '/cart',
   ABOUT: '/about',
-  CONTACT: '/contact'
+  CONTACT: '/contact',
+  CONTACTUS: '/contactUs',
+  DELIVERY: '/delivery',
+  RETURN: '/return'
 }

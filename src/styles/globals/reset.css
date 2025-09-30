@@ -44,6 +44,11 @@ img, picture, video, canvas, svg {
 input, button, textarea, select {
   font: inherit;
 }
+input,textarea{
+  border: 2px solid #666666;
+  border-radius: var( --border-radius-md);
+  padding: var(--spacing-sm);
+}
 
 /* Buttons */
 button {

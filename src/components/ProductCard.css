@@ -26,7 +26,21 @@
     font-size: 2rem;
     font-weight: 700;
   }
-  
+  .old-price{
+    color: var(--text-extra-muted);
+    text-decoration: line-through;
+}
+.promo{
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    .discount{
+    background: red;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-xl);
+    color: var(--primary-light);
+    }
+}
   h3 {
     margin: var(--spacing-sm) 0;
     color: var(--text-dark);

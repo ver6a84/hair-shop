@@ -6,6 +6,7 @@ import { useState } from 'react';
 import '@/styles/pages/pages.css'
 import Filters from '@/components/Filters';
 import Pagination from '@/components/Pagination';
+import Breadcrumb from '@/components/BreadCrumb';
 
 export default function Wigs() {
   const [selectedLength, setselectedLength] = useState(null);
@@ -38,7 +39,11 @@ export default function Wigs() {
           </button>
         ))}
       </div>
+        
+        <Breadcrumb categoryId={PRODUCT_CATEGORIES.WIGS} />
+
         <Filters/>
+      
       <div className="cards-grid">
         {loading && <ProductGridSkeleton count={4} />}
         {!loading && error && <p>Помилка завантаження: {error.message}</p>}
