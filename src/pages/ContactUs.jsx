@@ -26,7 +26,7 @@ export default function ContactUs() {
     <div className="contact-us container">
       <h2>Зв’язатися з нами</h2>
 			<Breadcrumb/>
-      <form ref={form} autoComplete='on' onSubmit={sendEmail} className='contact-us-form'>
+      <form ref={form} autoComplete='on' onSubmit={sendEmail}>
         <label htmlFor="user_name">
   			 Ім’я <span className="required">*</span>
 				</label>
