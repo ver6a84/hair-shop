@@ -42,7 +42,7 @@ export default function ContactUs() {
          <label htmlFor="message">
   			 Повідомлення <span className="required">*</span>
 				</label>
-				<textarea id="message" placeholder="Ваше повідомлення" title="Напишіть ваше питання" autoComplete='off' required />
+				<textarea rows={4} id="message" placeholder="Ваше повідомлення" title="Напишіть ваше питання" autoComplete='off' required />
         <button type="submit">Надіслати</button>
       </form>
 

@@ -8,6 +8,8 @@ import '@styles/components/cart.css'
 import '@components/ProductCardSkeleton.css'
 import Icon from '@/components/icon'
 import Breadcrumb from '@/components/BreadCrumb'
+import { useSwipeable } from 'react-swipeable';
+
 
 /**
  * ProductDetail Component
@@ -23,6 +25,19 @@ export default function ProductDetail({ product: passedProduct }) {
   const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState(0)
   const [addToCartStatus, setAddToCartStatus] = useState(null) // 'success', 'error', null
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const swipeHandlers = useSwipeable({
+  onSwipedLeft: () => 
+    setActiveImageIndex(i => (i + 1) % currentVariant.images.length),
+  onSwipedRight: () => 
+    setActiveImageIndex(i => (i - 1 + currentVariant.images.length) % currentVariant.images.length),
+  preventDefaultTouchmoveEvent: true,
+  trackMouse: false,
+});
+const isDesktop = window.innerWidth >= 768;
+
+
 
   // Use passed product or fetch by ID
   const { product, loading, error } = useProduct(passedProduct, id);
@@ -147,6 +162,7 @@ export default function ProductDetail({ product: passedProduct }) {
     <div className="product-detail container">
       <div className="product-images">
         <img 
+          onClick={() => setIsFullscreen(true)}
           src={getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 600, height: 900, quality: 80 })}
           srcSet={`
             ${getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 320, height: 480, quality: 80 })} 320w,
@@ -159,22 +175,6 @@ export default function ProductDetail({ product: passedProduct }) {
           style={{ width: "100%", height: "auto", maxWidth: "500px" }}
           loading="lazy"
         />
-        
-        <div className="select-img">
-            <Icon
-              onClick={() => setActiveImageIndex(i => Math.max(0, i - 1))}
-              className="select-icon"
-              name="arrow_left"
-              size={48}
-            />
-            <Icon
-              onClick={() => setActiveImageIndex(i => Math.min(currentVariant.images.length - 1, i + 1))}
-              className="select-icon"
-              name="arrow_right"
-              size={48}
-            />
-          </div>
-
         {product.variants.length > 1 && (
           <div className="variant-selector">
             {/* Visual variant thumbnails */}
@@ -249,6 +249,33 @@ export default function ProductDetail({ product: passedProduct }) {
           </div>
         )}
       </div>
+      {isFullscreen && (
+    <div className="fullscreen-overlay" onClick={() => setIsFullscreen(false)}>
+    <div className="fullscreen-content"
+     onClick={(e) => e.stopPropagation()}
+     {...swipeHandlers}
+     >
+      <Icon
+        onClick={() => setActiveImageIndex(i => (i - 1 + currentVariant.images.length) % currentVariant.images.length)}
+        className="fullscreen-nav"
+        name="arrow_left"
+        size={100}
+      />
+      <img
+        src={getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 1000, height: 1500 })}
+        alt={product.name}
+        className="fullscreen-image"
+      />
+      <Icon
+        onClick={() => setActiveImageIndex(i => (i + 1) % currentVariant.images.length)}
+        className="fullscreen-nav"
+        name="arrow_right"
+        size={100}
+      />
+      <Icon name="close" size={isDesktop ? 56 : 36} className="fullscreen-close" onClick={() => setIsFullscreen(false)}/>
     </div>
+  </div>
+  )}
+  </div>
   )
 }

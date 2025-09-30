@@ -11,9 +11,9 @@ const products = [
     length: 3, // LONG
     description: "Натуральна довга перука з глибоким об’ємом, підходить для урочистих подій.",
     variants: [
-      { id: "1-1", color: 1, price: 4500, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "1-2", color: 2, price: 4600, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "1-3", color: 3, price: 4700, old_price:6000, availability: false, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "1-1", color: 1, price: 4500, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "1-2", color: 2, price: 4600, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "1-3", color: 3, price: 4700, old_price:6000, availability: false, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
       
     ]
   },
@@ -26,7 +26,7 @@ const products = [
     description: "Синтетична перука середньої довжини у різних відтінках для щоденного носіння.",
     price: 3800,
     variants: [
-      { id: "2-1", color: 1, price: 3800, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg","image-blond.png" ] },
+      { id: "2-1", color: 1, price: 3800, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg","image-blond.png"] },
       { id: "2-2", color: 3, price: 3900, old_price:6000, availability: true,  images: ["image-blond.png","d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
       
     ]
@@ -39,7 +39,7 @@ const products = [
     length: 2, // MEDIUM
     description: "Яскрава рудувата перука з натурального волосся для сміливого стилю.",
     variants: [
-      { id: "3-1", color: 4, price: 4200, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "3-1", color: 4, price: 4200, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
   {
@@ -50,7 +50,7 @@ const products = [
     length: 1, // SHORT
     description: "Сучасна коротка модель чорного кольору, легка у догляді.",
     variants: [
-      { id: "4-1", color: 1, price: 3200, old_price:6000, availability: true, image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
+      { id: "4-1", color: 1, price: 3200, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] }
     ]
   },
 
@@ -63,8 +63,8 @@ const products = [
     length: 3,
     description: "Довгий синтетичний хвіст для швидкої зміни стилю.",
     variants: [
-      { id: "5-1", color: 1, price: 1500, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
-      { id: "5-2", color: 2, price: 1600, old_price:6000, availability: true,  image: "https://princesss.store/images/yunona.webp", images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "5-1", color: 1, price: 1500, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
+      { id: "5-2", color: 2, price: 1600, old_price:6000, availability: true, images: ["d94e27ea-7cca-4efd-b9d6-39f391ce806f.jpeg"] },
      
     ]
   },
