@@ -3,6 +3,9 @@
   color: inherit;
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @media (max-width:768px) {
+    cursor: none;
+  }
 }
 
 .product-card-link:hover {
@@ -11,7 +14,7 @@
   border-radius: var(--border-radius-l);
 }
 
-.product-card{
+.product-card {
   padding: var(--spacing-md);
   background: var(--background-muted);
   border-radius: var(--border-radius-l);
@@ -19,7 +22,6 @@
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease;
-  cursor: pointer;
   justify-content: space-between;
   height: 100%;
   .product-price{
