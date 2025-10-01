@@ -11,8 +11,20 @@
 .logo-social{
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);   
+    gap: var(--spacing-lg); 
 }
+.footer-logo{
+    
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xl);
+      .logo-face{
+        height: 50px;
+      }
+      .logo-text{
+        height:35px
+      }
+    }  
 .social{
     display: flex;
     justify-content: space-between;
@@ -73,7 +85,19 @@
   padding-block: var(--spacing-md);
   }
   @media (min-width:768px){
-  .social{
+     .logo{
+      width: 200px;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xxl);
+      .logo-face{
+        height: 50px;
+      }
+      .logo-text{
+        height:35px
+      }
+    }  
+    .social{
       width: 200px;
     }
     .footer-container{

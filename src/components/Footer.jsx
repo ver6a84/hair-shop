@@ -1,14 +1,17 @@
 import './Footer.css'
 import { Link } from 'react-router-dom'
 import Icon from '@components/icon'
-import Logo from './Logo'
+
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className='footer-container container p-3'>
         <div className='logo-social'>
-          <Logo/>
+        <div className="footer-logo">
+          <img className='logo-face' src="./logo_face.webp"/>
+        <img className='logo-text' src="./logo_text.webp"/>
+       </div>
           <div className='social'>
             <Link to=""><Icon size={36} className="social-icon" name="facebook"/></Link>
             <Link to=""><Icon size={36} className="social-icon" name="telegram"/></Link>

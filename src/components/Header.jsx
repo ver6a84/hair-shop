@@ -2,7 +2,6 @@ import { useState,useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import Icon from './icon'
 import './Header.css'
-import Logo from './Logo'
 import { ROUTES } from '@utils/constants'
 import { useCart } from '@context/CartContext'
 
@@ -38,7 +37,10 @@ useEffect(() => {
             name={isMenuOpen ? 'cross' : 'burger'}
           />
         </div>
-        <Logo/>
+           <div className="header-logo">
+          <img className='logo-face' src="./logo_face.webp"/>
+        <img className='logo-text' src="./logo_text.webp"/>
+       </div>
         <div className={`header-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>
             <li><NavLink onClick={closeMenu} to="/" className={({ isActive }) => isActive ? 'active' : ''}>Головна</NavLink></li>
