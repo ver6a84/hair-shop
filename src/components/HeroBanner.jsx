@@ -4,8 +4,9 @@ export default function HeroBanner() {
   return (
     <section className="hero">
       <img
-        srcSet={'./hero_image.webp 600w, ./hero_image_mob.webp 320w'}
-        sizes='(max-width: 600px) 160px, 600px'
+        src={'./hero_image_mob.webp'}
+        srcSet={'./hero_image.webp 1920w, ./hero_image_mob.webp 640w'}
+        sizes='(max-width: 640px) 160px, 640px'
         alt="Hero"
         width={1920}
         height={1080}

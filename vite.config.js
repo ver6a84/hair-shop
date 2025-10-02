@@ -18,5 +18,8 @@ export default defineConfig({
       '@context': path.resolve(__dirname, './src/context'),
       '@api': path.resolve(__dirname, './src/api'),
     }
+  },
+  server: {
+    allowedHosts: ['6320531f3079.ngrok-free.app'],
   }
 })
