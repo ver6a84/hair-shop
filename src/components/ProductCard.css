@@ -13,12 +13,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   border-radius: var(--border-radius-l);
 }
-.product-card-link:visited,
-.product-card-link:link,
-.product-card-link:active,
-.product-card-link:hover {
-  color: inherit; /* Or any other color you prefer */
-}
 
 .product-card {
   padding: var(--spacing-md);
