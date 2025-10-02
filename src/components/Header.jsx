@@ -34,12 +34,15 @@ useEffect(() => {
           <Icon
             aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
             size={24}
-            name={isMenuOpen ? 'cross' : 'burger'}
+            name={isMenuOpen ? 'close' : 'burger'}
           />
         </div>
-           <div className="header-logo">
-          <img className='logo-face' src="./logo_face.webp"/>
-        <img className='logo-text' src="./logo_text.webp"/>
+          <div className="header-logo">
+          <img src="./logo.webp"/>
+          <div className="logo-text">
+            <div className="store-name">ПЕРУКИ<br/>ТУТ</div>
+            <span>MAГАЗИН ПЕРУК</span>
+          </div>
        </div>
         <div className={`header-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>

@@ -22,7 +22,7 @@ export default function Toppers () {
     <div className="category-page container">
       <h1>Топери</h1>
 
-      <div className="category-filter">
+      <div className="custom-filters">
            
  {Object.values(COLOR_CATEGORIES).map((colorCategory) => (
   <button

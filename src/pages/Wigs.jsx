@@ -23,7 +23,7 @@ export default function Wigs() {
     <div className="category-page container">
       <h1>Перуки</h1>
 
-      <div className="category-filter">
+      <div className="custom-filters">
        
         {Object.values(HAIR_LENGTHS).map(length => (
           <button 

@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import '@styles/pages/pages.css'
-import Breadcrumb from '@/components/BreadCrumb';
 
 export default function ContactUs() {
   const form = useRef();
@@ -25,7 +24,6 @@ export default function ContactUs() {
   return (
     <div className="contact-us container">
       <h2>Зв’язатися з нами</h2>
-			<Breadcrumb/>
       <form ref={form} autoComplete='on' onSubmit={sendEmail}>
         <label htmlFor="user_name">
   			 Ім’я <span className="required">*</span>

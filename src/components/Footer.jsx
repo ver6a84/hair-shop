@@ -8,9 +8,12 @@ export default function Footer() {
     <footer className="footer">
       <div className='footer-container container p-3'>
         <div className='logo-social'>
-        <div className="footer-logo">
-          <img className='logo-face' src="./logo_face.webp"/>
-        <img className='logo-text' src="./logo_text.webp"/>
+           <div className="footer-logo">
+          <img src="./logo.webp"/>
+          <div className="logo-text">
+            <div className="store-name">ПЕРУКИ<br/>ТУТ</div>
+            <span>MAГАЗИН ПЕРУК</span>
+          </div>
        </div>
           <div className='social'>
             <Link to=""><Icon size={36} className="social-icon" name="facebook"/></Link>

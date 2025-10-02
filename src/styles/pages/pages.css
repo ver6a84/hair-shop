@@ -3,44 +3,43 @@
 .product-detail {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xxl);
+    gap: var(--spacing-md);
     padding-block: var(--spacing-xl);
     }
-    .fullscreen-overlay {
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100vw; 
-  height: 100vh;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-.fullscreen-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xxl);
- }
-.fullscreen-image {
-  width: 100%;
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain;
-}
-.fullscreen-nav {
-  display: none;
-  cursor: pointer;
-  color: white;
-}
-.fullscreen-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
+    .product-images{
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      .main-image{
+      display: block; 
+      position: relative;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      .image-selector{
+        position: absolute;
+        top: 50%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        transform: translateY(-50%);
+        .selector-btn{
+          background: rgba(200,200,200,0.3);
+          border-radius: var(--border-radius-sm);
+          fill: white;
+          cursor: pointer;
+          padding: var(--spacing-xs);
+        }
+        .selector-btn:hover{
+          fill: var(--primary-light);
+        }
+      }
+      @medIa (max-width:768px){
+        .image-selector{
+          display: none;
+        }
+      }
+        }
+    }
 .product-info h1 {
     color: var(--text-dark);
     margin-bottom: 1rem;
@@ -132,19 +131,11 @@
     margin: var(--spacing-sm) 0;
     color: var(--text-dark);
 }
-.variant-selector {
-    margin: var(--spacing-md) 0;
-}
-.variant-selector label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
-    color: var(--text-dark);
-}
+
 .variant-thumbnails {
     display: flex;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
@@ -162,16 +153,7 @@
     justify-content: center;
     overflow: hidden;
     position: relative;
-    /* outline: none; */
 }
-
-.product-card-link:visited,
-.product-card-link:link,
-.product-card-link:active,
-.product-card-link:hover {
-  color: inherit; /* Or any other color you prefer */
-}
-
 .variant-thumbnail:hover:not(:disabled) {
     border-color: var(--primary-color);
     transform: scale(1.05);
@@ -220,17 +202,10 @@
     .product-detail {
      flex-direction: row;
     gap: var(--spacing-xxl);
-    padding-block: var(--spacing-xl);
     }
-    .fullscreen-nav {
-      display: block;
-      cursor: pointer;
-      fill: white;
-}
-.fullscreen-close{
-  fill: white;
-  size: 100px;
-}
+    .product-images{
+      justify-content: space-between;
+    }
 }
 
 /* Cart Page */
@@ -413,7 +388,7 @@
 }
 
 /* About and Contact Pages */
-
+.care-page h1,
 .products-page h1,
 .about-page h1,
 .contact-page h1,
@@ -422,6 +397,7 @@
     text-align: center;
     margin: var(--spacing-xl);
     }
+.care-page p,
 .about-content p,
 .return-page p,
 .return-page h4,
@@ -430,14 +406,33 @@
     margin-bottom: var(--spacing-md);
     color: var(--text-muted);
 }
-.about-content ul {
+.about-content ul,
+.care-page ul {
     margin: var(--spacing-md) 0;
    
 }
-.about-content li {
+.about-content li,
+.care-page li {
     margin: var(--spacing-sm) 0;
     color: var(--text-muted);
+    position: relative;
+    padding-left: var(--border-radius-lg);
+    margin-left: var(--spacing-lg);
 }
+.about-content li:before,
+.care-page li:before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: var(--text-muted);
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    margin-right: var(--border-radius-sm);
+    display: inline-block;
+}
+.care-page li 
 .contact-info {
     margin: var(--spacing-xl) 0;
 }
@@ -551,11 +546,13 @@
 /* CATEGORY PAGES */
 
 .category-page{
-  margin-bottom:var(--spacing-xl);
-
-  h1{
+  margin-bottom:var(--spacing-xxl);
+    h1{
       text-align: center;
       margin: var(--spacing-lg) 0;
+    }
+    .breadcrumb{
+        margin-bottom: var(--border-radius-xl);
     }
    }
 .cards-grid{
@@ -586,4 +583,10 @@
 .custom-filters button.selected {
   background: var(--primary-color);
   color: white;
+}
+
+.products-page{
+    .breadcrumb{
+       margin-bottom: var(--border-radius-xl); 
+    }
 }

@@ -97,5 +97,6 @@ export const ROUTES = {
   CONTACT: '/contact',
   CONTACTUS: '/contactUs',
   DELIVERY: '/delivery',
-  RETURN: '/return'
+  RETURN: '/return',
+  CARE: '/care'
 }

@@ -14,15 +14,28 @@
     gap: var(--spacing-lg); 
 }
 .footer-logo{
-    
       display: flex;
       align-items: center;
-      gap: var(--spacing-xl);
-      .logo-face{
-        height: 50px;
+      gap: var(--spacing-sm); 
+      img{
+        height: 40px;
       }
       .logo-text{
-        height:35px
+        text-align: center;
+        height: 38px;
+        color: var(--primary-color);
+        .store-name{
+          font-size: 0.8rem;
+          line-height: 1.1;
+          font-weight: 900;
+          border-bottom: 1px solid var(--primary-color);
+          letter-spacing: 2px;
+        }
+         span{
+            display: block;
+            font-size: 0.5rem;
+            line-height: 1.2;
+          }
       }
     }  
 .social{
@@ -85,18 +98,6 @@
   padding-block: var(--spacing-md);
   }
   @media (min-width:768px){
-     .logo{
-      width: 200px;
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xxl);
-      .logo-face{
-        height: 50px;
-      }
-      .logo-text{
-        height:35px
-      }
-    }  
     .social{
       width: 200px;
     }

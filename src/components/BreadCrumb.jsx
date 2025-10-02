@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { CATEGORIES_TRANSLATIONS } from '@utils/constants';
 import { getCategoryUrl } from '@utils/urlBuilder';
+import './BreadCrumb.css'
 
 export default function Breadcrumb({ categoryId, productName }) {
   return (

@@ -16,6 +16,7 @@ import Toppers from './pages/Toppers'
 import ScrollToTop from '@components/ScrollTop'
 import { ROUTES } from '@utils/constants'
 import ContactUs from './pages/ContactUs'
+import Care from './pages/Care'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/return" element={<Return />} />
               <Route path="/delivery" element={<Delivery />} />
               <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/care" element={<Care />} />
             </Routes>
           </main>
           <Footer />
