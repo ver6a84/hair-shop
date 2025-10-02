@@ -1,20 +1,15 @@
-import { useState, useEffect } from 'react';
 import './HeroBanner.css';
 
 export default function HeroBanner() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const imageSrc = isMobile ? './hero_image_mobile.webp' : './hero_image.webp';
-
   return (
     <section className="hero">
-      <img src={imageSrc} alt="Hero" />
+      <img
+        srcSet={'./hero_image.webp 600w, ./hero_image_mob.webp 320w'}
+        sizes='(max-width: 600px) 160px, 600px'
+        alt="Hero"
+        width={1920}
+        height={1080}
+      />
       <div className="greetings">
         <h1 className="greetings-title">Перуки<br/>т<span>у</span>т</h1>
         <div>
