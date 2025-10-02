@@ -25,7 +25,10 @@ export default defineConfig([
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
       'semi': ['error', 'always'],
+      'semi-spacing': ['error', { before: false, after: true }],
       'indent': ['error', 2],
+      'quotes': ['error', 'single'],
+      'comma-dangle': ['error', 'always-multiline'],
     },
   },
 ])

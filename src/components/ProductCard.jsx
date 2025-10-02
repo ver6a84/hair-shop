@@ -1,31 +1,31 @@
-import { Link } from 'react-router-dom'
-import { useState,useEffect } from 'react'
-import './ProductCard.css'
-import { getImageUrlByKey } from '@api/images'
+import { getImageUrlByKey } from '@api/images';
+import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import './ProductCard.css';
 
 
 export default function ProductCard({ product }) {
   const [selectedVariant, setSelectedVariant] = useState(0);
 
-    useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": product.name,
-      "image": getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 600, height: 900 }),
-      "description": product.description,
-      "sku": product.id,
-      "brand": { "@type": "Brand", "name": "ПЕРУКИ ТУТ" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "UAH",
-        "price": product.variants[selectedVariant].price,
-        "availability": "https://schema.org/InStock",
-        "url": `https://peruki-tut.ua/product/${product.id}`
-      }
-    });
+  useEffect(() => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": product.name,
+        "image": getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 600, height: 900 }),
+        "description": product.description,
+        "sku": product.id,
+        "brand": { "@type": "Brand", "name": "ПЕРУКИ ТУТ" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "UAH",
+          "price": product.variants[selectedVariant].price,
+          "availability": "https://schema.org/InStock",
+          "url": `https://peruki-tut.ua/product/${product.id}`
+        }
+      });
     document.head.appendChild(script);
 
     return () => {
@@ -92,5 +92,5 @@ export default function ProductCard({ product }) {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};

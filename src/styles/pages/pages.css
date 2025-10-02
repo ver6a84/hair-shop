@@ -162,8 +162,16 @@
     justify-content: center;
     overflow: hidden;
     position: relative;
-    outline: none;
+    /* outline: none; */
 }
+
+.product-card-link:visited,
+.product-card-link:link,
+.product-card-link:active,
+.product-card-link:hover {
+  color: inherit; /* Or any other color you prefer */
+}
+
 .variant-thumbnail:hover:not(:disabled) {
     border-color: var(--primary-color);
     transform: scale(1.05);

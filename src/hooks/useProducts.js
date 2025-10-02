@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getProducts } from '@api/index';
 
-export function useProducts(filters = {}, delay = 2000) {
+export function useProducts(filters = {}) {
   const [products, setProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -13,9 +13,7 @@ export function useProducts(filters = {}, delay = 2000) {
         setLoading(true);
         setError(null);
 
-        await new Promise(resolve => setTimeout(resolve, delay));
-
-        const { items, totalPages } = getProducts(filters);
+        const { items, totalPages } = await getProducts(filters);
         setProducts(items);
         setTotalPages(totalPages);
       } catch (err) {
@@ -26,7 +24,7 @@ export function useProducts(filters = {}, delay = 2000) {
     };
 
     fetchProducts();
-  }, [filters.category, filters.type, filters.length, filters.color, filters.colorCategory, filters.page, delay]);
+  }, [filters.category, filters.type, filters.length, filters.color, filters.colorCategory, filters.page]);
 
   return { products, totalPages, loading, error };
 }
