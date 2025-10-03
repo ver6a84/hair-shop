@@ -6,40 +6,44 @@
     gap: var(--spacing-md);
     padding-block: var(--spacing-xl);
     }
-    .product-images{
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-md);
-      .main-image{
-      display: block; 
-      position: relative;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      .image-selector{
-        position: absolute;
-        top: 50%;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        transform: translateY(-50%);
-        .selector-btn{
-          background: rgba(200,200,200,0.3);
-          border-radius: var(--border-radius-sm);
-          fill: white;
-          cursor: pointer;
-          padding: var(--spacing-xs);
-        }
-        .selector-btn:hover{
-          fill: var(--primary-light);
-        }
-      }
-      @medIa (max-width:768px){
-        .image-selector{
-          display: none;
-        }
-      }
-        }
+  .product-images{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
     }
+.main-image{
+    position: relative;
+}
+  .main-image .slick-slider {
+  max-width: 500px;
+    }
+
+.main-image .slick-arrow{
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+}
+.main-image .slick-arrow::before{
+   color: red;
+   font-size: 40px;
+}
+.main-image .slick-prev {
+  left: 0;
+}
+.main-image .slick-next {
+  right: 0;
+}
+.main-image .slick-dots{
+  position: absolute;
+  bottom: 20px;
+}
+@media (max-width: 768px) {
+ .main-image .slick-arrow {
+    display: none !important;
+  }
+}
 .product-info h1 {
     color: var(--text-dark);
     margin-bottom: 1rem;
@@ -146,8 +150,8 @@
     padding: 2px;
     cursor: pointer;
     transition: all 0.2s ease;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,9 +206,6 @@
     .product-detail {
      flex-direction: row;
     gap: var(--spacing-xxl);
-    }
-    .product-images{
-      justify-content: space-between;
     }
 }
 

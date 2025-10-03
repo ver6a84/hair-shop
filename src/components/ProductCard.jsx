@@ -1,7 +1,8 @@
 import { getImageUrlByKey } from '@api/images';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.css';
+import { HAIR_TYPES_TRANSLATIONS } from '@/utils/constants';
 
 
 export default function ProductCard({ product }) {
@@ -46,6 +47,7 @@ export default function ProductCard({ product }) {
     <Link to={`/product/${product.id}`} className="product-card-link">
       <div className="product-card">
         <div className="product-image-container">
+          <div className="main-image-wrapper">  
           <img
             src={getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 400, height: 600, quality: 50 })}
             srcSet={`
@@ -59,6 +61,8 @@ export default function ProductCard({ product }) {
             loading="lazy"
             className="product-main-image"
           />
+          <div className='product-material'>{HAIR_TYPES_TRANSLATIONS[product.type]}</div>
+          </div>
           {product.variants.length > 1 && (
             <div className="product-variants">
               {product.variants.map((variant, index) => (

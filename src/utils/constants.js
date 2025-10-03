@@ -67,7 +67,7 @@ export const CATEGORIES_COLORS = {
 
 
 
-const HAIR_TYPES_TRANSLATIONS = {
+export const HAIR_TYPES_TRANSLATIONS = {
   [HAIR_TYPES.NATURAL]: 'Натуральний',
   [HAIR_TYPES.SYNTHETIC]: 'Синтетичний'
 };

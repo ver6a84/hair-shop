@@ -38,7 +38,7 @@ useEffect(() => {
           />
         </div>
           <div className="header-logo">
-          <img src="./logo.webp"/>
+         <img src="/logo.webp" alt="logo" />
           <div className="logo-text">
             <div className="store-name">ПЕРУКИ<br/>ТУТ</div>
             <span>MAГАЗИН ПЕРУК</span>

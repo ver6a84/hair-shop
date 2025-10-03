@@ -9,7 +9,7 @@ export default function Footer() {
       <div className='footer-container container p-3'>
         <div className='logo-social'>
            <div className="footer-logo">
-          <img src="./logo.webp"/>
+          <img src="/logo.webp" alt="logo" />
           <div className="logo-text">
             <div className="store-name">ПЕРУКИ<br/>ТУТ</div>
             <span>MAГАЗИН ПЕРУК</span>

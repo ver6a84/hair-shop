@@ -10,6 +10,7 @@ export default function HeroBanner() {
         alt="Hero"
         width={1920}
         height={1080}
+        loading='lazy'
       />
       <div className="greetings">
         <h1 className="greetings-title">Перуки<br/>т<span>у</span>т</h1>

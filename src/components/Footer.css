@@ -15,10 +15,9 @@
 }
 .footer-logo{
       display: flex;
-      align-items: center;
-      gap: var(--spacing-sm); 
+      align-items: center;; 
       img{
-        height: 40px;
+        height: 60px;
       }
       .logo-text{
         text-align: center;
@@ -63,6 +62,9 @@
   }
 }
 .feedback{
+  h3{
+       color: var(--text-light);
+  }
    background-color: rgba(253, 246, 236, 0.1);
     border-radius: var(--border-radius-sm);
     padding: var(--spacing-sm);

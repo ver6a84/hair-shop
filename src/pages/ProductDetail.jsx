@@ -7,33 +7,16 @@ import '@styles/pages/pages.css'
 import '@components/ProductCardSkeleton.css'
 import Icon from '@/components/icon'
 import Breadcrumb from '@/components/BreadCrumb'
-import { useSwipeable } from 'react-swipeable';
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-
-/**
- * ProductDetail Component
- * 
- * Usage patterns:
- * 1. URL-based: <ProductDetail /> - Fetches product by ID from URL params
- * 2. Prop-based: <ProductDetail product={productObject} /> - Uses passed product directly
- * 
- * The component automatically handles loading states, error states, and both usage patterns.
- */
 export default function ProductDetail({ product: passedProduct }) {
   const { id } = useParams()
   const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState(0)
   const [addToCartStatus, setAddToCartStatus] = useState(null) // 'success', 'error', null
  
-  const swipeHandlers = useSwipeable({
-  onSwipedLeft: () => 
-    setActiveImageIndex(i => (i + 1) % currentVariant.images.length),
-  onSwipedRight: () => 
-    setActiveImageIndex(i => (i - 1 + currentVariant.images.length) % currentVariant.images.length),
-  preventDefaultTouchmoveEvent: true,
-  trackMouse: false,
-});
-
   // Use passed product or fetch by ID
   const { product, loading, error } = useProduct(passedProduct, id);
   const { addToCart } = useCart();
@@ -156,12 +139,25 @@ export default function ProductDetail({ product: passedProduct }) {
   return (
     <div className="product-detail container">
       <div className="product-images">
-        <div className="main-image" {...swipeHandlers}>
-        <img 
-          src={getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 600, height: 900, quality: 80 })}
+        <div className="main-image" >
+    <Slider
+    key={selectedVariant} 
+    dots={true}
+    infinite={true}
+    speed={500}
+    slidesToShow={1}
+    slidesToScroll={1}
+    arrows={true}
+    afterChange={(index) => setActiveImageIndex(index)}
+    fade={true}
+  >
+    {currentVariant.images.map((imgKey, index) => (
+      <div key={`slide-${index}`}>
+        <img
+          src={getImageUrlByKey(imgKey, { width: 600, height: 900, quality: 80 })}
           srcSet={`
-            ${getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 320, height: 480, quality: 80 })} 320w,
-            ${getImageUrlByKey(currentVariant.images[activeImageIndex], { width: 600, height: 900, quality: 80 })} 600w
+            ${getImageUrlByKey(imgKey, { width: 320, height: 480, quality: 80 })} 320w,
+            ${getImageUrlByKey(imgKey, { width: 600, height: 900, quality: 80 })} 600w
           `}
           sizes="(max-width: 600px) 160px, 300px"
           width={600}
@@ -170,23 +166,10 @@ export default function ProductDetail({ product: passedProduct }) {
           style={{ width: "100%", height: "auto", maxWidth: "500px" }}
           loading="lazy"
         />
-        <div className="image-selector">
-          <Icon
-          onMouseDown={e => e.preventDefault()}
-        onClick={() => setActiveImageIndex(i => (i - 1 + currentVariant.images.length) % currentVariant.images.length)}
-        className="selector-btn"
-        name="arrow_left"
-        size={36}
-      />
-         <Icon
-         onMouseDown={e => e.preventDefault()}
-        onClick={() => setActiveImageIndex(i => (i + 1) % currentVariant.images.length)}
-        className="selector-btn"
-        name="arrow_right"
-        size={36}
-      />
-        </div>
-        </div>
+      </div>
+    ))}
+  </Slider>
+      </div>
         {product.variants.length > 1 && (
           <div className="variant-selector">
             {/* Visual variant thumbnails */}
@@ -200,7 +183,7 @@ export default function ProductDetail({ product: passedProduct }) {
                   title={`${getColorName(variant.color)} - ${variant.price} грн`}
                 >
                   <img
-                    src={getImageUrlByKey(variant.images[0], { width: 60, height: 60, quality: 50 })}
+                    src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 50 })}
                     alt={`${product.name} - ${getColorName(variant.color)}`}
                     loading="lazy"
                   />

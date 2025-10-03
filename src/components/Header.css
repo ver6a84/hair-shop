@@ -14,9 +14,8 @@ header {
     .header-logo{
       display: flex;
       align-items: center;
-      gap: var(--spacing-xs);
       img{
-        height: 40px;
+        height: 60px;
       }
       .logo-text{
         text-align: center;

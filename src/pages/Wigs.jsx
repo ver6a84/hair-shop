@@ -9,14 +9,25 @@ import Pagination from '@/components/Pagination';
 import Breadcrumb from '@/components/BreadCrumb';
 
 export default function Wigs() {
+  const [selectedType, setSelectedType] = useState(null);
   const [selectedLength, setselectedLength] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState(null);
 
   const { products, totalPages, loading, error } = useProducts({
   category: PRODUCT_CATEGORIES.WIGS,
   length: selectedLength,
-  page: currentPage
+  page: currentPage,
+  type: selectedType
   });
+  console.log(products)
+  const sortedProducts = sortOrder
+  ? products.slice().sort((a, b) => {
+      const priceA = Math.min(...a.variants.map(v => v.price));
+      const priceB = Math.min(...b.variants.map(v => v.price));
+      return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
+    })
+  : products;
 
 
   return (    
@@ -42,13 +53,20 @@ export default function Wigs() {
         
         <Breadcrumb categoryId={PRODUCT_CATEGORIES.WIGS} />
 
-        <Filters/>
+        <Filters 
+        sortOrder={sortOrder} 
+        setSortOrder={setSortOrder}
+        selectedType={selectedType}
+        setSelectedType={setSelectedType}
+        selectedLength={selectedLength}
+        setSelectedLength={setselectedLength}
+        />
       
       <div className="cards-grid">
         {loading && <ProductGridSkeleton count={4} />}
         {!loading && error && <p>Помилка завантаження: {error.message}</p>}
         {!loading && !error && !products.length && <p>Немає продуктів</p>}
-        {!loading && !error && products.length && products.map((product) => (
+        {!loading && !error && products.length && sortedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -56,7 +74,6 @@ export default function Wigs() {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
-
       />
     </div>
   )

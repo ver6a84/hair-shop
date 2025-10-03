@@ -2,24 +2,31 @@ import './Filters.css'
 import Icon from './icon'
 import { useState,useEffect } from 'react'
 
-export default function Filters() {
-	 const [isFiltersOpen, setIsFiltersOpen] = useState(false)
-	 const [isSortOpen, setIsSortOpen] = useState(false)
-	 const [isMaterialOpen, setIsMaterialOpen] = useState(false)
-		const [isPriceOpen, setIsPriceOpen] = useState(false)
-		const [isLengthOpen, setIsLengthOpen] = useState(false)
+export default function Filters({ 
+	setSortOrder, 
+	selectedType, 
+	setSelectedType, 
+	selectedLength, 
+	setSelectedLength }) {
+	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
+	const [isSortOpen, setIsSortOpen] = useState(false)
+	const [isMaterialOpen, setIsMaterialOpen] = useState(false)
+	const [isPriceOpen, setIsPriceOpen] = useState(false)
+	const [isLengthOpen, setIsLengthOpen] = useState(false)
 	
-  const showMenuFilters = () => {
-    setIsFiltersOpen(prev => !prev)
-    setIsSortOpen(false) 
-  }
+	const handleTypeClick = (type) => {
+  setSelectedType(prev => (prev === type ? null : type)); 
+	};
+
+	const handleLengthClick = (length) => {
+  setSelectedLength(prev => (prev === length ? null : length)); 
+	};
+
+	const showMenuFilters = () => setIsFiltersOpen(true)
 
 	const closeMenuFilters = () => setIsFiltersOpen(false) 
 
-  const toggleMenuSort = () => {
-    setIsSortOpen(prev => !prev)
-    setIsFiltersOpen(false) 
-  }
+  const toggleMenuSort = () => setIsSortOpen(!isSortOpen)
 	
 	 const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 
@@ -53,9 +60,21 @@ export default function Filters() {
 							<div className="material-list-btn" onClick={toggleMaterial}><Icon name="arrow_down"/></div>
 						</div>
 						<ul className={`material-list ${isMaterialOpen ? 'active' : ''}`}>
-							<li><input type="checkbox"/><span>Натуральне волосся</span></li>
-							<li><input type="checkbox"/><span>Tермоволокно</span></li>
-							<li><input type="checkbox"/><span>Синтетика</span></li>
+							<li>
+								<input 
+								type="checkbox"
+								checked={selectedType === 1}
+    						onChange={() => handleTypeClick(1)}
+								/>
+								<span>Натуральне волосся</span>
+								</li>
+							<li>
+								<input 
+								checked={selectedType === 2}
+    						onChange={() => handleTypeClick(2)}
+								type="checkbox"/>
+								<span>Синтетика</span>
+								</li>
 						</ul>
 					</div>
 					<div className="filter-price">
@@ -82,10 +101,38 @@ export default function Filters() {
 							<div className="length-list-btn" onClick={toggleLength}><Icon name="arrow_down"/></div>
 						</div>
 						<ul className={`length-list ${isLengthOpen ? 'active' : ''}`}>
-							<li><input type="checkbox"/><span>Довгі</span></li>
-							<li><input type="checkbox"/><span>Каре</span></li>
-							<li><input type="checkbox"/><span>Короткі</span></li>
+							<li>
+								<input 
+							type="checkbox"
+							checked={selectedLength === 3}
+							onChange={() => handleLengthClick(3)}
+							/>
+							<span>Довгі</span>
+							</li>
+								<li>
+									<input 
+							type="checkbox"
+							checked={selectedLength === 2}
+							onChange={() => handleLengthClick(2)}
+							/>
+							<span>Каре</span>
+							</li>
+							<li>
+								<input 
+							type="checkbox"
+							checked={selectedLength === 1}
+							onChange={() => handleLengthClick(1)}
+							/>
+								<span>Короткі</span>
+								</li>
 						</ul>
+					</div>
+					<div 
+					className="apply-btn"
+					onClick={() => {
+						setIsFiltersOpen(false)
+					}}
+					>Застосувати фільтри
 					</div>
 				</div>
 			</div>
@@ -96,8 +143,16 @@ export default function Filters() {
 			</div>
 			<div className={`sort-menu ${isSortOpen ? 'active' : ''}`}>
 					<ul>
-						<li>За зростання ціни</li>
-						<li>За спаданням ціни</li>
+						<li onClick={() => {
+						setSortOrder('asc')
+						setIsSortOpen(false)
+						}
+						}>За зростання ціни</li>
+						<li onClick={() => {
+							setSortOrder('desc')
+							setIsSortOpen(false)
+						}
+						}>За спаданням ціни</li>
 					</ul>
 				</div>
 		</div>

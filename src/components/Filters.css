@@ -56,10 +56,10 @@ ul{
 }
 .filter-menu{
 	display: none;
-	height: 100dvh;
+	height: 100%;
 	width: 100%;
 	position: fixed;
-	top: 0;
+	top: 50px;
 	left: 0;
 	z-index: 11;
 	background-color: var(--background-light);
@@ -172,7 +172,7 @@ ul{
 				}
 
 				button{
-					background: #222;
+					background: var(--background-dark);
 					padding: var(--spacing-sm);
 					border-radius: var(--border-radius-md);
 					color: #fff;
@@ -228,15 +228,26 @@ ul{
   		transform: translateY(0);
 }
 	}
+	.apply-btn{
+		align-self: center;
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: var(--text-light);
+		background: var(--background-dark);
+		padding: var(--spacing-sm);
+		border-radius: var(--border-radius-md);
+		cursor: pointer;
+}
 }
 .filter-menu.active{
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 }
 @media (min-width:768px){
-	.filter-menu{
-		width:25%
+	
+	.filter-menu.active{
+		width: 18%;
 	}
 }
