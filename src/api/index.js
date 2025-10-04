@@ -24,9 +24,15 @@ export const getProducts = async ({ category, type, length, color, colorCategory
   const data = await response.json();
   const products = data.products;
   const filtered = products
+
     .filter(product => !category || category === product.category)
     .filter(product => !type?.length || type.includes(product.type))
     .filter(product => !length?.length || length.includes(product.length))
+/*
+    .filter(product => !category || category == product.category)
+    .filter(product => !type || type === product.type)
+    .filter(product => !length || length === product.length)
+*/
     .filter(product => {
       if (!color && !colorCategory) return true;
 
@@ -52,5 +58,5 @@ export const getProduct = async (id) => {
   });
   const data = await response.json();
   const products = data.products;
-  return products.find(p => p.id === parseInt(id)) || null;
+  return products.find(p => p.id === id) || null;
 };
