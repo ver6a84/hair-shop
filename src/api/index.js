@@ -25,8 +25,8 @@ export const getProducts = async ({ category, type, length, color, colorCategory
   const products = data.products;
   const filtered = products
     .filter(product => !category || category === product.category)
-    .filter(product => !type || type === product.type)
-    .filter(product => !length || length === product.length)
+    .filter(product => !type?.length || type.includes(product.type))
+    .filter(product => !length?.length || length.includes(product.length))
     .filter(product => {
       if (!color && !colorCategory) return true;
 

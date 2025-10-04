@@ -3,32 +3,38 @@ import Icon from './icon'
 import { useState,useEffect } from 'react'
 
 export default function Filters({ 
-	setSortOrder, 
 	selectedType, 
 	setSelectedType, 
 	selectedLength, 
 	setSelectedLength }) {
 	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
-	const [isSortOpen, setIsSortOpen] = useState(false)
 	const [isMaterialOpen, setIsMaterialOpen] = useState(false)
 	const [isPriceOpen, setIsPriceOpen] = useState(false)
 	const [isLengthOpen, setIsLengthOpen] = useState(false)
 	
 	const handleTypeClick = (type) => {
-  setSelectedType(prev => (prev === type ? null : type)); 
-	};
+  setSelectedType(prev =>
+    prev.includes(type)
+      ? prev.filter(t => t !== type)
+      : [...prev, type]
+  );
+};
+
 
 	const handleLengthClick = (length) => {
-  setSelectedLength(prev => (prev === length ? null : length)); 
-	};
+  setSelectedLength(prev =>
+    prev.includes(length)
+      ? prev.filter(l => l !== length)
+      : [...prev, length]
+  );
+};
+
 
 	const showMenuFilters = () => setIsFiltersOpen(true)
 
 	const closeMenuFilters = () => setIsFiltersOpen(false) 
 
-  const toggleMenuSort = () => setIsSortOpen(!isSortOpen)
-	
-	 const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
+const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 
  const togglePrice = () => setIsPriceOpen(!isPriceOpen)
 
@@ -43,7 +49,6 @@ export default function Filters({
 }, [isFiltersOpen]);
 
 	return (
-		<div className="filters-wrapper">	
 			<div className="filters">
 				<div className="filters-btn-wrapper" onClick={showMenuFilters}>
 				<Icon name="filter"/>
@@ -51,7 +56,7 @@ export default function Filters({
 			</div>
 			<div className={`filter-menu ${isFiltersOpen ? 'active' : ''}`}>
 					<div className="filter-heading">
-						<h1>Фільтри</h1>
+						<h2>Фільтри</h2>
 						<div className="close-btn" onClick={closeMenuFilters}><Icon name="close"/></div>
 					</div>
 					<div className="filter-material">
@@ -63,14 +68,14 @@ export default function Filters({
 							<li>
 								<input 
 								type="checkbox"
-								checked={selectedType === 1}
+								checked={selectedType.includes(1)}
     						onChange={() => handleTypeClick(1)}
 								/>
 								<span>Натуральне волосся</span>
 								</li>
 							<li>
 								<input 
-								checked={selectedType === 2}
+								checked={selectedType.includes(2)}
     						onChange={() => handleTypeClick(2)}
 								type="checkbox"/>
 								<span>Синтетика</span>
@@ -83,15 +88,17 @@ export default function Filters({
 							<div className="price-options-btn" onClick={togglePrice}><Icon name="arrow_down"/></div>
 						</div>
 						<form className={`price-options ${isPriceOpen ? 'active' : ''}`}>
+							<div className="price-inputs">
 							<label className="min-price" htmlFor="min-price">
 							<input id="min-price"  type="text" />
 							<span className='at'>від</span>
 							</label>
-							<div></div>
+							<div className='price-separator'></div>
 							<label className="max-price" htmlFor="max-price">
 							<input id="max-price"  type="text"/>
 							<span className='to'>до</span>
 							</label>
+							</div>
 							<button>ОК</button>
 						</form>
 					</div>
@@ -104,7 +111,7 @@ export default function Filters({
 							<li>
 								<input 
 							type="checkbox"
-							checked={selectedLength === 3}
+							checked={selectedLength.includes(3)}
 							onChange={() => handleLengthClick(3)}
 							/>
 							<span>Довгі</span>
@@ -112,7 +119,7 @@ export default function Filters({
 								<li>
 									<input 
 							type="checkbox"
-							checked={selectedLength === 2}
+							checked={selectedLength.includes(2)}
 							onChange={() => handleLengthClick(2)}
 							/>
 							<span>Каре</span>
@@ -120,7 +127,7 @@ export default function Filters({
 							<li>
 								<input 
 							type="checkbox"
-							checked={selectedLength === 1}
+							checked={selectedLength.includes(1)}
 							onChange={() => handleLengthClick(1)}
 							/>
 								<span>Короткі</span>
@@ -136,27 +143,5 @@ export default function Filters({
 					</div>
 				</div>
 			</div>
-			<div className="sort">
-				<div className='sort-btn-wrapper' onClick={toggleMenuSort}>
-				<Icon name="filter"/>
-				<div className='sort-btn'>Сортувати</div>
-			</div>
-			<div className={`sort-menu ${isSortOpen ? 'active' : ''}`}>
-					<ul>
-						<li onClick={() => {
-						setSortOrder('asc')
-						setIsSortOpen(false)
-						}
-						}>За зростання ціни</li>
-						<li onClick={() => {
-							setSortOrder('desc')
-							setIsSortOpen(false)
-						}
-						}>За спаданням ціни</li>
-					</ul>
-				</div>
-		</div>
-			</div>
-			
 	)
 }

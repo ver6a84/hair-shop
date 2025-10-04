@@ -7,20 +7,21 @@ import '@/styles/pages/pages.css'
 import Filters from '@/components/Filters';
 import Pagination from '@/components/Pagination';
 import Breadcrumb from '@/components/BreadCrumb';
+import Sort from '@/components/Sort';
 
 export default function Wigs() {
-  const [selectedType, setSelectedType] = useState(null);
-  const [selectedLength, setselectedLength] = useState(null);
+  const [selectedType, setSelectedType] = useState([]);
+  const [selectedLength, setSelectedLength] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState(null);
 
   const { products, totalPages, loading, error } = useProducts({
   category: PRODUCT_CATEGORIES.WIGS,
-  length: selectedLength,
+  length: selectedLength.length,
   page: currentPage,
   type: selectedType
   });
-  console.log(products)
+
   const sortedProducts = sortOrder
   ? products.slice().sort((a, b) => {
       const priceA = Math.min(...a.variants.map(v => v.price));
@@ -36,32 +37,48 @@ export default function Wigs() {
 
       <div className="custom-filters">
        
-        {Object.values(HAIR_LENGTHS).map(length => (
-          <button 
-            key={length}
-            onClick={() => {
-              setselectedLength(length);
-              setCurrentPage(1);
-            }}
-            className={selectedLength === length ? 'selected' : ''}
+        {Object.values(HAIR_LENGTHS).map(length => {
+  const isSelected = selectedLength.includes(length);
+  return (
+    <button
+      key={length}
+      onClick={() => {
+        setSelectedLength(prev =>
+          isSelected
+            ? prev.filter(l => l !== length) 
+            : [...prev, length]             
+        );
+        setCurrentPage(1);
+      }}
+      className={isSelected ? 'selected' : ''}
+    >
+      {HAIR_LENGTHS_TRANSLATIONS[length]}
+    </button>
+  );
+})}
 
-          >
-            {HAIR_LENGTHS_TRANSLATIONS[length]}
-          </button>
-        ))}
+
       </div>
         
         <Breadcrumb categoryId={PRODUCT_CATEGORIES.WIGS} />
-
+     <div className="content-wrapper">
+       <div className="filters-wrapper">
         <Filters 
-        sortOrder={sortOrder} 
-        setSortOrder={setSortOrder}
         selectedType={selectedType}
         setSelectedType={setSelectedType}
         selectedLength={selectedLength}
-        setSelectedLength={setselectedLength}
+        setSelectedLength={setSelectedLength}
         />
-      
+      <Sort
+        sortOrder={sortOrder}
+        setSortOrder={setSortOrder}
+        />
+        </div>
+        <div className="cards-grid-wrapper">
+           <Sort
+        sortOrder={sortOrder}
+        setSortOrder={setSortOrder}
+        />
       <div className="cards-grid">
         {loading && <ProductGridSkeleton count={4} />}
         {!loading && error && <p>Помилка завантаження: {error.message}</p>}
@@ -70,6 +87,9 @@ export default function Wigs() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      </div>
+      </div>
+    
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
