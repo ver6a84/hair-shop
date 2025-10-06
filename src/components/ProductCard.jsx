@@ -1,12 +1,24 @@
 import { getImageUrlByKey } from '@api/images';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.css';
 import { HAIR_TYPES_TRANSLATIONS } from '@/utils/constants';
+import Icon from './icon';
 
 
 export default function ProductCard({ product }) {
   const [selectedVariant, setSelectedVariant] = useState(0);
+  const variantsRef = useRef(null);
+
+const scrollLeft = () => {
+  variantsRef.current?.scrollBy({ left: -85, behavior: 'smooth' });
+};
+
+const scrollRight = () => {
+  variantsRef.current?.scrollBy({ left: 85, behavior: 'smooth' });
+};
+
+
 
   useEffect(() => {
       const script = document.createElement('script');
@@ -44,9 +56,10 @@ export default function ProductCard({ product }) {
 
   return (
     
-    <Link to={`/product/${product.id}`} className="product-card-link">
+   
       <div className="product-card">
         <div className="product-image-container">
+           <Link to={`/product/${product.id}`} className="product-card-link">
           <div className="main-image-wrapper">  
           <img
             src={getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 400, height: 600, quality: 50 })}
@@ -63,8 +76,13 @@ export default function ProductCard({ product }) {
           />
           <div className='product-material'>{HAIR_TYPES_TRANSLATIONS[product.type]}</div>
           </div>
+          </Link>
           {product.variants.length > 1 && (
-            <div className="product-variants">
+            <div className="product-variants-wrapper">
+            <div 
+            className={`product-variants ${product.variants.length < 4 ? 'centered' : ''}`}
+
+            ref={variantsRef}>
               {product.variants.map((variant, index) => (
                 <button
                   key={index}
@@ -81,10 +99,24 @@ export default function ProductCard({ product }) {
                 </button>
               ))}
             </div>
+            {product.variants.length > 4 && (
+      <div className="variants-select-btn">
+        <div onClick={scrollLeft} className="btn-prev">
+          <Icon name="arrow_left" />
+        </div>
+        <div onClick={scrollRight} className="btn-next">
+          <Icon name="arrow_right" />
+        </div>
+      </div>
+    )}
+
+            </div>
           )}
         </div>
         <div className='product-card-content'>
+          <Link to={`/product/${product.id}`} className="product-card-link">
         <h3>{product.name}</h3>
+        </Link>
         <p className="product-description">{product.description}</p>
         <div className="promo">
           <p className="old-price">{product.variants[selectedVariant].old_price} грн</p>
@@ -95,6 +127,5 @@ export default function ProductCard({ product }) {
         <p className='product-price'>{product.variants[selectedVariant].price} грн</p>
         </div>
       </div>
-    </Link>
   );
 };

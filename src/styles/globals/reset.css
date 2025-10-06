@@ -24,8 +24,8 @@ body {
   min-height: 100dvh;
   font-family: system-ui, sans-serif;
   line-height: 1.5;
-  background-color: --background-light;
-  color: --text-dark;
+  background-color: var(--background-light);
+  color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

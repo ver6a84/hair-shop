@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import { getImageUrlByKey } from '@api/images'
 import { useProduct } from '@hooks/useProduct'
 import { useCart } from '@context/CartContext'
@@ -16,6 +16,15 @@ export default function ProductDetail({ product: passedProduct }) {
   const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState(0)
   const [addToCartStatus, setAddToCartStatus] = useState(null) // 'success', 'error', null
+  const variantsRef = useRef(null);
+  
+  const scrollLeft = () => {
+  variantsRef.current?.scrollBy({ left: -89, behavior: 'smooth' });
+};
+
+const scrollRight = () => {
+  variantsRef.current?.scrollBy({ left: 89, behavior: 'smooth' });
+};
  
   // Use passed product or fetch by ID
   const { product, loading, error } = useProduct(passedProduct, id);
@@ -163,7 +172,7 @@ export default function ProductDetail({ product: passedProduct }) {
           width={600}
           height={900}
           alt={product.name}
-          style={{ width: "100%", height: "auto", maxWidth: "500px" }}
+          style={{ width: "100%", height: "auto", maxWidth: "500px", borderRadius: "16px" }}
           loading="lazy"
         />
       </div>
@@ -171,25 +180,34 @@ export default function ProductDetail({ product: passedProduct }) {
   </Slider>
       </div>
         {product.variants.length > 1 && (
-          <div className="variant-selector">
-            {/* Visual variant thumbnails */}
-            <div className="variant-thumbnails">
+          <div className="variant-selector-wrapper">
+            <div className={`variant-thumbnails-product ${product.variants.length < 5 ? 'centered' :''}`} ref={variantsRef}>
               {product.variants.map((variant, index) => (
                 <button
                   key={`thumb-${variant.id}`}
-                  className={`variant-thumbnail ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
+                  className={`variant-thumbnail-product ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
                   onClick={() => setSelectedVariant(index)}
                   disabled={!variant.availability}
                   title={`${getColorName(variant.color)} - ${variant.price} грн`}
                 >
                   <img
-                    src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 50 })}
+                    src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 100 })}
                     alt={`${product.name} - ${getColorName(variant.color)}`}
                     loading="lazy"
                   />
                 </button>
               ))}
             </div>
+            {product.variants.length > 5 && (
+          <div className="variants-select-btn">
+            <div onClick={scrollLeft} className="btn-prev">
+            <Icon name="arrow_left"/>
+            </div>
+            <div onClick={scrollRight} className="btn-prev">
+            <Icon name="arrow_right"/>
+            </div>
+          </div>
+          )}
           </div>
         )}
       </div>
