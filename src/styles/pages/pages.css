@@ -13,7 +13,7 @@
     width: 100%;
     }
 .main-image{
-    position: relative;
+   width: 100%;
 }
   .main-image .slick-slider {
   max-width: 500px;
@@ -137,7 +137,6 @@
     color: var(--text-dark);
 }
 .variant-selector-wrapper{
-    
     width: 100%;
     position: relative;
     display: flex;
@@ -163,7 +162,6 @@
     overflow-x: auto;
     padding: var(--spacing-sm);
     scroll-behavior: smooth;
-    width: 100%;
     scrollbar-width: none;
 }
 .variant-thumbnails-product.centered{
@@ -179,11 +177,8 @@
     transition: all 0.2s ease;
     width: 85px;
     height: 85px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
-    position: relative;
+    z-index: 10;
 }
    @media (max-width:400px) {
         .variant-thumbnail-product{
