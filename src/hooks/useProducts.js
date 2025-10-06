@@ -24,7 +24,7 @@ export function useProducts(filters = {}) {
     };
 
     fetchProducts();
-  }, [JSON.stringify(filters)]);
+  }, [filters.category, filters.type, filters.length, filters.color, filters.colorCategory, filters.page]);
 
   return { products, totalPages, loading, error };
 }

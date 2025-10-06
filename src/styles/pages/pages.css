@@ -617,9 +617,6 @@
             display: block;
             align-self: flex-end;
         }
-        .filters{
-            margin-bottom: 0;
-        }
     }
 }
 }

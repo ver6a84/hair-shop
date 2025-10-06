@@ -17,7 +17,7 @@ export default function Wigs() {
 
   const { products, totalPages, loading, error } = useProducts({
   category: PRODUCT_CATEGORIES.WIGS,
-  length: selectedLength.length,
+  length: selectedLength,
   page: currentPage,
   type: selectedType
   });

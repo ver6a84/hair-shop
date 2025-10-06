@@ -30,9 +30,9 @@ const HAIR_TYPES = {
 };
 
  export const HAIR_LENGTHS = {
-  SHORT: 1,
-  MEDIUM: 2,
-  LONG: 3
+  SHORT: [0, 15],
+  MEDIUM: [15, 30],
+  LONG: [30, 50]
 };
 
 export const CATEGORIES_DESCRIPTION = {
