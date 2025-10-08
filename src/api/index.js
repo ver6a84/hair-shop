@@ -2,7 +2,7 @@ import { CATEGORIES_COLORS } from '@utils/constants';
 
 const baseUrl = 'https://api.perukytyt.com/v1';
 
-const itemsPerPage = 3;
+const itemsPerPage = 4;
 
 function getTotalPages(filtered) {
   return Math.ceil(filtered.length/itemsPerPage)

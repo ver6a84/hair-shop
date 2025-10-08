@@ -12,7 +12,7 @@ const bucketUrl = 'https://images.perukytyt.com/cdn-cgi/image'
  * @returns {string} Image URL
  */
 export const getImageUrlByKey = (
-  key,
+  imageObj,
   {
     width,
     height,
@@ -21,7 +21,9 @@ export const getImageUrlByKey = (
     format = 'webp'
   } = {}
 ) => {
-  let filters = [
+  if (!imageObj?.url) return ''
+
+  const filters = [
     width && `width=${width}`,
     height && `height=${height}`,
     blur && `blur=${blur}`,
@@ -29,5 +31,5 @@ export const getImageUrlByKey = (
     format && `format=${format}`
   ].filter(Boolean).join(',')
 
-  return `${bucketUrl}${filters ? `/${filters}` : ''}/${key}`
+  return `${bucketUrl}${filters ? `/${filters}` : ''}/${imageObj.url}`
 }
