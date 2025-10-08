@@ -126,15 +126,6 @@ const scrollRight = () => {
     }
   }
 
-  const getLengthName = (lengthId) => {
-    switch(lengthId) {
-      case 1: return 'Коротка'
-      case 2: return 'Середня'
-      case 3: return 'Довга'
-      default: return 'Невідомо'
-    }
-  }
-
   const getColorName = (colorId) => {
     switch(colorId) {
       case 1: return 'Чорний'
@@ -217,17 +208,17 @@ const scrollRight = () => {
         
         <h1>{product.name}</h1>
         <div className="promo">
-          <p className="old-price">{product.variants[selectedVariant].old_price} грн</p>
+          <p className="old-price">{product.variants[selectedVariant].price} грн</p>
           <p className="discount">
-            -{Math.round(((product.variants[selectedVariant].old_price - product.variants[selectedVariant].price) / product.variants[selectedVariant].old_price)*100)}%
+            {Math.round(((product.variants[selectedVariant].promo_price - product.variants[selectedVariant].price) / product.variants[selectedVariant].price)*100)}%
             </p>
           </div>
-        <p className="price">{currentVariant.price} грн</p>
+        <p className="price">{currentVariant.promo_price} грн</p>
         
         <div className="product-specs">
           <p><strong>Тип волосся:</strong> {getTypeName(product.type)}</p>
-          <p><strong>Довжина:</strong> {getLengthName(product.length)}</p>
-          <p><strong>Колір:</strong> {getColorName(currentVariant.color)}</p>
+          <p><strong>Довжина:</strong> {product.length}</p>
+          <p><strong>Колір:</strong> {currentVariant.color}</p>
           <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
         </div>
         

@@ -119,12 +119,12 @@ const scrollRight = () => {
         </Link>
         <p className="product-description">{product.description}</p>
         <div className="promo">
-          <p className="old-price">{product.variants[selectedVariant].old_price} грн</p>
+          <p className="old-price">{product.variants[selectedVariant].price} грн</p>
           <p className="discount">
-            -{Math.round(((product.variants[selectedVariant].old_price - product.variants[selectedVariant].price) / product.variants[selectedVariant].old_price)*100)}%
+            {Math.round(((product.variants[selectedVariant].promo_price - product.variants[selectedVariant].price) / product.variants[selectedVariant].price)*100)}%
             </p>
           </div>
-        <p className='product-price'>{product.variants[selectedVariant].price} грн</p>
+        <p className='product-price'>{product.variants[selectedVariant].promo_price} грн</p>
         </div>
       </div>
   );
