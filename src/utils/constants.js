@@ -100,3 +100,8 @@ export const ROUTES = {
   RETURN: '/return',
   CARE: '/care'
 }
+
+export const SERVICE_ID = 'service_j7qrtug';
+export const TEMPLATE_ID_CONTACT_US = 'template_suxpbsw';
+export const TEMPLATE_ID_ORDER = 'template_hs606rg';
+export const PUBLIC_KEY = 'b2mz7W1o1e4LwrwL3';

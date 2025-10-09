@@ -136,8 +136,8 @@
 
       @media (max-width:400px) {
     .variant-thumbnail{
-      width: 70px;
-      height: 70px;
+      width: 68px;
+      height: 68px;
     }
     }
   .product-variants::-webkit-scrollbar {
@@ -176,6 +176,10 @@
 @media (min-width:768px){
   .product-variants{
     width: 88%;
+  }
+  .product-main-image{
+    height: 515px;
+    overflow: hidden;
   }
 }
  

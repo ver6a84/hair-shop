@@ -94,6 +94,7 @@ const scrollRight = () => {
                   <img
                     src={getImageUrlByKey(variant.images[0], { width: 60, height: 60, quality: 100 })}
                     alt={`${product.name} variant ${index + 1}`}
+                    title={`${variant.color_display_name}`}
                     loading="lazy"
                   />
                 </button>

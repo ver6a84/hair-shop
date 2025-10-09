@@ -126,16 +126,6 @@ const scrollRight = () => {
     }
   }
 
-  const getColorName = (colorId) => {
-    switch(colorId) {
-      case 1: return 'Чорний'
-      case 2: return 'Коричневий'
-      case 3: return 'Блонд'
-      case 4: return 'Рудий'
-      default: return 'Невідомо'
-    }
-  }
-
   return (
     <div className="product-detail container">
       <div className="product-images">
@@ -179,11 +169,11 @@ const scrollRight = () => {
                   className={`variant-thumbnail-product ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
                   onClick={() => setSelectedVariant(index)}
                   disabled={!variant.availability}
-                  title={`${getColorName(variant.color)} - ${variant.price} грн`}
+                  title={`${variant.color_display_name}`}
                 >
                   <img
                     src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 100 })}
-                    alt={`${product.name} - ${getColorName(variant.color)}`}
+                    alt={`${product.name} - ${variant.color_display_name}`}
                     loading="lazy"
                   />
                 </button>
@@ -218,7 +208,7 @@ const scrollRight = () => {
         <div className="product-specs">
           <p><strong>Тип волосся:</strong> {getTypeName(product.type)}</p>
           <p><strong>Довжина:</strong> {product.length}</p>
-          <p><strong>Колір:</strong> {currentVariant.color}</p>
+          <p><strong>Колір:</strong> {currentVariant.color_display_name}</p>
           <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
         </div>
         
@@ -249,7 +239,7 @@ const scrollRight = () => {
         )}
         {addToCartStatus === 'error' && (
           <div className="add-to-cart-error">
-            ❌ Помилка при додаванні до кошика. Спробуйте ще раз.
+            ❌ Помилка при додаванні до кошика.<br/> Спробуйте ще раз.
           </div>
         )}
       </div>

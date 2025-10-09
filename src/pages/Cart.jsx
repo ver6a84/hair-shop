@@ -2,8 +2,11 @@ import { useCart } from '@context/CartContext'
 import { getImageUrlByKey } from '@api/images'
 import '@styles/pages/pages.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 import Icon from '@/components/icon'
+import { SERVICE_ID, TEMPLATE_ID_ORDER, PUBLIC_KEY } from '@/utils/constants';
+import emailjs from '@emailjs/browser';
+
 
 export default function Cart() {
   const {
@@ -12,8 +15,36 @@ export default function Cart() {
     itemCount,
     removeFromCart,
     updateQuantity,
+    clearCart,
   } = useCart()
   const [showModal, setShowModal] = useState(false)
+  const contactForm = useRef();
+  const [alert, setAlert] = useState(null);
+  const [isSending, setIsSending] = useState(false);
+  
+  const sendContactRequest = async (e) => {
+   e.preventDefault();
+  if (!contactForm.current || isSending) return;
+
+  setIsSending(true);
+  try {
+    await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID_ORDER, contactForm.current, PUBLIC_KEY);
+    setAlert({type: 'success', message: '✅ Запит на дзвінок надіслано!'});
+    contactForm.current.reset();
+     setTimeout(() => {
+    clearCart(); 
+    setAlert(null);       
+    setShowModal(false);           
+  }, 4000);
+  } catch {
+    setAlert({type: 'error', message: '❌ Помилка при надсиланні.'});
+    setTimeout(() => setAlert(null), 4000);
+  }finally {
+    setIsSending(false);
+  }
+  };
+
+
   return (
     <div className="cart-page container">
       <h1>Кошик</h1>
@@ -65,18 +96,48 @@ export default function Cart() {
                 <h2>Оформити замовлення</h2>
                 <Icon onClick={() => setShowModal(false)} className="close-btn" name="close"/>
                 </div>
-              <form autoComplete='on' className="contact-form">
-                <div>
+              <form 
+             ref={contactForm}
+            autoComplete="on"
+            className="contact-form"
+            onSubmit={sendContactRequest}
+            onKeyDown={(e) => {
+            if (e.key === 'Enter' && isSending) {
+            e.preventDefault();
+            }
+            }}
+            >
+                <div className='client-name'>
                   <label htmlFor="name" >Iм'я</label>
-                <input type="text" id='name' placeholder="Ваше ім'я" title="Введіть ваше ім'я" autoComplete='name' required/>
+                <input type="text" id='name' name="user_name" placeholder="Ваше ім'я" title="Введіть ваше ім'я" autoComplete='name'/>
                 </div>
-                <div>
+                <div className='client-phone'>
                   <label htmlFor="phone">Номер телефону</label>
-                <input type="tel" id='phone' placeholder='+380...' pattern="\+380\d{9}" title="Введіть номер у форматі +380XXXXXXXXX" autoComplete='tel' required/>
+                <input type="tel" id='phone' name="user_tel" placeholder='+380...' pattern="\+380\d{9}" title="Введіть номер у форматі +380XXXXXXXXX" autoComplete='tel'/>
                 </div>
-                <p>Менеджер передзвонить та допоможе оформити замовлення</p>
-                <button>Передзвонити мені</button>
+                <div className="contact-options-selector">або</div>
+                <div className='client-email'>
+                  <label htmlFor="email">Email</label>
+                <input type="email" id='email' name="user_email" placeholder='example@gmail.com' title="Введіть email у форматі example@gmail.com" autoComplete='email'/>
+                </div>
+                <p>Менеджер зв'яжеться з Вами та допоможе оформити замовлення</p>
+                <input
+                type="hidden"
+                name="cart_items"
+                value={cartItems.map(item => `${item.name} x${item.quantity}`).join(', ')}
+                />
+                <input
+                type="hidden"
+                name="cart_total"
+                value={`${total} грн`}
+                />
+              <button type='submit' disabled={isSending}>Передзвонити мені</button>
               </form>
+              {alert && (
+              <div className={`client-alert ${alert.type}`}>
+              {alert.message}
+              </div>
+              )}
             </div>
           )}
         </>
