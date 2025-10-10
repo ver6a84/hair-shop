@@ -2,7 +2,7 @@ import './Filters.css'
 import Icon from './icon'
 import { useState } from 'react'
 
-export default function Sort( setSortOrder ){
+export default function Sort( {setSortOrder} ){
 	const [isSortOpen, setIsSortOpen] = useState(false)
 	const toggleMenuSort = () => setIsSortOpen(!isSortOpen)
 	

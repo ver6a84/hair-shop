@@ -30,9 +30,9 @@ const HAIR_TYPES = {
 };
 
  export const HAIR_LENGTHS = {
-  SHORT: [0, 15],
-  MEDIUM: [15, 30],
-  LONG: [30, 50]
+  SHORT: [0, 19],
+  MEDIUM: [20, 29],
+  LONG: [30, 100]
 };
 
 export const CATEGORIES_DESCRIPTION = {
@@ -74,18 +74,9 @@ export const HAIR_TYPES_TRANSLATIONS = {
 
 
  export const HAIR_LENGTHS_TRANSLATIONS = {
-  [HAIR_LENGTHS.SHORT]: 'Короткий',
-  [HAIR_LENGTHS.MEDIUM]: 'Каре',
-  [HAIR_LENGTHS.LONG]: 'Довгий'
-};
-
-
-
-const COLORS_TRANSLATIONS = {
-  [COLORS.BLACK]: 'Чорний',
-  [COLORS.BROWN]: 'Коричневий',
-  [COLORS.BLONDE]: 'Блонд',
-  [COLORS.RED]: 'Рудий'
+  SHORT: 'Короткий',
+  MEDIUM: 'Каре',
+  LONG: 'Довгий'
 };
 
 // Routes

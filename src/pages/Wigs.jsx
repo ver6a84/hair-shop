@@ -1,4 +1,4 @@
-import { PRODUCT_CATEGORIES,HAIR_LENGTHS_TRANSLATIONS,HAIR_LENGTHS } from '@utils/constants';
+import { PRODUCT_CATEGORIES,HAIR_LENGTHS_TRANSLATIONS } from '@utils/constants';
 import ProductCard from '@components/ProductCard';
 import ProductGridSkeleton from '@components/ProductGridSkeleton';
 import { useProducts } from '@hooks/useProducts';
@@ -14,6 +14,7 @@ export default function Wigs() {
   const [selectedLength, setSelectedLength] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState(null);
+  
 
   const { products, totalPages, loading, error } = useProducts({
   category: PRODUCT_CATEGORIES.WIGS,
@@ -37,16 +38,17 @@ export default function Wigs() {
 
       <div className="custom-filters">
        
-        {Object.values(HAIR_LENGTHS).map(length => {
+        {['SHORT', 'MEDIUM', 'LONG'].map(length => {
   const isSelected = selectedLength.includes(length);
+
   return (
     <button
       key={length}
       onClick={() => {
         setSelectedLength(prev =>
           isSelected
-            ? prev.filter(l => l !== length) 
-            : [...prev, length]             
+            ? prev.filter(l => l !== length)
+            : [...prev, length]
         );
         setCurrentPage(1);
       }}
@@ -56,9 +58,7 @@ export default function Wigs() {
     </button>
   );
 })}
-
-
-      </div>
+</div>
         
         <Breadcrumb categoryId={PRODUCT_CATEGORIES.WIGS} />
      <div className="content-wrapper">

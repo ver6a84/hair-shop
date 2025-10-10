@@ -111,24 +111,24 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 							<li>
 								<input 
 							type="checkbox"
-							checked={selectedLength.includes(3)}
-							onChange={() => handleLengthClick(3)}
+							checked={selectedLength.includes('LONG')}
+							onChange={() => handleLengthClick('LONG')}
 							/>
 							<span>Довгі</span>
 							</li>
 								<li>
 									<input 
 							type="checkbox"
-							checked={selectedLength.includes(2)}
-							onChange={() => handleLengthClick(2)}
+							checked={selectedLength.includes('MEDIUM')}
+							onChange={() => handleLengthClick('MEDIUM')}
 							/>
 							<span>Каре</span>
 							</li>
 							<li>
 								<input 
 							type="checkbox"
-							checked={selectedLength.includes(1)}
-							onChange={() => handleLengthClick(1)}
+							checked={selectedLength.includes('SHORT')}
+							onChange={() => handleLengthClick('SHORT')}
 							/>
 								<span>Короткі</span>
 								</li>

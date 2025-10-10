@@ -1,4 +1,4 @@
-import { PRODUCT_CATEGORIES,COLOR_CATEGORIES_TRANSLATIONS,COLOR_CATEGORIES } from '@utils/constants';
+import { PRODUCT_CATEGORIES } from '@utils/constants';
 import ProductCard from '@components/ProductCard';
 import ProductGridSkeleton from '@components/ProductGridSkeleton';
 import { useProducts } from '@hooks/useProducts';
@@ -9,11 +9,9 @@ import Breadcrumb from '@/components/BreadCrumb';
 
 
 export default function Tails() {
-  const [selectedColorCategory, setSelectedColorCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1)
   const { products, totalPages, loading, error } = useProducts({
     category: PRODUCT_CATEGORIES.TAILS,
-    colorCategory: selectedColorCategory,
     page: currentPage
   });
 
@@ -21,24 +19,6 @@ export default function Tails() {
   return (
     <div className="category-page container">
       <h1>Хвостики</h1>
-
-      <div className="custom-filters">
-           
- {Object.values(COLOR_CATEGORIES).map((colorCategory) => (
-  <button
-    key={colorCategory}
-    onClick={() => {
-      setSelectedColorCategory(colorCategory)
-      setCurrentPage(1);
-    }
-    }
-    className={selectedColorCategory === colorCategory ? 'active' : ''}
-  >
-    {COLOR_CATEGORIES_TRANSLATIONS[colorCategory]}
-  </button>
-))}
-      
-      </div>
 
       <Breadcrumb categoryId={PRODUCT_CATEGORIES.TAILS} />
 

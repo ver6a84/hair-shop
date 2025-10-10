@@ -1,4 +1,4 @@
-import { CATEGORIES_COLORS } from '@utils/constants';
+import { HAIR_LENGTHS } from '@utils/constants';
 
 const baseUrl = 'https://api.perukytyt.com/v1';
 
@@ -14,7 +14,18 @@ function getPage(filtered, pageNumber) {
   return filtered.slice(start, start + itemsPerPage);
 }
 
-export const getProducts = async ({ category, type, length, color, colorCategory, page = 1 }) => {
+function getHairLengthCategory(lengthValue) {
+  const numericLength = Number(lengthValue); 
+  for (const key in HAIR_LENGTHS) {
+    const [min, max] = HAIR_LENGTHS[key];
+    if (numericLength >= min && numericLength <= max) {
+      return key;
+    }
+  }
+  return null;
+}
+
+export const getProducts = async ({ category, type, length, page = 1 }) => {
   const response = await fetch(`${baseUrl}/products`, {
     method: 'GET',
     headers: {
@@ -27,18 +38,12 @@ export const getProducts = async ({ category, type, length, color, colorCategory
 
     .filter(product => !category || category === product.category)
     .filter(product => !type?.length || type.includes(product.type))
-    .filter(product => !length?.length || length.includes(product.length))
     .filter(product => {
-      if (!color && !colorCategory) return true;
-
-      const allowedColors = colorCategory
-        ? CATEGORIES_COLORS[colorCategory]
-        : [color];
-
-      return product.variants.some(variant => allowedColors.includes(variant.color));
-    });
- 
-    return {
+      if (!length?.length) return true;
+      const category = getHairLengthCategory(product.length);
+      return length.includes(category);
+    })
+     return {
     items: getPage(filtered, page),
     totalPages: getTotalPages(filtered),
   };
