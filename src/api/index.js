@@ -25,7 +25,7 @@ function getHairLengthCategory(lengthValue) {
   return null;
 }
 
-export const getProducts = async ({ category, type, length, page = 1 }) => {
+export const getProducts = async ({ category, type, length, minPrice, maxPrice, page = 1 }) => {
   const response = await fetch(`${baseUrl}/products`, {
     method: 'GET',
     headers: {
@@ -42,6 +42,12 @@ export const getProducts = async ({ category, type, length, page = 1 }) => {
       if (!length?.length) return true;
       const category = getHairLengthCategory(product.length);
       return length.includes(category);
+    })
+    .filter(product => {
+      const prices = product.variants.map(v => Number(v.price));
+      const min = Math.min(...prices);
+      return (!minPrice || min >= Number(minPrice)) &&
+            (!maxPrice || min <= Number(maxPrice));
     })
      return {
     items: getPage(filtered, page),

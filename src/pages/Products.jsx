@@ -4,6 +4,7 @@ import CategoriesCard from '@components/CategoriesCard'
 import '@styles/pages/pages.css'
 import { CATEGORIES_TRANSLATIONS, PRODUCT_CATEGORIES } from '@utils/constants'
 import Breadcrumb from '@/components/BreadCrumb'
+import Reviews from '@/components/Reviews'
 
 export default function Products() {
   return (
@@ -15,6 +16,7 @@ export default function Products() {
           <CategoriesCard key={item} categoryId={item}/>
         ))}
       </div>
+        <Reviews/>
     </div>
   )
 }

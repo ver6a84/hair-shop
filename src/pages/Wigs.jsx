@@ -14,13 +14,18 @@ export default function Wigs() {
   const [selectedLength, setSelectedLength] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState(null);
-  
+  const [minPrice, setMinPrice] = useState(null);
+  const [maxPrice, setMaxPrice] = useState(null);
+
+
 
   const { products, totalPages, loading, error } = useProducts({
   category: PRODUCT_CATEGORIES.WIGS,
   length: selectedLength,
   page: currentPage,
-  type: selectedType
+  type: selectedType,
+  minPrice,
+  maxPrice
   });
 
   const sortedProducts = sortOrder
@@ -68,6 +73,11 @@ export default function Wigs() {
         setSelectedType={setSelectedType}
         selectedLength={selectedLength}
         setSelectedLength={setSelectedLength}
+        minPrice = {minPrice}
+        setMinPrice = {setMinPrice}
+        maxPrice = {maxPrice}
+        setMaxPrice = {setMaxPrice}
+        setCurrentPage={setCurrentPage}
         />
       <Sort
         sortOrder={sortOrder}
@@ -78,6 +88,7 @@ export default function Wigs() {
            <Sort
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
+        setCurrentPage={setCurrentPage}
         />
       <div className="cards-grid">
         {loading && <ProductGridSkeleton count={4} />}

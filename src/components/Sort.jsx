@@ -16,11 +16,13 @@ return(
 					<ul>
 						<li onClick={() => {
 						setSortOrder('asc')
+						setCurrentPage(1)
 						setIsSortOpen(false)
 						}
 						}>За зростанням ціни</li>
 						<li onClick={() => {
 							setSortOrder('desc')
+							setCurrentPage(1)
 							setIsSortOpen(false)
 						}
 						}>За спаданням ціни</li>

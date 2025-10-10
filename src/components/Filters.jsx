@@ -6,11 +6,21 @@ export default function Filters({
 	selectedType, 
 	setSelectedType, 
 	selectedLength, 
-	setSelectedLength }) {
+	setSelectedLength,
+	minPrice,
+  setMinPrice,
+  maxPrice,
+  setMaxPrice,
+  setCurrentPage
+}) {
 	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
 	const [isMaterialOpen, setIsMaterialOpen] = useState(false)
 	const [isPriceOpen, setIsPriceOpen] = useState(false)
 	const [isLengthOpen, setIsLengthOpen] = useState(false)
+	const [localMinPrice, setLocalMinPrice] = useState('');
+	const [localMaxPrice, setLocalMaxPrice] = useState('');
+
+
 	
 	const handleTypeClick = (type) => {
   setSelectedType(prev =>
@@ -48,6 +58,13 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
   }
 }, [isFiltersOpen]);
 
+useEffect(() => {
+  if (isPriceOpen) {
+    setLocalMinPrice(minPrice ?? '');
+    setLocalMaxPrice(maxPrice ?? '');
+  }
+}, [isPriceOpen]);
+
 	return (
 			<div className="filters">
 				<div className="filters-btn-wrapper" onClick={showMenuFilters}>
@@ -69,14 +86,20 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 								<input 
 								type="checkbox"
 								checked={selectedType.includes(1)}
-    						onChange={() => handleTypeClick(1)}
+    						onChange={() => {
+									handleTypeClick(1)
+									setCurrentPage(1)
+								}}
 								/>
 								<span>Натуральне волосся</span>
 								</li>
 							<li>
 								<input 
 								checked={selectedType.includes(2)}
-    						onChange={() => handleTypeClick(2)}
+    							onChange={() => {
+									handleTypeClick(2)
+									setCurrentPage(2)
+								}}
 								type="checkbox"/>
 								<span>Синтетика</span>
 								</li>
@@ -87,19 +110,41 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 							<h2>Ціна</h2>
 							<div className="price-options-btn" onClick={togglePrice}><Icon name="arrow_down"/></div>
 						</div>
-						<form className={`price-options ${isPriceOpen ? 'active' : ''}`}>
-							<div className="price-inputs">
+						<form
+  						className={`price-options ${isPriceOpen ? 'active' : ''}`}
+  						onSubmit={(e) => {
+  							e.preventDefault();
+  						const min = localMinPrice.trim() !== '' ? Number(localMinPrice) : null;
+							const max = localMaxPrice.trim() !== '' ? Number(localMaxPrice) : null;
+								setMinPrice(min);
+  							setMaxPrice(max);
+  							setCurrentPage(1);
+							}}
+							>	
+						<div className="price-inputs">
 							<label className="min-price" htmlFor="min-price">
-							<input id="min-price"  type="text" />
+							<input 
+							id="min-price" 
+							step='1' 
+							type="number" 
+							value={localMinPrice}
+  						onChange={(e) => setLocalMinPrice(e.target.value)}
+							/>
 							<span className='at'>від</span>
 							</label>
 							<div className='price-separator'></div>
 							<label className="max-price" htmlFor="max-price">
-							<input id="max-price"  type="text"/>
+							<input 
+							id="max-price"
+							step='1'   
+							type="number"
+							value={localMaxPrice}
+  						onChange={(e) => setLocalMaxPrice(e.target.value)}
+							/>
 							<span className='to'>до</span>
 							</label>
 							</div>
-							<button>ОК</button>
+							<button type='submit'>ОК</button>
 						</form>
 					</div>
 					<div className="filter-length">
@@ -112,7 +157,10 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 								<input 
 							type="checkbox"
 							checked={selectedLength.includes('LONG')}
-							onChange={() => handleLengthClick('LONG')}
+								onChange={() => {
+									handleLengthClick('LONG')
+									setCurrentPage(1)
+								}}
 							/>
 							<span>Довгі</span>
 							</li>
@@ -120,7 +168,10 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 									<input 
 							type="checkbox"
 							checked={selectedLength.includes('MEDIUM')}
-							onChange={() => handleLengthClick('MEDIUM')}
+								onChange={() => {
+									handleLengthClick('MEDIUM')
+									setCurrentPage(1)
+								}}
 							/>
 							<span>Каре</span>
 							</li>
@@ -128,7 +179,10 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 								<input 
 							type="checkbox"
 							checked={selectedLength.includes('SHORT')}
-							onChange={() => handleLengthClick('SHORT')}
+								onChange={() => {
+									handleLengthClick('SHORT')
+									setCurrentPage(1)
+								}}
 							/>
 								<span>Короткі</span>
 								</li>
