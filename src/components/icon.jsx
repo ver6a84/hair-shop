@@ -18,6 +18,7 @@ import Filter from '../assets/icons/filter.svg?react'
 import ArrowDown from '../assets/icons/arrow-down.svg?react'
 import ArrowLeft from '../assets/icons/left.svg?react'
 import ArrowRight from '../assets/icons/right.svg?react'
+import Plus from '../assets/icons/plus.svg?react'
 
 const Icons = {
   burger: Burger,
@@ -40,6 +41,7 @@ const Icons = {
   arrow_down: ArrowDown,
   arrow_left: ArrowLeft,
   arrow_right: ArrowRight,
+  plus: Plus,
 };
 
 export default function Icon({ name, size = 24, ...props }) {

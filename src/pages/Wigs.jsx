@@ -82,6 +82,7 @@ export default function Wigs() {
       <Sort
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
+        setCurrentPage={setCurrentPage}
         />
         </div>
         <div className="cards-grid-wrapper">

@@ -237,9 +237,9 @@
 
 
 @media (min-width: 768px) {
-    .product-detail {
-     flex-direction: row;
-    gap: var(--spacing-xxl);
+    .product-content {
+        display: flex;
+        gap: var(--spacing-xxl);
     }
     .product-images{
         width: 500px;

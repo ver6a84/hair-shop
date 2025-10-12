@@ -1,6 +1,6 @@
 import { HAIR_LENGTHS } from '@utils/constants';
 
-const baseUrl = 'https://api.perukytyt.com/v1';
+export const baseUrl = 'https://api.perukytyt.com/v1';
 
 const itemsPerPage = 4;
 
@@ -44,11 +44,22 @@ export const getProducts = async ({ category, type, length, minPrice, maxPrice, 
       return length.includes(category);
     })
     .filter(product => {
-      const prices = product.variants.map(v => Number(v.price));
-      const min = Math.min(...prices);
-      return (!minPrice || min >= Number(minPrice)) &&
-            (!maxPrice || min <= Number(maxPrice));
-    })
+    const prices = product.variants
+      .map(v => Number(v.promo_price))
+      .filter(p => !isNaN(p));
+    
+    const minVariantPrice = Math.min(...prices);
+   
+    const hasMin = typeof minPrice === 'number' && !isNaN(minPrice);
+    const hasMax = typeof maxPrice === 'number' && !isNaN(maxPrice);
+
+    if (!hasMin && !hasMax) return true; // або false, якщо хочеш показувати тільки при заданих межах
+
+    return (
+      (!hasMin || minVariantPrice >= minPrice) &&
+      (!hasMax || minVariantPrice <= maxPrice)
+    );
+  });
      return {
     items: getPage(filtered, page),
     totalPages: getTotalPages(filtered),

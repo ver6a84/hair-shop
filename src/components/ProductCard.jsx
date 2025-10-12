@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './ProductCard.css';
 import { HAIR_TYPES_TRANSLATIONS } from '@/utils/constants';
 import Icon from './icon';
-
+import Rating from './Rating';
 
 export default function ProductCard({ product }) {
   const [selectedVariant, setSelectedVariant] = useState(0);
@@ -110,13 +110,15 @@ const scrollRight = () => {
         </div>
       </div>
     )}
-
-            </div>
+      </div>
           )}
         </div>
         <div className='product-card-content'>
           <Link to={`/product/${product.id}`} className="product-card-link">
         <h3>{product.name}</h3>
+        </Link>
+        <Link to={`/product/${product.id}`} state={{ scrollTo: 'reviews' }} className='product-card-link'>
+        <Rating product_id={product.id}/>
         </Link>
         <p className="product-description">{product.description}</p>
         <div className="promo">

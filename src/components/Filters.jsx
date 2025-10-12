@@ -39,6 +39,15 @@ export default function Filters({
   );
 };
 
+const applyPriceFilter = () => {
+  const min = localMinPrice.trim() !== '' ? Number(localMinPrice) : null;
+  const max = localMaxPrice.trim() !== '' ? Number(localMaxPrice) : null;
+
+  setMinPrice(min);
+  setMaxPrice(max);
+  setCurrentPage(1);
+};
+
 
 	const showMenuFilters = () => setIsFiltersOpen(true)
 
@@ -60,10 +69,11 @@ const toggleMaterial = () => setIsMaterialOpen(!isMaterialOpen)
 
 useEffect(() => {
   if (isPriceOpen) {
-    setLocalMinPrice(minPrice ?? '');
-    setLocalMaxPrice(maxPrice ?? '');
+    setLocalMinPrice('');
+    setLocalMaxPrice('');
   }
 }, [isPriceOpen]);
+
 
 	return (
 			<div className="filters">
@@ -110,22 +120,12 @@ useEffect(() => {
 							<h2>Ціна</h2>
 							<div className="price-options-btn" onClick={togglePrice}><Icon name="arrow_down"/></div>
 						</div>
-						<form
-  						className={`price-options ${isPriceOpen ? 'active' : ''}`}
-  						onSubmit={(e) => {
-  							e.preventDefault();
-  						const min = localMinPrice.trim() !== '' ? Number(localMinPrice) : null;
-							const max = localMaxPrice.trim() !== '' ? Number(localMaxPrice) : null;
-								setMinPrice(min);
-  							setMaxPrice(max);
-  							setCurrentPage(1);
-							}}
-							>	
+						<form className={`price-options ${isPriceOpen ? 'active' : ''}`}>	
 						<div className="price-inputs">
 							<label className="min-price" htmlFor="min-price">
 							<input 
 							id="min-price" 
-							step='1' 
+							step='100' 
 							type="number" 
 							value={localMinPrice}
   						onChange={(e) => setLocalMinPrice(e.target.value)}
@@ -136,7 +136,7 @@ useEffect(() => {
 							<label className="max-price" htmlFor="max-price">
 							<input 
 							id="max-price"
-							step='1'   
+							step='100'   
 							type="number"
 							value={localMaxPrice}
   						onChange={(e) => setLocalMaxPrice(e.target.value)}
@@ -144,7 +144,7 @@ useEffect(() => {
 							<span className='to'>до</span>
 							</label>
 							</div>
-							<button type='submit'>ОК</button>
+							<button type="button" onClick={applyPriceFilter}>ОК</button>
 						</form>
 					</div>
 					<div className="filter-length">

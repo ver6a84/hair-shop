@@ -10,6 +10,9 @@ import Breadcrumb from '@/components/BreadCrumb'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Reviews from '@/components/Reviews'
+import Rating from '@/components/Rating'
+import { HAIR_TYPES_TRANSLATIONS } from '@/utils/constants';
 
 export default function ProductDetail({ product: passedProduct }) {
   const { id } = useParams()
@@ -95,7 +98,7 @@ const scrollRight = () => {
       
       // Prepare product data for cart
       const productData = {
-        productId: product.id,
+        product_id: product.id,
         variantId: currentVariant.id,
         name: product.name,
         price: currentVariant.price,
@@ -117,17 +120,10 @@ const scrollRight = () => {
       setTimeout(() => setAddToCartStatus(null), 5000)
     }
   }
-
-  const getTypeName = (typeId) => {
-    switch(typeId) {
-      case 1: return 'Натуральне волосся'
-      case 2: return 'Синтетичне волосся'
-      default: return 'Невідомо'
-    }
-  }
-
+  
   return (
     <div className="product-detail container">
+      <div className="product-content">
       <div className="product-images">
         <div className="main-image" >
     <Slider
@@ -197,6 +193,9 @@ const scrollRight = () => {
         <Breadcrumb categoryId={product.category} productName={product.name} />
         
         <h1>{product.name}</h1>
+
+        <a href="#reviews"><Rating product_id={product.id}/></a>
+
         <div className="promo">
           <p className="old-price">{product.variants[selectedVariant].price} грн</p>
           <p className="discount">
@@ -206,7 +205,7 @@ const scrollRight = () => {
         <p className="price">{currentVariant.promo_price} грн</p>
         
         <div className="product-specs">
-          <p><strong>Тип волосся:</strong> {getTypeName(product.type)}</p>
+          <p><strong>Тип волосся:</strong> {HAIR_TYPES_TRANSLATIONS[product.type]}</p>
           <p><strong>Довжина:</strong> {product.length}</p>
           <p><strong>Колір:</strong> {currentVariant.color_display_name}</p>
           <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
@@ -243,6 +242,8 @@ const scrollRight = () => {
           </div>
         )}
       </div>
+      </div>
+      <Reviews product_id={product.id}/>
   </div>
   )
 }

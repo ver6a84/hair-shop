@@ -272,11 +272,15 @@ ul{
 		.apply-btn{
 			display: none;
 		}
+			.price-options {
+		button{
+		height: 40px;
+		}
+}
 	}
 	.filters-btn-wrapper{
 		display: none;
 	}
-	
 }
 }
 

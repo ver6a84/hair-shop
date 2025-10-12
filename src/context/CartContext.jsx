@@ -15,10 +15,10 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useLocalStorage('cart', [])
 
   const addToCart = (productData) => {
-    const { productId, variantId, name, price, image, description, quantity = 1 } = productData
+    const { product_id, variantId, name, price, image, description, quantity = 1 } = productData
     
     // Create unique cart item ID
-    const cartItemId = `${productId}-${variantId}`
+    const cartItemId = `${product_id}-${variantId}`
     
     // Check if item already exists in cart
     const existingItemIndex = cartItems.findIndex(item => item.id === cartItemId)
@@ -32,7 +32,7 @@ export function CartProvider({ children }) {
       // Add new item
       const newItem = {
         id: cartItemId,
-        productId,
+        product_id,
         variantId,
         name,
         price,

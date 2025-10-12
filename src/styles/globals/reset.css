@@ -51,7 +51,7 @@ input, button, textarea, select {
 input,textarea{
   border: 2px solid #666666;
   border-radius: var( --border-radius-md);
-  padding: var(--spacing-sm);
+  padding:var(--spacing-xs) var(--spacing-sm);
 }
 
 /* Buttons */
