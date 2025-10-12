@@ -100,10 +100,10 @@ const scrollRight = () => {
       const productData = {
         product_id: product.id,
         variantId: currentVariant.id,
-        name: product.name,
-        price: currentVariant.price,
+        name: product.display_name,
+        price: currentVariant.promo_price,
         image: currentVariant.images[0],
-        description: product.description,
+        article: product.article,
         quantity: quantity
       }
       
@@ -190,10 +190,10 @@ const scrollRight = () => {
       </div>
       
       <div className="product-info">
-        <Breadcrumb categoryId={product.category} productName={product.name} />
-        
-        <h1>{product.name}</h1>
-
+        <div className="characteristic">
+        <Breadcrumb categoryId={product.category} productName={product.display_name} />
+        <h2>{product.display_name}</h2>
+        <p className='article'>Артикул: {product.article}</p>
         <a href="#reviews"><Rating product_id={product.id}/></a>
 
         <div className="promo">
@@ -210,18 +210,17 @@ const scrollRight = () => {
           <p><strong>Колір:</strong> {currentVariant.color_display_name}</p>
           <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
         </div>
-        
         <p className="description">{product.description}</p>
-        
+        </div>
+        <div className="cart-options">
         <div className="quantity-selector">
           <label>Кількість:</label>
           <div className="quantity-controls">
-            <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+            <button onClick={() => setQuantity(Math.max(1, quantity - 1))}><Icon className="btn-icon" name="minus" size={12}/></button>
             <span>{quantity}</span>
-            <button onClick={() => setQuantity(quantity + 1)}>+</button>
+            <button onClick={() => setQuantity(quantity + 1)}><Icon className="btn-icon" name="plus" size={12}/></button>
           </div>
         </div>
-        
         <button 
           className="add-to-cart-btn"
           onClick={handleAddToCart}
@@ -229,7 +228,7 @@ const scrollRight = () => {
         >
           {currentVariant.availability ? 'Додати в кошик' : 'Немає в наявності'}
         </button>
-        
+        </div>
         {/* Add to cart status messages */}
         {addToCartStatus === 'success' && (
           <div className="add-to-cart-success">

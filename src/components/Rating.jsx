@@ -39,7 +39,7 @@ export default function Rating({ product_id }) {
       </div>
       </div>
       <div className="reviews-count">
-      {rating.count} {
+      {rating.count}{
     rating.count % 10 === 1 && rating.count % 100 !== 11
       ? 'відгук'
       : rating.count % 10 >= 2 && rating.count % 10 <= 4 &&

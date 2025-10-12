@@ -15,7 +15,7 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useLocalStorage('cart', [])
 
   const addToCart = (productData) => {
-    const { product_id, variantId, name, price, image, description, quantity = 1 } = productData
+    const { product_id, variantId, name, price, image, article, quantity = 1 } = productData
     
     // Create unique cart item ID
     const cartItemId = `${product_id}-${variantId}`
@@ -37,7 +37,7 @@ export function CartProvider({ children }) {
         name,
         price,
         image,
-        description,
+        article,
         quantity
       }
       setCartItems([...cartItems, newItem])

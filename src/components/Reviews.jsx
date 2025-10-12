@@ -67,10 +67,6 @@ useEffect(() => {
 	setCurrentPage(1);
 }, [product_id])
 
-useEffect(() => {
-  reviewsRef.current?.scrollIntoView({ behavior: 'smooth' });
-}, [currentPage]);
-
   const handleAddReview = async () => {
   if (!newRating) {
     setIsAlertMessage('Будь ласка, оберіть рейтинг')

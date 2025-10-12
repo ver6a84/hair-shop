@@ -114,13 +114,12 @@ const scrollRight = () => {
           )}
         </div>
         <div className='product-card-content'>
-          <Link to={`/product/${product.id}`} className="product-card-link">
-        <h3>{product.name}</h3>
-        </Link>
-        <Link to={`/product/${product.id}`} state={{ scrollTo: 'reviews' }} className='product-card-link'>
+          <Link to={`/product/${product.id}`} state={{ scrollTo: 'reviews' }} className='product-card-link'>
         <Rating product_id={product.id}/>
         </Link>
-        <p className="product-description">{product.description}</p>
+          <Link to={`/product/${product.id}`} className="product-card-link">
+        <h3>{product.display_name}</h3>
+        </Link>
         <div className="promo">
           <p className="old-price">{product.variants[selectedVariant].price} грн</p>
           <p className="discount">

@@ -64,10 +64,8 @@ export default function Cart() {
                 </Link>
                 <div className="item-info">
                   <h3>{item.name}</h3>
+                  <h4>Артикул: {item.article}</h4>
                   <p className="price">{item.price} грн</p>
-                  {item.description && (
-                    <p className="description">{item.description}</p>
-                  )}
                 </div>
                 
                 <div className="quantity-controls">
