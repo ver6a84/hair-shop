@@ -107,13 +107,13 @@ export default function CategoryPage() {
           </div>
         </div>
       </div>
-    {sortedProducts.length > 0 && sortedProducts.length >= itemsPerPage && (
+    
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
       />
-      )}
+    
     </div>
   );
 }

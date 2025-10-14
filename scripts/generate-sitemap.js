@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 import path from 'path';
 import { ROUTES, CATEGORIES_URLS } from '../src/utils/constants.js';
@@ -37,25 +38,15 @@ const getAllProducts = async () => {
     <priority>0.8</priority>
   </url>`);
 
-    const productXml = products.map(p => {
-     const imageUrl = p.variants?.[0]?.images?.[0]?.url;
-
-return `
+    const productXml = products.map(p => `
   <url>
     <loc>${BASE_URL}/product/${p.id}</loc>
-    ${imageUrl ? `
-    <image:image>
-      <image:loc>${BASE_URL}/${imageUrl}</image:loc>
-      <image:title>${p.display_name}</image:title>
-    </image:image>` : ''}
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>`;
-    });
+  </url>`);
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 ${[...staticXml, ...categoryXml, ...productXml].join('')}
 </urlset>`;
 
@@ -71,3 +62,4 @@ ${[...staticXml, ...categoryXml, ...productXml].join('')}
     console.error('❌ Помилка при отриманні продуктів:', error);
   }
 })();
+

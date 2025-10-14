@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://perukytut.com.ua/</loc>
@@ -9,11 +8,6 @@
   </url>
   <url>
     <loc>https://perukytut.com.ua/products</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/cart</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -63,252 +57,162 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/affd1c25-0a28-4941-bbf9-1c1bedd48d55</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/7a425ba7-0885-4ae5-aed9-975096462c62.HEIC</image:loc>
-      <image:title>Коротка,пряма перука з чубчиком</image:title>
-    </image:image>
+    <loc>https://perukytut.com.ua/product/9ea0b5c6-3151-44f3-b561-c8ae38eb2482</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/6a5003c6-39ef-4520-89a3-9a8b18a881da</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/2d0c93ba-a34e-4508-b699-95ca0539cdb2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/266b7f9b-ef4c-4eb3-8fe5-8389c7ad3476</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/63c2b4ba-e523-4cf3-bfcf-568d2c9f7fb5</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/064df238-f326-4aed-861c-8e3b589eb995.HEIC</image:loc>
-      <image:title>Коротке пряме каре з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/306085fd-19a0-4c70-99f7-918c59ecc535</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/aa58824f-f3c4-458c-ba20-c9a4251d4655.HEIC</image:loc>
-      <image:title>Перука середньої довжини пряма з чубчиком</image:title>
-    </image:image>
+    <loc>https://perukytut.com.ua/product/040aa7f7-1f91-44ee-9e58-1bbdd309e4de</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/affd1c25-0a28-4941-bbf9-1c1bedd48d55</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/1d2c9f20-ccec-4191-8151-a3c787edb4fd</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/0141b2e9-0921-4f81-880e-e3d74dcb1b7f.png</image:loc>
-      <image:title>Коротка пряма перука з чубчиком</image:title>
-    </image:image>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/306085fd-19a0-4c70-99f7-918c59ecc535</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/662c640b-8b85-422a-8b8c-35bb3e8f8b59</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/0f545528-e60f-4a5c-98ea-dd7cd4230618.HEIC</image:loc>
-      <image:title>Коротка, об’ємна перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/2a7376ea-9ea1-4e03-bd73-6fe145056751</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/8d33ea1f-da7a-4816-b520-51d6b331f70b.HEIC</image:loc>
-      <image:title>Довга, хвиляста перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/e8317f69-3c9d-41d9-95dc-43b4d5129ba0</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/a499459a-cdfa-402b-bdb9-a9f380b55c7d.HEIC</image:loc>
-      <image:title>Коротка,пряма перука з чубчиком</image:title>
-    </image:image>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/ca10e833-ed81-4d45-a4d1-9e9bd385a5ba</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/3dc5d626-11b1-414c-86b7-3a54128ff6fe</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/1c728f94-6c64-430a-a6f2-a04010243a1a.HEIC</image:loc>
-      <image:title>Перука середньої довжини з м’яким обрамленням обличчя</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/eb2c96b2-7154-4d00-ac08-d786f3d9440b</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/68e90715-6a16-4e3f-ae50-b296951e00e1.HEIC</image:loc>
-      <image:title>Перука середньої довжини,каскадна стрижка,чубчик</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/d7e60a5a-e826-476c-916c-5ec85b0d5564</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/7275bb0a-e301-4915-a86f-cf980e286c09.HEIC</image:loc>
-      <image:title>Перука середньої довжини з м’якими каскадними переходами</image:title>
-    </image:image>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/dc754f8d-b71c-4134-bc0b-3c963f30728a</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/03634cd3-a5de-46e7-9606-456f64f540b4.HEIC</image:loc>
-      <image:title>Довга хвиляста перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/2d21acf2-8899-466a-93c3-df702628cb14</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/564e37c4-28de-4c8a-8071-a6476ccdfe67.HEIC</image:loc>
-      <image:title>Екстрадовга,пряма перука з чубчиком</image:title>
-    </image:image>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/dc754f8d-b71c-4134-bc0b-3c963f30728a</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/9b88b4ad-3e2d-4c19-97ba-928eb85b5e4f</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/9865fa88-a353-40a8-a994-401daa68ab28</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/597b141d-9bcc-4cd7-87d5-6c170fafda88.HEIC</image:loc>
-      <image:title>Коротка, пряма перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/f6d24824-9f17-4e25-9a74-77ba0439177f</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/92dbcc7b-425f-4df5-b878-838fca19e063.HEIC</image:loc>
-      <image:title>Довга, пряма перука з чубчиком</image:title>
-    </image:image>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/e09d3e06-1a45-40ea-95c6-d87706cbfbfd</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/5e9f7d5f-831e-4dc2-87ac-5dd8bdb6f14e.HEIC</image:loc>
-      <image:title>Довга перука,каскадна стрижка з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/f4d3c673-1020-4ea1-b036-9924451b68fd</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/6f8f7573-972d-438c-b986-476d0f50bfc8.HEIC</image:loc>
-      <image:title>Коротка, пряма перука з чубчиком</image:title>
-    </image:image>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/e09d3e06-1a45-40ea-95c6-d87706cbfbfd</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/652537eb-3fc8-4f8e-82c5-ad0c85b32493</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/10b316c0-9ccb-448b-9378-47b1162f3bdc.HEIC</image:loc>
-      <image:title>Коротка, пряма перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/378350ba-1ca3-499f-a944-f38d93a6c80d</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/06d4967a-bb04-4c78-9c2a-2dc29d43c76c.HEIC</image:loc>
-      <image:title>Коротка, пряма перука з чубчиком</image:title>
-    </image:image>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/c572f8d0-caee-4a10-ac52-cb4c939c6d3c</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/bb0ca4a6-ab42-4f3b-ae8e-753efbe7e566.HEIC</image:loc>
-      <image:title>Коротка пишна перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/3c9c488f-43f0-4b66-b0f3-418e3fbdc938</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/49029acd-da41-4589-acda-8952d164ad69.HEIC</image:loc>
-      <image:title>Довга, пряма перука із м’якими каскадними лініями</image:title>
-    </image:image>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/c572f8d0-caee-4a10-ac52-cb4c939c6d3c</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/3d03d434-069e-47cd-a42f-fa89f74360a7</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/1e35ad14-4fec-4993-ade2-41edd4587a9a.HEIC</image:loc>
-      <image:title>Екстрадовга, пряма перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/17c8e3c1-125f-481e-b92f-18b826a0fa16</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/47fbbb97-be00-459b-b62c-548f2e09966d.HEIC</image:loc>
-      <image:title>Коротке каре з чубчиком </image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/9983b6d1-5ef8-4b6e-8728-013257c73b9e</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/cbcf3e6f-9769-4314-a8cd-9788ccb27e7b.HEIC</image:loc>
-      <image:title>Перука боб-каре з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/2f2f7f67-0037-41f1-9463-e0f4e0a84cbf</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/9be9fd4e-fc6f-4fea-a929-e91fb26c6923.HEIC</image:loc>
-      <image:title>Коротка, пряма перука з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/afa2be1c-664c-410a-a7ba-2386e2d60f5b</loc>
-    
-    <image:image>
-      <image:loc>https://perukytut.com.ua/c11ffa61-d56e-4241-bb38-de2f99fe0fdd.HEIC</image:loc>
-      <image:title>Термостійка перука каре з чубчиком</image:title>
-    </image:image>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
