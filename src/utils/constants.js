@@ -74,9 +74,9 @@ export const HAIR_TYPES_TRANSLATIONS = {
 
 
  export const HAIR_LENGTHS_TRANSLATIONS = {
-  SHORT: 'Короткий',
-  MEDIUM: 'Каре',
-  LONG: 'Довгий'
+  SHORT: 'Коротка',
+  MEDIUM: 'Середня',
+  LONG: 'Довга'
 };
 
 // Routes

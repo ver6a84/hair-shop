@@ -69,9 +69,9 @@ export default function Cart() {
                 </div>
                 
                 <div className="quantity-controls">
-                  <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+                  <button onClick={() => updateQuantity(item.id, item.quantity - 1)}><Icon className="btn-icon" name="minus" size={12}/></button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                  <button onClick={() => updateQuantity(item.id, item.quantity + 1)}><Icon className="btn-icon" name="plus" size={12}/></button>
                 </div>
                 <button 
                   className="remove-btn"

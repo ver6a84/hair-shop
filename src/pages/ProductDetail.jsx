@@ -12,91 +12,108 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Reviews from '@/components/Reviews'
 import Rating from '@/components/Rating'
-import { HAIR_TYPES_TRANSLATIONS } from '@/utils/constants';
+import { HAIR_TYPES_TRANSLATIONS,HAIR_LENGTHS,HAIR_LENGTHS_TRANSLATIONS } from '@/utils/constants';
 
 export default function ProductDetail({ product: passedProduct }) {
-  const { id } = useParams()
-  const [quantity, setQuantity] = useState(1)
-  const [selectedVariant, setSelectedVariant] = useState(0)
-  const [addToCartStatus, setAddToCartStatus] = useState(null) // 'success', 'error', null
+  const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState(0);
+  const [addToCartStatus, setAddToCartStatus] = useState(null);
   const variantsRef = useRef(null);
-  
-  const scrollLeft = () => {
-  variantsRef.current?.scrollBy({ left: -89, behavior: 'smooth' });
-};
-
-const scrollRight = () => {
-  variantsRef.current?.scrollBy({ left: 89, behavior: 'smooth' });
-};
- 
-  // Use passed product or fetch by ID
   const { product, loading, error } = useProduct(passedProduct, id);
   const { addToCart } = useCart();
-
-  const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
-  setActiveImageIndex(0)
-}, [selectedVariant])
+    setActiveImageIndex(0);
+  }, [selectedVariant]);
 
-  // Loading state
+  useEffect(() => {
+    if (
+      !product ||
+      !product.id ||
+      !product.variants?.length ||
+      !product.variants[selectedVariant]?.images?.[0]
+    ) return;
+
+    const scriptId = `product-schema-${product.id}`;
+    const existing = document.getElementById(scriptId);
+    if (existing) existing.remove();
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = scriptId;
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.display_name,
+      "image": getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 600, height: 900 }),
+      "brand": { "@type": "Brand", "name": "ПЕРУКИ ТУТ" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "UAH",
+        "price": product.variants[selectedVariant].promo_price,
+        "availability": "https://schema.org/InStock",
+        "url": `https://perukytut.com.ua/product/${product.id}`
+      }
+    });
+
+    document.head.appendChild(script);
+
+    return () => {
+      const node = document.getElementById(scriptId);
+      node?.remove();
+    };
+  }, [product, selectedVariant]);
+
+  const scrollLeft = () => {
+    variantsRef.current?.scrollBy({ left: -89, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    variantsRef.current?.scrollBy({ left: 89, behavior: 'smooth' });
+  };
+
+  const getHairLengthKey = (length) => {
+    if (length >= HAIR_LENGTHS.SHORT[0] && length <= HAIR_LENGTHS.SHORT[1]) return 'SHORT';
+    if (length >= HAIR_LENGTHS.MEDIUM[0] && length <= HAIR_LENGTHS.MEDIUM[1]) return 'MEDIUM';
+    if (length >= HAIR_LENGTHS.LONG[0] && length <= HAIR_LENGTHS.LONG[1]) return 'LONG';
+    return null;
+  };
+
   if (loading) {
     return (
       <div className="product-detail container">
         <div className="product-images">
-          <div className="skeleton-image" style={{ 
-            width: "100%", 
-            height: "600px", 
-            maxWidth: "500px"
-          }}></div>
+          <div className="skeleton-image" style={{ width: "100%", height: "600px", maxWidth: "500px" }}></div>
         </div>
         <div className="product-info">
-          <div className="skeleton-title" style={{ 
-            height: "20px", 
-            marginBottom: "10px",
-            width: "60%"
-          }}></div>
-          <div className="skeleton-price" style={{ 
-            height: "30px", 
-            marginBottom: "20px",
-            width: "40%"
-          }}></div>
-          <div className="skeleton-description" style={{ 
-            height: "16px", 
-            marginBottom: "10px"
-          }}></div>
-          <div className="skeleton-description" style={{ 
-            height: "16px", 
-            marginBottom: "10px",
-            width: "80%"
-          }}></div>
-          <div className="skeleton-description" style={{ 
-            height: "16px", 
-            marginBottom: "20px",
-            width: "60%"
-          }}></div>
+          <div className="skeleton-title" style={{ height: "20px", marginBottom: "10px", width: "60%" }}></div>
+          <div className="skeleton-price" style={{ height: "30px", marginBottom: "20px", width: "40%" }}></div>
+          <div className="skeleton-description" style={{ height: "16px", marginBottom: "10px" }}></div>
+          <div className="skeleton-description" style={{ height: "16px", marginBottom: "10px", width: "80%" }}></div>
+          <div className="skeleton-description" style={{ height: "16px", marginBottom: "20px", width: "60%" }}></div>
         </div>
       </div>
-    )
+    );
   }
 
-  // Error state
   if (error || !product) {
     return (
       <div className="product-detail container">
         <h1>Товар не знайдено</h1>
         <p>Вибачте, але товар з таким ID не існує.</p>
       </div>
-    )
+    );
   }
 
-  const currentVariant = product.variants[selectedVariant]
+  const currentVariant = product.variants[selectedVariant];
+  const hairLengthKey = getHairLengthKey(product.length);
+  const hairLengthLabel = hairLengthKey ? HAIR_LENGTHS_TRANSLATIONS[hairLengthKey] : 'Невідомо';
 
   const handleAddToCart = () => {
     try {
-      setAddToCartStatus(null)
-      
-      // Prepare product data for cart
+      setAddToCartStatus(null);
       const productData = {
         product_id: product.id,
         variantId: currentVariant.id,
@@ -105,22 +122,17 @@ const scrollRight = () => {
         image: currentVariant.images[0],
         article: product.article,
         quantity: quantity
-      }
-      
-      addToCart(productData)
-      setAddToCartStatus('success')
-      
-      // Clear success message after 3 seconds
-      setTimeout(() => setAddToCartStatus(null), 3000)
+      };
+      addToCart(productData);
+      setAddToCartStatus('success');
+      setTimeout(() => setAddToCartStatus(null), 3000);
     } catch (error) {
-      setAddToCartStatus('error')
-      console.error('Failed to add to cart:', error)
-      
-      // Clear error message after 5 seconds
-      setTimeout(() => setAddToCartStatus(null), 5000)
+      setAddToCartStatus('error');
+      console.error('Failed to add to cart:', error);
+      setTimeout(() => setAddToCartStatus(null), 5000);
     }
-  }
-  
+  };
+
   return (
     <div className="product-detail container">
       <div className="product-content">
@@ -140,17 +152,18 @@ const scrollRight = () => {
     {currentVariant.images.map((imgKey, index) => (
       <div key={`slide-${index}`}>
         <img
-          src={getImageUrlByKey(imgKey, { width: 600, height: 900, quality: 80 })}
+          src={getImageUrlByKey(imgKey, { width: 600, height: 900, quality: 100 })}
           srcSet={`
-            ${getImageUrlByKey(imgKey, { width: 320, height: 480, quality: 80 })} 320w,
-            ${getImageUrlByKey(imgKey, { width: 600, height: 900, quality: 80 })} 600w
+            ${getImageUrlByKey(imgKey, { width: 320, height: 480, quality: 100 })} 320w,
+            ${getImageUrlByKey(imgKey, { width: 600, height: 900, quality: 100 })} 600w
           `}
           sizes="(max-width: 600px) 160px, 300px"
           width={600}
           height={900}
-          alt={product.name}
+          alt={product.display_name}
           style={{ width: "100%", height: "auto", maxWidth: "500px", borderRadius: "16px" }}
           loading="lazy"
+          decoding="async"
         />
       </div>
     ))}
@@ -168,8 +181,8 @@ const scrollRight = () => {
                   title={`${variant.color_display_name}`}
                 >
                   <img
-                    src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 100 })}
-                    alt={`${product.name} - ${variant.color_display_name}`}
+                    src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 80 })}
+                    alt={`${product.display_name} - ${variant.color_display_name}`}
                     loading="lazy"
                   />
                 </button>
@@ -206,7 +219,7 @@ const scrollRight = () => {
         
         <div className="product-specs">
           <p><strong>Тип волосся:</strong> {HAIR_TYPES_TRANSLATIONS[product.type]}</p>
-          <p><strong>Довжина:</strong> {product.length}</p>
+          <p><strong>Довжина:</strong> {hairLengthLabel}</p>
           <p><strong>Колір:</strong> {currentVariant.color_display_name}</p>
           <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
         </div>

@@ -1,8 +1,8 @@
-import { HAIR_LENGTHS } from '@utils/constants';
+import { HAIR_LENGTHS } from '../utils/constants.js';
 
 export const baseUrl = 'https://api.perukytyt.com/v1';
 
-const itemsPerPage = 4;
+ export const itemsPerPage = 4;
 
 function getTotalPages(filtered) {
   return Math.ceil(filtered.length/itemsPerPage)

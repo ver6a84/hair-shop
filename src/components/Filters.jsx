@@ -162,7 +162,7 @@ useEffect(() => {
 									setCurrentPage(1)
 								}}
 							/>
-							<span>Довгі</span>
+							<span>Довга</span>
 							</li>
 								<li>
 									<input 
@@ -173,7 +173,7 @@ useEffect(() => {
 									setCurrentPage(1)
 								}}
 							/>
-							<span>Каре</span>
+							<span>Середня</span>
 							</li>
 							<li>
 								<input 
@@ -184,7 +184,7 @@ useEffect(() => {
 									setCurrentPage(1)
 								}}
 							/>
-								<span>Короткі</span>
+								<span>Коротка</span>
 								</li>
 						</ul>
 					</div>

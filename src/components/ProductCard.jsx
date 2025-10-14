@@ -18,36 +18,6 @@ const scrollRight = () => {
   variantsRef.current?.scrollBy({ left: 85, behavior: 'smooth' });
 };
 
-
-
-  useEffect(() => {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": product.name,
-        "image": getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 600, height: 900 }),
-        "description": product.description,
-        "sku": product.id,
-        "brand": { "@type": "Brand", "name": "ПЕРУКИ ТУТ" },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "UAH",
-          "price": product.variants[selectedVariant].price,
-          "availability": "https://schema.org/InStock",
-          "url": `https://peruki-tut.ua/product/${product.id}`
-        }
-      });
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [product, selectedVariant]);
-
-
-
   const handleVariantClick = (e, variantIndex) => {
     e.preventDefault();
     e.stopPropagation();
@@ -62,16 +32,17 @@ const scrollRight = () => {
            <Link to={`/product/${product.id}`} className="product-card-link">
           <div className="main-image-wrapper">  
           <img
-            src={getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 400, height: 600, quality: 50 })}
+            src={getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 400, height: 600, quality: 100 })}
             srcSet={`
-              ${getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 320, height: 480, quality: 50 })} 320w,
-              ${getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 600, height: 900, quality: 50 })} 600w
+              ${getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 320, height: 480, quality: 100 })} 320w,
+              ${getImageUrlByKey(product.variants[selectedVariant].images[0], { width: 600, height: 900, quality: 100 })} 600w
             `}
             sizes="(max-width: 600px) 160px, 300px"
             width={400}
             height={600}
-            alt={product.name}
+            alt={product.display_name}
             loading="lazy"
+            decoding="async"
             className="product-main-image"
           />
           <div className='product-material'>{HAIR_TYPES_TRANSLATIONS[product.type]}</div>
@@ -92,8 +63,8 @@ const scrollRight = () => {
                   aria-label={`Select variant ${index + 1}`}
                 >
                   <img
-                    src={getImageUrlByKey(variant.images[0], { width: 60, height: 60, quality: 100 })}
-                    alt={`${product.name} variant ${index + 1}`}
+                    src={getImageUrlByKey(variant.images[0], { width: 60, height: 60, quality: 80 })}
+                    alt={`${product.display_name} variant ${index + 1}`}
                     title={`${variant.color_display_name}`}
                     loading="lazy"
                   />

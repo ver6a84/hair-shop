@@ -16,10 +16,15 @@ export default function Footer() {
           </div>
        </div>
           <div className='social'>
-            <Link to=""><Icon size={36} className="social-icon" name="facebook"/></Link>
-            <Link to=""><Icon size={36} className="social-icon" name="telegram"/></Link>
-            <Link to=""><Icon size={36} className="social-icon" name="viber"/></Link>
-            <Link to=""><Icon size={36} className="social-icon" name="mail"/></Link>
+           <a href="https://t.me/perukytut" target="_blank" rel="noopener noreferrer">
+            <Icon size={36} className="social-icon" name="telegram"/>
+            </a>
+            <a href="viber://chat?number=%2B380932054774">
+            <Icon size={36} className="social-icon" name="viber"/>
+            </a>
+            <a href="mailto:perukitut@gmail.com">
+            <Icon size={36} className="social-icon" name="mail"/>
+            </a>
           </div>
         </div>
         <div className='products-feedback'>

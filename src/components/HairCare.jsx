@@ -6,8 +6,8 @@ export default function HairCare() {
 		<section className="hair-care container">
 			<div className="hair-care-img">
 				<img
-        src={'./hair_care.webp'}
-        srcSet={'./hair-care.webp 1200w, ./hair-care_mob.webp 400w'}
+        src={'./care.webp'}
+        srcSet={'./care.webp 1200w, ./care_mob.webp 400w'}
         sizes='(max-width: 400px) 100px, 400px'
         alt="Care"
         width={1200}
