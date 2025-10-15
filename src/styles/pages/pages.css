@@ -562,6 +562,9 @@
     margin: 0;
     color: var(--text-muted);
 }
+.contact-item a{
+    text-decoration: underline;
+}
 
 /* Delivery */
 
