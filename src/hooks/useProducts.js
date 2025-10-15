@@ -24,7 +24,15 @@ export function useProducts(filters = {}) {
     };
 
     fetchProducts();
-  }, [filters.category, filters.type, filters.length, filters.page, filters.minPrice, filters.maxPrice]);
+  }, [
+    filters.category,
+    filters.type,
+    filters.length,
+    filters.page,
+    filters.minPrice,
+    filters.maxPrice,
+    filters.sortOrder 
+  ]);
 
   return { products, totalPages, loading, error };
 }

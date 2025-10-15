@@ -9,7 +9,7 @@ import Breadcrumb from '@components/BreadCrumb';
 import Sort from '@components/Sort';
 import { useProducts } from '@hooks/useProducts';
 import '@/styles/pages/pages.css';
-import { itemsPerPage } from '@/api';
+import ScrollToTop from '@/components/ScrollTop';
 
 export default function CategoryPage() {
   const { categorySlug } = useParams();
@@ -34,19 +34,14 @@ export default function CategoryPage() {
     page: currentPage,
     type: selectedType,
     minPrice,
-    maxPrice
+    maxPrice,
+    sortOrder
   });
-
-  const sortedProducts = sortOrder
-    ? products.slice().sort((a, b) => {
-        const priceA = Math.min(...a.variants.map(v => v.promo_price));
-        const priceB = Math.min(...b.variants.map(v => v.promo_price));
-        return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
-      })
-    : products;
 
   return (
     <div className="category-page container">
+      <ScrollToTop />
+
       <h1>{CATEGORIES_TRANSLATIONS[selectedCategory]}</h1>
 
       <div className={`custom-filters ${selectedCategory !== PRODUCT_CATEGORIES.WIGS ? 'hidden' : ''}`}>
@@ -101,7 +96,7 @@ export default function CategoryPage() {
             {loading && <ProductGridSkeleton count={4} />}
             {!loading && error && <p>Помилка завантаження: {error.message}</p>}
             {!loading && !error && !products.length && <p>Немає продуктів</p>}
-            {!loading && !error && products.length && sortedProducts.map(product => (
+            {!loading && !error && products.length && products.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

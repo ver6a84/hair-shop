@@ -4,10 +4,19 @@ import Icon from './icon'
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   const handlePrev = () => {
     if (currentPage > 1) onPageChange(currentPage - 1)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleNext = () => {
     if (currentPage < totalPages) onPageChange(currentPage + 1)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handlePageClick = (page) => {
+    if (page !== currentPage) {
+      onPageChange(page)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   return (
@@ -20,25 +29,19 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       </div>
 
       <div className="page-numbers">
-  <div
-    className={`page-number ${currentPage === totalPages ? '' : 'active'}`}
-    onClick={() => onPageChange(currentPage === totalPages ? 1 : currentPage)}
-
-
-  >
-    {currentPage === totalPages ? 1 : currentPage}
-  </div>
-
-  <span className="page-separator">...</span>
-
-  <div
-    className={`page-number ${currentPage === totalPages ? 'active' : ''}`}
-    onClick={() => onPageChange(totalPages)}
-  >
-    {totalPages}
-  </div>
-</div>
-
+        {Array.from({ length: totalPages }, (_, i) => {
+          const page = i + 1
+          return (
+            <div
+              key={page}
+              className={`page-number ${page === currentPage ? 'active' : ''}`}
+              onClick={() => handlePageClick(page)}
+            >
+              {page}
+            </div>
+          )
+        })}
+      </div>
 
       <div
         className={`pagination-btn ${currentPage === totalPages ? 'disabled' : ''}`}
@@ -49,4 +52,3 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     </div>
   )
 }
-
