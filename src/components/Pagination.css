@@ -1,6 +1,6 @@
 .pagination-wrapper{
 	display: flex;
-	gap: var(--spacing-xxl);
+	gap: var(--spacing-md);
 	align-items: center;
 	justify-content: center;
 	.pagination-btn{
@@ -19,7 +19,7 @@
 	}
 	.page-numbers{
 		display: flex;
-		gap: var(--spacing-lg);
+		gap: var(--spacing-md);
 		align-items: self-end;
 		color: var(--text-dark);
 	.page-number{
