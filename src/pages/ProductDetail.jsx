@@ -109,7 +109,13 @@ export default function ProductDetail({ product: passedProduct }) {
 
   const currentVariant = product.variants[selectedVariant];
   const hairLengthKey = getHairLengthKey(product.length);
-  const hairLengthLabel = hairLengthKey ? HAIR_LENGTHS_TRANSLATIONS[hairLengthKey] : 'Невідомо';
+  const hairLengthLabel =
+  product.length >= 21
+    ? `${product.length} см`
+    : hairLengthKey
+    ? HAIR_LENGTHS_TRANSLATIONS[hairLengthKey]
+    : 'Невідомо';
+
 
   const handleAddToCart = () => {
     try {
@@ -121,6 +127,7 @@ export default function ProductDetail({ product: passedProduct }) {
         price: currentVariant.promo_price,
         image: currentVariant.images[0],
         article: product.article,
+        color: currentVariant.color,
         quantity: quantity
       };
       addToCart(productData);
@@ -178,7 +185,7 @@ export default function ProductDetail({ product: passedProduct }) {
                   className={`variant-thumbnail-product ${selectedVariant === index ? 'active' : ''} ${!variant.availability ? 'unavailable' : ''}`}
                   onClick={() => setSelectedVariant(index)}
                   disabled={!variant.availability}
-                  title={`${variant.color_display_name}`}
+                  title={`${variant.color}`}
                 >
                   <img
                     src={getImageUrlByKey(variant.images[0], { width: 80, height: 80, quality: 80 })}
@@ -220,7 +227,7 @@ export default function ProductDetail({ product: passedProduct }) {
         <div className="product-specs">
           <p><strong>Тип волосся:</strong> {HAIR_TYPES_TRANSLATIONS[product.type]}</p>
           <p><strong>Довжина:</strong> {hairLengthLabel}</p>
-          <p><strong>Колір:</strong> {currentVariant.color_display_name}</p>
+          <p><strong>Колір:</strong> {currentVariant.color}</p>
           <p><strong>Наявність:</strong> {currentVariant.availability ? 'Є в наявності' : 'Немає в наявності'}</p>
         </div>
         <p className="description">{product.description}</p>

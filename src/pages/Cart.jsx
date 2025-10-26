@@ -63,7 +63,8 @@ export default function Cart() {
                 />
                 </Link>
                 <div className="item-info">
-                  <h3>{item.name}</h3>
+                  <h4>{item.name}</h4>
+                  <h4>Колір:{item.color}</h4>
                   <h4>Артикул: {item.article}</h4>
                   <p className="price">{item.price} грн</p>
                 </div>
@@ -122,7 +123,7 @@ export default function Cart() {
                 <input
                 type="hidden"
                 name="cart_items"
-                value={cartItems.map(item => `${item.name} x${item.quantity}`).join(', ')}
+                value={cartItems.map(item => `${item.name} x ${item.quantity} - ${item.article} - ${item.color}`).join(', ')}
                 />
                 <input
                 type="hidden"
