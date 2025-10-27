@@ -47,22 +47,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/category/wigs</loc>
+    <loc>https://perukytut.com.ua/products/wigs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/category/tails</loc>
+    <loc>https://perukytut.com.ua/products/tails</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/category/toppers</loc>
+    <loc>https://perukytut.com.ua/products/toppers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/37f2a7b8-11c2-4a79-b5e5-0fa985dbe089</loc>
+    <loc>https://perukytut.com.ua/product/ff509198-cfce-40d2-b498-59d002b4c1bb</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -72,7 +72,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/ff509198-cfce-40d2-b498-59d002b4c1bb</loc>
+    <loc>https://perukytut.com.ua/product/37f2a7b8-11c2-4a79-b5e5-0fa985dbe089</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -92,17 +92,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/8b2d101a-9e7a-4a69-bae6-2ee566604698</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://perukytut.com.ua/product/72a22aa1-4e3d-4e8a-8ce8-396ace2e8666</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/19264e25-ff7e-4179-82f2-6cc1324d8abf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -112,7 +102,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/6a5003c6-39ef-4520-89a3-9a8b18a881da</loc>
+    <loc>https://perukytut.com.ua/product/19264e25-ff7e-4179-82f2-6cc1324d8abf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/8b2d101a-9e7a-4a69-bae6-2ee566604698</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -122,12 +117,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/affd1c25-0a28-4941-bbf9-1c1bedd48d55</loc>
+    <loc>https://perukytut.com.ua/product/266b7f9b-ef4c-4eb3-8fe5-8389c7ad3476</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/266b7f9b-ef4c-4eb3-8fe5-8389c7ad3476</loc>
+    <loc>https://perukytut.com.ua/product/6a5003c6-39ef-4520-89a3-9a8b18a881da</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/affd1c25-0a28-4941-bbf9-1c1bedd48d55</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -152,12 +152,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/8e9659b0-2781-4cff-a304-a65ff586744f</loc>
+    <loc>https://perukytut.com.ua/product/907c6b8d-94ce-4611-af68-8b752756a0fa</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/907c6b8d-94ce-4611-af68-8b752756a0fa</loc>
+    <loc>https://perukytut.com.ua/product/8e9659b0-2781-4cff-a304-a65ff586744f</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -172,17 +172,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/2a7376ea-9ea1-4e03-bd73-6fe145056751</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://perukytut.com.ua/product/ab5ff511-6410-42b9-bc5a-34fd8f7d5b5d</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://perukytut.com.ua/product/2a7376ea-9ea1-4e03-bd73-6fe145056751</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://perukytut.com.ua/product/cfbec98c-b1f2-4779-8b56-5d98f1d42c9f</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/161efca8-62a6-4668-a9b9-064c62783157</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -198,11 +203,6 @@
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/b6930b1a-6d50-4c93-9468-4a92b63fff96</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/161efca8-62a6-4668-a9b9-064c62783157</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -227,12 +227,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/ff2194fe-5cc8-498d-8970-2b8eb70b84c8</loc>
+    <loc>https://perukytut.com.ua/product/4f017540-1356-4b7b-bbb4-f356314088e1</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/4f017540-1356-4b7b-bbb4-f356314088e1</loc>
+    <loc>https://perukytut.com.ua/product/ff2194fe-5cc8-498d-8970-2b8eb70b84c8</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -247,12 +247,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/37db76ac-25c0-4992-a308-2cd9bda75677</loc>
+    <loc>https://perukytut.com.ua/product/ca10e833-ed81-4d45-a4d1-9e9bd385a5ba</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/ca10e833-ed81-4d45-a4d1-9e9bd385a5ba</loc>
+    <loc>https://perukytut.com.ua/product/37db76ac-25c0-4992-a308-2cd9bda75677</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -262,12 +262,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/25e6bd0f-40b0-4f75-8881-476bad019f15</loc>
+    <loc>https://perukytut.com.ua/product/c2ddb7ce-2335-4963-b2d7-d53cad05c60e</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/c2ddb7ce-2335-4963-b2d7-d53cad05c60e</loc>
+    <loc>https://perukytut.com.ua/product/25e6bd0f-40b0-4f75-8881-476bad019f15</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -287,12 +287,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/2d21acf2-8899-466a-93c3-df702628cb14</loc>
+    <loc>https://perukytut.com.ua/product/dc754f8d-b71c-4134-bc0b-3c963f30728a</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/dc754f8d-b71c-4134-bc0b-3c963f30728a</loc>
+    <loc>https://perukytut.com.ua/product/2d21acf2-8899-466a-93c3-df702628cb14</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -322,17 +322,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/e09d3e06-1a45-40ea-95c6-d87706cbfbfd</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://perukytut.com.ua/product/9865fa88-a353-40a8-a994-401daa68ab28</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/0a5c3b19-26d1-4ead-875e-447eb7d5e4ee</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/e09d3e06-1a45-40ea-95c6-d87706cbfbfd</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/63c2b4ba-e523-4cf3-bfcf-568d2c9f7fb5</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -347,11 +352,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/63c2b4ba-e523-4cf3-bfcf-568d2c9f7fb5</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://perukytut.com.ua/product/378350ba-1ca3-499f-a944-f38d93a6c80d</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -362,12 +362,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/ccd23439-5c64-442a-87c2-4a5c88bbecc5</loc>
+    <loc>https://perukytut.com.ua/product/0f8b7f79-7d1f-4453-8737-8168b31b0f62</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/0f8b7f79-7d1f-4453-8737-8168b31b0f62</loc>
+    <loc>https://perukytut.com.ua/product/ccd23439-5c64-442a-87c2-4a5c88bbecc5</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -407,22 +407,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/3d03d434-069e-47cd-a42f-fa89f74360a7</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://perukytut.com.ua/product/0d5658de-1eeb-4c56-86c0-1a25bb204cfe</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/4213dc7d-6491-4170-b881-7dab2fd88dc1</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/9f5f48d4-5435-492a-af95-a2d96e349d35</loc>
+    <loc>https://perukytut.com.ua/product/3d03d434-069e-47cd-a42f-fa89f74360a7</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -432,7 +422,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://perukytut.com.ua/product/0161f122-ebce-4f88-a773-0a29b65e9090</loc>
+    <loc>https://perukytut.com.ua/product/9f5f48d4-5435-492a-af95-a2d96e349d35</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://perukytut.com.ua/product/4213dc7d-6491-4170-b881-7dab2fd88dc1</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -447,6 +442,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://perukytut.com.ua/product/0161f122-ebce-4f88-a773-0a29b65e9090</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://perukytut.com.ua/product/76822fc5-b72d-415a-9200-f33e32a621a9</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -457,17 +457,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://perukytut.com.ua/product/afa2be1c-664c-410a-a7ba-2386e2d60f5b</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://perukytut.com.ua/product/2f2f7f67-0037-41f1-9463-e0f4e0a84cbf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://perukytut.com.ua/product/8004e6e2-789c-4dcb-a07b-735ff07df341</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://perukytut.com.ua/product/afa2be1c-664c-410a-a7ba-2386e2d60f5b</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
